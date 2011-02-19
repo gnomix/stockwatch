@@ -15,6 +15,9 @@ namespace desktop.ui
                           {
                               {GetType(), this},
                               {typeof (Window), this},
+                              {Menu.GetType(), Menu},
+                              {StatusBar.GetType(), StatusBar},
+                              {Tabs.GetType(), Tabs},
                           };
         }
 

@@ -1,8 +1,11 @@
 ﻿<Window x:Class="desktop.ui.ShellWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ui="clr-namespace:desktop.ui" Title="RRSP Contributions">
+	<DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+		<ui:MainMenu x:Name="Menu" DockPanel.Dock="Top" HorizontalAlignment="Right"></ui:MainMenu>
+		<ui:StatusBar x:Name="StatusBar" DockPanel.Dock="Bottom"></ui:StatusBar>
+		<StackPanel>
+			<TabControl Name="Tabs"></TabControl>
+		</StackPanel>
+	</DockPanel>
 </Window>

@@ -3,8 +3,8 @@ using System.Windows;
 
 namespace desktop.ui
 {
-    public interface RegionManager
+    public interface IRegionManager
     {
-        void region<Control>(Action<Control> configure) where Control : UIElement;
+        void Region<Control>(Action<Control> configure) where Control : UIElement;
     }
 }

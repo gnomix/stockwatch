@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace desktop.ui
 {
-    public partial class ShellWindow : RegionManager
+    public partial class ShellWindow : IRegionManager
     {
         private IDictionary<Type, UIElement> regions;
 
@@ -21,7 +21,7 @@ namespace desktop.ui
                           };
         }
 
-        public void region<Control>(Action<Control> configure) where Control : UIElement
+        public void Region<Control>(Action<Control> configure) where Control : UIElement
         {
             ensure_that_the_region_exists<Control>();
             configure(regions[typeof (Control)].downcast_to<Control>());

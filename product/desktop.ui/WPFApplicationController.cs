@@ -1,12 +1,12 @@
 ﻿namespace desktop.ui
 {
-    public class WPFApplicationController : ApplicationController
+    public class WPFApplicationController : IApplicationController
     {
         readonly IStartAllModules startAllModules;
-        readonly IEventAggregator eventAggregator;
+        readonly EventAggregator eventAggregator;
         readonly IRegionManager regionManager;
 
-        public WPFApplicationController(IStartAllModules startAllModules, IEventAggregator eventAggregator,
+        public WPFApplicationController(IStartAllModules startAllModules, EventAggregator eventAggregator,
                                         IRegionManager regionManager)
         {
             this.startAllModules = startAllModules;

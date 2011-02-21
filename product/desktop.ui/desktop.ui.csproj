@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\thirdparty\autofac\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -53,15 +56,20 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationController.cs" />
+    <Compile Include="Iterating.cs" />
+    <Compile Include="IApplicationController.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="ConfigureContainerCommand.cs" />
     <Compile Include="ConversionExtensions.cs" />
     <Compile Include="EventAggregator.cs" />
+    <Compile Include="IOC.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="StartAllModules.cs" />
     <Compile Include="StatusBar.xaml.cs">
       <DependentUpon>StatusBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringExtensions.cs" />
+    <Compile Include="SynchronizedEventAggregator.cs" />
     <Compile Include="WPFApplication.cs" />
     <Compile Include="WPFApplicationController.cs" />
     <Page Include="ShellWindow.xaml">

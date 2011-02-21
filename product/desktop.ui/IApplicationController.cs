@@ -1,6 +1,6 @@
 ﻿namespace desktop.ui
 {
-    public interface ApplicationController
+    public interface IApplicationController
     {
         void start();
     }

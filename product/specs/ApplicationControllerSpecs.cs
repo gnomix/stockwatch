@@ -10,14 +10,14 @@ namespace specs
             Establish context = () =>
             {
                 start_all_modules = The.dependency<IStartAllModules>();
-                event_aggregator = The.dependency<IEventAggregator>();
+                event_aggregator = The.dependency<EventAggregator>();
                 region_manager = The.dependency<IRegionManager>();
                 sut = new WPFApplicationController(start_all_modules, event_aggregator, region_manager);
             };
 
             protected static WPFApplicationController sut;
             protected static IStartAllModules start_all_modules;
-            protected static IEventAggregator event_aggregator;
+            protected static EventAggregator event_aggregator;
             protected static IRegionManager region_manager;
         }
 

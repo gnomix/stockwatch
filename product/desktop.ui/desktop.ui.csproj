@@ -56,38 +56,73 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Iterating.cs" />
-    <Compile Include="IApplicationController.cs" />
-    <Compile Include="Command.cs" />
-    <Compile Include="ConfigureContainerCommand.cs" />
-    <Compile Include="ConversionExtensions.cs" />
-    <Compile Include="EventAggregator.cs" />
-    <Compile Include="IOC.cs" />
-    <Compile Include="MainMenu.cs" />
-    <Compile Include="StartAllModules.cs" />
-    <Compile Include="StatusBar.xaml.cs">
-      <DependentUpon>StatusBar.xaml</DependentUpon>
+    <Compile Include="ApplicationController.cs" />
+    <Compile Include="bootstrappers\AutofacDependencyRegistry.cs" />
+    <Compile Include="bootstrappers\Bootstrapper.cs" />
+    <Compile Include="bootstrappers\ComposeShell.cs" />
+    <Compile Include="bootstrappers\ConfigureMappings.cs" />
+    <Compile Include="bootstrappers\NeedsShutdown.cs" />
+    <Compile Include="bootstrappers\NeedStartup.cs" />
+    <Compile Include="CancelCommand.cs" />
+    <Compile Include="Dialog.cs" />
+    <Compile Include="DialogPresenter.cs" />
+    <Compile Include="eventing\Event.cs" />
+    <Compile Include="eventing\EventAggregator.cs" />
+    <Compile Include="eventing\EventSubscriber.cs" />
+    <Compile Include="eventing\SynchronizedEventAggregator.cs" />
+    <Compile Include="events\SelectedFamilyMember.cs" />
+    <Compile Include="events\UpdateOnLongRunningProcess.cs" />
+    <Compile Include="IObservableCommand.cs" />
+    <Compile Include="Observable.cs" />
+    <Compile Include="Presenter.cs" />
+    <Compile Include="PresenterFactory.cs" />
+    <Compile Include="presenters\AccountPresenter.cs" />
+    <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
+    <Compile Include="presenters\AddNewDetailAccountPresenter.cs" />
+    <Compile Include="presenters\PersonDetails.cs" />
+    <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
+    <Compile Include="ServiceBus.cs" />
+    <Compile Include="presenters\StatusBarPresenter.cs" />
+    <Compile Include="presenters\WpfBindingExtensinos.cs" />
+    <Compile Include="presenters\WpfCommandBuilder.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SimpleCommand.cs" />
+    <Compile Include="StubServiceBus.cs" />
+    <Compile Include="Tab.cs" />
+    <Compile Include="TabPresenter.cs" />
+    <Compile Include="UICommand.cs" />
+    <Compile Include="UICommandBuilder.cs" />
+    <Compile Include="View.cs" />
+    <Compile Include="views\AccountTab.xaml.cs">
+      <DependentUpon>AccountTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="SynchronizedEventAggregator.cs" />
+    <Compile Include="views\AddFamilyMemberDialog.xaml.cs">
+      <DependentUpon>AddFamilyMemberDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\AddNewDetailAccountDialog.xaml.cs">
+      <DependentUpon>AddNewDetailAccountDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\ImageButton.cs" />
+    <Compile Include="views\MainMenu.cs" />
+    <Compile Include="views\MenuItemExtensions.cs" />
+    <Compile Include="views\SelectedFamilyMemberRegion.xaml.cs">
+      <DependentUpon>SelectedFamilyMemberRegion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\ShellWIndow.xaml.cs">
+      <DependentUpon>ShellWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\StatusBarRegion.xaml.cs">
+      <DependentUpon>StatusBarRegion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPFApplication.cs" />
     <Compile Include="WPFApplicationController.cs" />
-    <Page Include="ShellWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="RegionManager.cs" />
-    <Compile Include="ShellWindow.xaml.cs">
-      <DependentUpon>ShellWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="StatusBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="WPFPresenterFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -110,6 +145,50 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="views\AccountTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\AddFamilyMemberDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\AddNewDetailAccountDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\ErrorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\SelectedFamilyMemberRegion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\ShellWIndow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\StatusBarRegion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="views\images\cancel.png" />
+    <Resource Include="views\images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\infrastructure\infrastructure.csproj">
+      <Project>{CC006EB6-4E3C-4497-B8CC-5CAF54E40113}</Project>
+      <Name>infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\utility\utility.csproj">
+      <Project>{39B95E47-DA9C-4C80-A395-515600C55D4B}</Project>
+      <Name>utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

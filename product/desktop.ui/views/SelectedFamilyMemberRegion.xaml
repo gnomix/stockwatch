@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="desktop.ui.views.SelectedFamilyMemberRegion"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinWidth="1024">
+<Expander>
+    <Expander.Header>
+        <DockPanel>
+        <Label>Family Member:</Label>
+        <ComboBox ItemsSource="{Binding family_members}" SelectedItem="{Binding SelectedMember}" Width="150"></ComboBox>
+        </DockPanel>
+    </Expander.Header>
+    <UniformGrid>
+        <Label FontWeight="Bold">First Name</Label>
+        <Label Content="{Binding Path=SelectedMember.first_name, Mode=OneWay}"/>
+        <Label FontWeight="Bold">Last Name</Label>
+        <Label Content="{Binding Path=SelectedMember.last_name, Mode=OneWay}"/>
+    </UniformGrid>
+</Expander>
+</UserControl>

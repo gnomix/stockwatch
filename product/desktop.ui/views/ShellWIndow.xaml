@@ -1,0 +1,10 @@
+<Window x:Class="desktop.ui.views.ShellWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ui="clr-namespace:desktop.ui.views" Title="MoMoney - (ALPHA)" MinWidth="1024" MinHeight="768" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+	<DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+		<ui:MainMenu x:Name="Menu" DockPanel.Dock="Top" HorizontalAlignment="Right"></ui:MainMenu>
+		<ui:StatusBarRegion x:Name="StatusBar" DockPanel.Dock="Bottom"></ui:StatusBarRegion>
+		<StackPanel>
+			<ui:SelectedFamilyMemberRegion x:Name="SelectedFamilyMember"></ui:SelectedFamilyMemberRegion>
+			<TabControl Name="Tabs"></TabControl>
+		</StackPanel>
+	</DockPanel>
+</Window>

@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Windows;
 
 namespace desktop.ui
 {
-    public interface IRegionManager
+    public interface RegionManager
     {
-        void Region<Control>(Action<Control> configure) where Control : UIElement;
+        void region<Control>(Action<Control> configure) where Control : UIElement;
     }
 }

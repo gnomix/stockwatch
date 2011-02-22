@@ -1,0 +1,11 @@
+﻿<Window x:Class="desktop.ui.views.AddNewIncomeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Income">
+    <StackPanel>
+        <Label>Income Amount:</Label>
+        <TextBox Text="{Binding Path=amount}"></TextBox>
+        <Button Command="{Binding Path=Add}">_Add</Button>
+        <Button Command="{Binding Path=Cancel}">_Cancel</Button>
+    </StackPanel>
+</Window>

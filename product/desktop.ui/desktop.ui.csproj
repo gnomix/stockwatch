@@ -61,6 +61,7 @@
     <Compile Include="bootstrappers\Bootstrapper.cs" />
     <Compile Include="bootstrappers\ComposeShell.cs" />
     <Compile Include="bootstrappers\ConfigureMappings.cs" />
+    <Compile Include="bootstrappers\DefaultMapper.cs" />
     <Compile Include="bootstrappers\NeedsShutdown.cs" />
     <Compile Include="bootstrappers\NeedStartup.cs" />
     <Compile Include="CancelCommand.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="eventing\SynchronizedEventAggregator.cs" />
     <Compile Include="events\SelectedFamilyMember.cs" />
     <Compile Include="events\UpdateOnLongRunningProcess.cs" />
+    <Compile Include="handlers\Handles.cs" />
+    <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="IObservableCommand.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
@@ -79,15 +82,17 @@
     <Compile Include="presenters\AccountPresenter.cs" />
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
     <Compile Include="presenters\AddNewDetailAccountPresenter.cs" />
+    <Compile Include="presenters\AddNewIncomeViewModel.cs" />
     <Compile Include="presenters\PersonDetails.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
+    <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="ServiceBus.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
     <Compile Include="presenters\WpfBindingExtensinos.cs" />
     <Compile Include="presenters\WpfCommandBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SimpleCommand.cs" />
-    <Compile Include="StubServiceBus.cs" />
+    <Compile Include="InMemoryServiceBus.cs" />
     <Compile Include="Tab.cs" />
     <Compile Include="TabPresenter.cs" />
     <Compile Include="UICommand.cs" />
@@ -101,6 +106,9 @@
     </Compile>
     <Compile Include="views\AddNewDetailAccountDialog.xaml.cs">
       <DependentUpon>AddNewDetailAccountDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\AddNewIncomeDialog.xaml.cs">
+      <DependentUpon>AddNewIncomeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
@@ -116,6 +124,9 @@
     </Compile>
     <Compile Include="views\StatusBarRegion.xaml.cs">
       <DependentUpon>StatusBarRegion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\TaxSummaryTab.xaml.cs">
+      <DependentUpon>TaxSummaryTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPFApplication.cs" />
     <Compile Include="WPFApplicationController.cs" />
@@ -159,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="views\AddNewIncomeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="views\ErrorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +189,10 @@
     <Page Include="views\StatusBarRegion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\TaxSummaryTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

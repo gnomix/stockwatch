@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="desktop.ui.views.TaxSummaryTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <StackPanel>
+        <Label>Tax Summary</Label>
+        <Label>Federal Tax Rates for 2011</Label>
+        <TextBlock>
+    * 15% on the first $41,544 of taxable income, +
+    * 22% on the next $41,544 of taxable income (on the portion of taxable income between $41,544 and $83,088), +
+    * 26% on the next $45,712 of taxable income (on the portion of taxable income between $83,088 and $128,800), +
+    * 29% of taxable income over $128,800.
+        </TextBlock>
+        <WebBrowser x:Name="browser"></WebBrowser>
+    </StackPanel>
+</UserControl>

@@ -27,7 +27,7 @@ namespace desktop.ui.presenters
         {
             ApplicationController controller;
 
-            protected override void run(AccountPresenter presenter)
+            public override void run(AccountPresenter presenter)
             {
                 //controller.launch_dialog<ImportTransactionsPresenter, ImportTransactionDialog>(presenter.SelectedAccount);
             }

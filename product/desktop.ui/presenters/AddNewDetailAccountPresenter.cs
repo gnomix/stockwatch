@@ -35,7 +35,7 @@ namespace desktop.ui.presenters
                 this.bus = bus;
             }
 
-            protected override void run(AddNewDetailAccountPresenter presenter)
+            public override void run(AddNewDetailAccountPresenter presenter)
             {
                 bus.publish<CreateNewDetailAccountCommand>(x =>
                 {

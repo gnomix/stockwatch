@@ -12,6 +12,6 @@ namespace desktop.ui
             run(presenter as T);
         }
 
-        protected abstract void run(T presenter);
+        public abstract void run(T presenter);
     }
 }

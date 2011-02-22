@@ -35,7 +35,7 @@ namespace desktop.ui.presenters
                 this.bus = bus;
             }
 
-            protected override void run(AddFamilyMemberPresenter presenter)
+            public override void run(AddFamilyMemberPresenter presenter)
             {
                 bus.publish<FamilyMemberToAdd>(x =>
                 {

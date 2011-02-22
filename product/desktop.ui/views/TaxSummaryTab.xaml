@@ -14,5 +14,10 @@
     * 29% of taxable income over $128,800.
         </TextBlock>
         <WebBrowser x:Name="browser"></WebBrowser>
+        <Label>Total Income:</Label>
+        <Label Content="{Binding Path=TotalIncome}"></Label>
+        
+        <Label>Total Taxes:</Label>
+        <Label Content="{Binding Path=Taxes}"></Label>
     </StackPanel>
 </UserControl>

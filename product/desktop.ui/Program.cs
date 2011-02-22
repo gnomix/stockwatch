@@ -27,7 +27,7 @@ namespace desktop.ui
             new WPFApplication
             {
                 ShutdownMode = ShutdownMode.OnMainWindowClose,
-            }.Run(ClientBootstrapper.create_window());
+            }.Run(Bootstrapper.create_window());
         }
     }
 }

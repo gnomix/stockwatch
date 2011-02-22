@@ -13,7 +13,7 @@ using utility;
 
 namespace desktop.ui.bootstrappers
 {
-    public static class ClientBootstrapper
+    public static class Bootstrapper
     {
         public static ShellWindow create_window()
         {
@@ -85,6 +85,8 @@ namespace desktop.ui.bootstrappers
         static void register_for_message_to_listen_for(ContainerBuilder builder)
         {
             builder.RegisterType<PublishEventHandler<AddedNewFamilyMember>>().As<Handles<AddedNewFamilyMember>>();
+            builder.RegisterType<PublishEventHandler<AddIncomeCommandMessage>>().As<Handles<AddIncomeCommandMessage>>();
+            
         }
 
         static void server_registration(ContainerBuilder builder)

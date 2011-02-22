@@ -1,4 +1,5 @@
 ﻿using System;
+using desktop.ui.eventing;
 
 namespace desktop.ui.presenters
 {
@@ -24,11 +25,23 @@ namespace desktop.ui.presenters
 
         public class AddIncomeCommand : UICommand<AddNewIncomeViewModel>
         {
+            ServiceBus bus;
+
+            public AddIncomeCommand(ServiceBus bus)
+            {
+                this.bus = bus;
+            }
+
             public override void run(AddNewIncomeViewModel presenter)
             {
-                Console.Out.WriteLine(presenter.amount);
+                bus.publish<AddIncomeCommandMessage>(x => { x.amount = presenter.amount; });
                 presenter.close();
             }
         }
+    }
+
+    public class AddIncomeCommandMessage : Event
+    {
+        public decimal amount { get; set; }
     }
 }

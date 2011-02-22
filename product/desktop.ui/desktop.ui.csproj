@@ -73,6 +73,7 @@
     <Compile Include="eventing\SynchronizedEventAggregator.cs" />
     <Compile Include="events\SelectedFamilyMember.cs" />
     <Compile Include="events\UpdateOnLongRunningProcess.cs" />
+    <Compile Include="handlers\AddIncomeCommandMessageHandler.cs" />
     <Compile Include="handlers\AddNewFamilyMemberHandler.cs" />
     <Compile Include="handlers\domain\Entity.cs" />
     <Compile Include="handlers\domain\Person.cs" />

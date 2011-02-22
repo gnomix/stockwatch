@@ -79,7 +79,7 @@
     <Compile Include="IContextFactory.cs" />
     <Compile Include="Id.cs" />
     <Compile Include="Identifiable.cs" />
-    <Compile Include="IKey.cs" />
+    <Compile Include="Key.cs" />
     <Compile Include="Import.cs" />
     <Compile Include="IScopedStorage.cs" />
     <Compile Include="ListExtensions.cs" />

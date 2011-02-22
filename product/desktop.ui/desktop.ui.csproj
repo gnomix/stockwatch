@@ -73,15 +73,19 @@
     <Compile Include="eventing\SynchronizedEventAggregator.cs" />
     <Compile Include="events\SelectedFamilyMember.cs" />
     <Compile Include="events\UpdateOnLongRunningProcess.cs" />
+    <Compile Include="handlers\AddNewFamilyMemberHandler.cs" />
+    <Compile Include="handlers\domain\Entity.cs" />
+    <Compile Include="handlers\domain\Person.cs" />
+    <Compile Include="handlers\FindAllFamilyHandler.cs" />
     <Compile Include="handlers\Handles.cs" />
+    <Compile Include="handlers\orm\InMemoryDatabase.cs" />
+    <Compile Include="handlers\orm\PersonRepository.cs" />
     <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="IObservableCommand.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="PresenterFactory.cs" />
-    <Compile Include="presenters\AccountPresenter.cs" />
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
-    <Compile Include="presenters\AddNewDetailAccountPresenter.cs" />
     <Compile Include="presenters\AddNewIncomeViewModel.cs" />
     <Compile Include="presenters\PersonDetails.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
@@ -98,14 +102,8 @@
     <Compile Include="UICommand.cs" />
     <Compile Include="UICommandBuilder.cs" />
     <Compile Include="View.cs" />
-    <Compile Include="views\AccountTab.xaml.cs">
-      <DependentUpon>AccountTab.xaml</DependentUpon>
-    </Compile>
     <Compile Include="views\AddFamilyMemberDialog.xaml.cs">
       <DependentUpon>AddFamilyMemberDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="views\AddNewDetailAccountDialog.xaml.cs">
-      <DependentUpon>AddNewDetailAccountDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\AddNewIncomeDialog.xaml.cs">
       <DependentUpon>AddNewIncomeDialog.xaml</DependentUpon>
@@ -158,15 +156,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="views\AccountTab.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="views\AddFamilyMemberDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="views\AddNewDetailAccountDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -209,6 +199,7 @@
       <Name>utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

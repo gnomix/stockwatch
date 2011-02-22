@@ -4,6 +4,7 @@ using System.Windows.Threading;
 using Autofac;
 using desktop.ui.eventing;
 using desktop.ui.handlers;
+using desktop.ui.handlers.orm;
 using desktop.ui.presenters;
 using desktop.ui.views;
 using infrastructure.container;
@@ -33,6 +34,7 @@ namespace desktop.ui.bootstrappers
             register_presentation_infrastructure(builder);
             register_presenters(builder);
             register_for_message_to_listen_for(builder);
+            server_registration(builder);
 
             shell_window.Closed += (o, e) => Resolve.the<CommandProcessor>().stop();
             shell_window.Closed += (o, e) => Resolve.the<IEnumerable<NeedsShutdown>>();
@@ -73,11 +75,6 @@ namespace desktop.ui.bootstrappers
             builder.RegisterType<AddFamilyMemberPresenter>();
             builder.RegisterType<AddFamilyMemberPresenter.SaveCommand>();
 
-            builder.RegisterType<AccountPresenter>();
-            builder.RegisterType<AccountPresenter.ImportTransactionCommand>();
-
-            builder.RegisterType<AddNewDetailAccountPresenter>();
-            builder.RegisterType<AddNewDetailAccountPresenter.CreateNewAccount>();
 
             builder.RegisterType<AddNewIncomeViewModel>();
             builder.RegisterType<AddNewIncomeViewModel.AddIncomeCommand>();
@@ -88,6 +85,13 @@ namespace desktop.ui.bootstrappers
         static void register_for_message_to_listen_for(ContainerBuilder builder)
         {
             builder.RegisterType<PublishEventHandler<AddedNewFamilyMember>>().As<Handles<AddedNewFamilyMember>>();
+        }
+
+        static void server_registration(ContainerBuilder builder)
+        {
+            builder.RegisterType<AddNewFamilyMemberHandler>().As<Handles<FamilyMemberToAdd>>();
+            builder.RegisterType<FindAllFamilyHandler>().As<Handles<FindAllFamily>>();
+            builder.RegisterType<InMemoryDatabase>().As<PersonRepository>().SingleInstance();
         }
     }
 }

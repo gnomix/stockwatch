@@ -2,7 +2,7 @@
 
 namespace utility
 {
-    public class TypedKey<T> : IKey<T>
+    public class TypedKey<T> : Key<T>
     {
         public bool is_found_in(IDictionary items)
         {

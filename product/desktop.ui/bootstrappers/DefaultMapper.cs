@@ -8,7 +8,7 @@ namespace desktop.ui.bootstrappers
         public Output map_from<Input, Output>(Input item)
         {
             //return AutoMapper.Mapper.Map<Input, Output>(item);
-            throw new NotImplementedException();
+            return MapperRegistery.Map<Input, Output>(item);
         }
     }
 }

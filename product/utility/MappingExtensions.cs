@@ -24,7 +24,7 @@ namespace utility
         static public IEnumerable<Output> map_all_using<Input, Output>(this IEnumerable<Input> items,
                                                                        Converter<Input, Output> mapper)
         {
-            return null == items ? new List<Output>() : items.Select(x => mapper(x));
+            return null == items ?  Enumerable.Empty<Output>() : items.Select(x => mapper(x));
         }
 
         static public IEnumerable<Output> map_all_using<Input, Output>(this IEnumerable<Input> items,

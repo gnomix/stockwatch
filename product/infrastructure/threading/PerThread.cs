@@ -16,22 +16,22 @@ namespace infrastructure.threading
             slots = new Dictionary<int, LocalDataStoreSlot>();
         }
 
-        public bool contains<T>(IKey<T> key)
+        public bool contains<T>(Key<T> key)
         {
             return key.is_found_in(get_items());
         }
 
-        public void add<T>(IKey<T> key, T value)
+        public void add<T>(Key<T> key, T value)
         {
             key.add_value_to(get_items(), value);
         }
 
-        public T value_for<T>(IKey<T> key)
+        public T value_for<T>(Key<T> key)
         {
             return key.parse_from(get_items());
         }
 
-        public void remove<T>(IKey<T> key)
+        public void remove<T>(Key<T> key)
         {
             key.remove_from(get_items());
         }

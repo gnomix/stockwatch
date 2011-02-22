@@ -2,7 +2,7 @@
 
 namespace utility
 {
-    public interface IKey<T>
+    public interface Key<T>
     {
         bool is_found_in(IDictionary items);
         T parse_from(IDictionary items);

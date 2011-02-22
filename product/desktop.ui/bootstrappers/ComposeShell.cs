@@ -16,7 +16,6 @@ namespace desktop.ui.bootstrappers
 
         public void run()
         {
-            controller.add_tab<AccountPresenter, AccountTab>();
             controller.add_tab<TaxSummaryPresenter, TaxSummaryTab>();
 
             region_manager.region<MainMenu>(x =>
@@ -25,9 +24,6 @@ namespace desktop.ui.bootstrappers
                 {
                     controller.launch_dialog<AddFamilyMemberPresenter, AddFamilyMemberDialog>();
                 });
-                //x.add("_Accounts").add("_Add Account", () => { 
-                    //controller.launch_dialog<AddNewDetailAccountPresenter, AddNewDetailAccountDialog>();
-                //});
                 x.add("_Income").add("_Add Income", () => { 
                     controller.launch_dialog<AddNewIncomeViewModel, AddNewIncomeDialog>();
                 }) ;

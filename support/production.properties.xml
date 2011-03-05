@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+  <property name="project.config" value="RELEASE" />
+  <property name="key.file" value="${config.dir}\solidware.pfx" />
+  <property name="key.file.thumbprint" value="" />
+  <property name="key.file.password" value="" />
+</properties>

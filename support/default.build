@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="rrsp" default="">
-  <!-- 
-	<property name="nant.settings.currentframework" value="net-4.0" />
-  -->
 	<property name="base.dir" value="${directory::get-parent-directory(project::get-base-directory())}" />
   <property name="src.dir" value="${base.dir}\product" />
   <property name="lib.dir" value="${base.dir}\thirdparty" />
@@ -46,18 +43,8 @@
     <property name="publish.url" value="${tmp.dir}\public\" />
     <property name="update.url" value="${publish.url}" />
     <property name="publish.dir" value="${publish.url}" />
-    <property name="product.name" value="SolidWare Inc. (LOCAL)" />
-    <property name="publisher.name" value="SolidWare Inc. (LOCAL)" />
+    <property name="product.name" value="More Money (LOCAL)" />
+    <property name="publisher.name" value="SolidWare Inc." />
     <call target="_publish.installer" />
   </target>
-  
-  <!-- <target name="prod.installer" depends="_load.production.properties"> -->
-  <!--   <property name="publish.url" value="\\res-main\apps\Packages\LongRangeModel\Prod\public\" /> -->
-  <!--   <property name="update.url" value="${publish.url}" /> -->
-  <!--   <property name="publish.dir" value="\\dev-main\builds\production\longrangemodel\public\" /> -->
-  <!--   <property name="product.name" value="Long Range Model" /> -->
-  <!--   <property name="publisher.name" value="ARC Resources Ltd." /> -->
-  <!--   <call target="_publish.installer" /> -->
-  <!-- </target> -->
-  
 </project>

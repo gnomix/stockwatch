@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <properties>
+  <property name="project.config" value="DEBUG" />
   <property name="key.file" value="${config.dir}\local.pfx" />
   <property name="key.file.thumbprint" value="" />
   <property name="key.file.password" value="" />

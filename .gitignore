@@ -4,3 +4,5 @@
 *.user
 *.swp
 _ReSharper.*
+_build.log
+tmp

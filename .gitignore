@@ -6,3 +6,4 @@
 _ReSharper.*
 _build.log
 tmp
+local.properties.xml

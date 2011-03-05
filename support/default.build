@@ -8,6 +8,14 @@
   <property name="lib.dir" value="${base.dir}\thirdparty" />
   <property name="tmp.dir" value="${base.dir}/tmp" />
   <property name="tools.dir" value="${base.dir}\thirdparty" />
+  <property name="support.dir" value="${base.dir}\support" />
+  <property name="config.dir" value="${support.dir}\config" />
+
+  <property name="major" value="1" />
+  <property name="minor" value="0" />
+  <property name="build" value="0" />
+  <property name="revision" value="1" />
+  <property name="version.number" value="${major}.${minor}.${build}.${revision}" />
 
   <property name="solution.file" value="${base.dir}/studio.sln" />
   <property name="msbuild.exe" value="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" />
@@ -28,18 +36,18 @@
   </target>
 
   <target name="_publish.installer" depends="compile">
-    <property name="project.file" value="${base.dir}\src\app\longrangemodel.ui\longrangemodel.ui.csproj" />
-    <property name="support.url" value="http://mokhan.ca/" />
-    <property name="command.line" value='${project.file} /t:publish /m /p:UpdateEnabled=true /p:UpdateRequired=true /p:MinimumRequiredVersion=${version.number} /p:PublisherName="${publisher.name}" /p:ProductName="${product.name}" /p:PublishUrl=${publish.url} /p:InstallUrl=${publish.url} /p:UpdateUrl=${update.url} /p:Install=True /p:ApplicationVersion=${major.version}.${minor.version}.${build.number}.* /p:ApplicationRevision=${svn.revision} /p:UpdateInterval=1 /p:UpdateIntervalUnits=Minutes /p:UpdateUrlEnabled=True /p:IsWebBootstrapper=True /p:InstallFrom=Unc /p:PublishDir=${publish.dir} /p:ManifestKeyFile="${key.file}" /p:ManifestCertificateThumbprint="${key.file.thumbprint}" /p:SupportUrl=${support.url}' />
+    <property name="project.file" value="${base.dir}\product\desktop.ui\desktop.ui.csproj" />
+    <property name="support.url" value="http://solidware.ca/" />
+    <property name="command.line" value='${project.file} /t:publish /m /p:UpdateEnabled=true /p:UpdateRequired=true /p:MinimumRequiredVersion=${version.number} /p:PublisherName="${publisher.name}" /p:ProductName="${product.name}" /p:PublishUrl=${publish.url} /p:InstallUrl=${publish.url} /p:UpdateUrl=${update.url} /p:Install=True /p:ApplicationVersion=${major}.${minor}.${build}.* /p:ApplicationRevision=${revision} /p:UpdateInterval=1 /p:UpdateIntervalUnits=Minutes /p:UpdateUrlEnabled=True /p:IsWebBootstrapper=True /p:InstallFrom=Web /p:PublishDir=${publish.dir} /p:ManifestKeyFile="${key.file}" /p:ManifestCertificateThumbprint="${key.file.thumbprint}" /p:SupportUrl=${support.url}' />
     <exec program="${msbuild.exe}" commandline="${command.line}" />
   </target>
   
   <target name="local.installer">
-    <property name="publish.url" value="${output.dir}\public\" />
+    <property name="publish.url" value="${tmp.dir}\public\" />
     <property name="update.url" value="${publish.url}" />
     <property name="publish.dir" value="${publish.url}" />
-    <property name="product.name" value="Long Range Model (LOCAL)" />
-    <property name="publisher.name" value="ARC Resources Ltd. (LOCAL)" />
+    <property name="product.name" value="SolidWare Inc. (LOCAL)" />
+    <property name="publisher.name" value="SolidWare Inc. (LOCAL)" />
     <call target="_publish.installer" />
   </target>
   

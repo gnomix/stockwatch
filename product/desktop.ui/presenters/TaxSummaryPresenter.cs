@@ -1,11 +1,14 @@
-﻿using desktop.ui.eventing;
+﻿using System;
+using desktop.ui.eventing;
+using desktop.ui.events;
 
 namespace desktop.ui.presenters
 {
     public class TaxSummaryPresenter : Observable<TaxSummaryPresenter>, TabPresenter,
-                                       EventSubscriber<AddIncomeCommandMessage>
+                                       EventSubscriber<AddIncomeCommandMessage>, EventSubscriber<SelectedFamilyMember>
     {
         UICommandBuilder builder;
+        Guid person_id;
 
         public TaxSummaryPresenter(UICommandBuilder builder)
         {
@@ -44,6 +47,11 @@ namespace desktop.ui.presenters
                 Taxes = ((TotalIncome - 128800m)*0.29m) + 27256m;
             }
             update(x => x.Taxes, x => x.TotalIncome);
+        }
+
+        public void notify(SelectedFamilyMember message)
+        {
+            person_id = message.id;
         }
     }
 }

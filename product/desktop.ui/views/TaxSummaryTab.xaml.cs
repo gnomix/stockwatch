@@ -1,5 +1,4 @@
-﻿using System;
-using desktop.ui.presenters;
+﻿using desktop.ui.presenters;
 
 namespace desktop.ui.views
 {
@@ -8,7 +7,6 @@ namespace desktop.ui.views
         public TaxSummaryTab()
         {
             InitializeComponent();
-            browser.Navigate(new Uri("http://www.cra-arc.gc.ca/tx/ndvdls/fq/txrts-eng.html"));
         }
     }
 }

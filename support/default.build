@@ -33,13 +33,9 @@
   </target>
 
   <target name="_publish.installer" depends="compile">
-    <echo message="url: ${publish.url}" />
-    <echo message="name: ${product.name}" />
-    <echo message="key file: ${key.file}" />
     <property name="project.file" value="${base.dir}\product\desktop.ui\desktop.ui.csproj" />
     <property name="support.url" value="http://solidware.ca/" />
     <property name="command.line" value='${project.file} /t:publish /m /p:UpdateEnabled=true /p:UpdateRequired=true /p:MinimumRequiredVersion=${version.number} /p:PublisherName="${publisher.name}" /p:ProductName="${product.name}" /p:PublishUrl=${publish.url} /p:InstallUrl=${publish.url} /p:UpdateUrl=${update.url} /p:Install=True /p:ApplicationVersion=${major}.${minor}.${build}.* /p:ApplicationRevision=${revision} /p:UpdateInterval=1 /p:UpdateIntervalUnits=Minutes /p:UpdateUrlEnabled=True /p:IsWebBootstrapper=True /p:InstallFrom=Web /p:PublishDir=${publish.dir} /p:ManifestKeyFile="${key.file}" /p:ManifestCertificateThumbprint="${key.file.thumbprint}" /p:SupportUrl=${support.url}' />
-    <echo message="${msbuild.exe} ${command.line}" />
     <exec program="${msbuild.exe}" commandline="${command.line}" />
   </target>
   
@@ -61,7 +57,7 @@
 
   <target name="prod.installer" depends="load.prod.properties">
     <echo message="prod.installer" />
-    <property name="publish.url" value="http://solidware.ca/downloads/apps/" />
+    <property name="publish.url" value="http://mokhan.ca/downloads/apps/momoney/" />
     <property name="update.url" value="${publish.url}" />
     <property name="publish.dir" value="${tmp.dir}\public\" />
     <property name="product.name" value="More Money" />

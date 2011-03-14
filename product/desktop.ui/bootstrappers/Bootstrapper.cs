@@ -80,6 +80,8 @@ namespace desktop.ui.bootstrappers
             builder.RegisterType<AddNewIncomeViewModel.AddIncomeCommand>();
 
             builder.RegisterType<TaxSummaryPresenter>();
+            
+            builder.RegisterType<DisplayCanadianTaxInformationViewModel>();
         }
 
         static void register_for_message_to_listen_for(ContainerBuilder builder)

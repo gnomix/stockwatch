@@ -13,7 +13,6 @@
     * 26% on the next $45,712 of taxable income (on the portion of taxable income between $83,088 and $128,800), +
     * 29% of taxable income over $128,800.
         </TextBlock>
-        <WebBrowser x:Name="browser"></WebBrowser>
         <Label>Total Income:</Label>
         <Label Content="{Binding Path=TotalIncome}"></Label>
         

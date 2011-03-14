@@ -88,6 +88,7 @@
     <Compile Include="PresenterFactory.cs" />
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
     <Compile Include="presenters\AddNewIncomeViewModel.cs" />
+    <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="presenters\PersonDetails.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
@@ -108,6 +109,9 @@
     </Compile>
     <Compile Include="views\AddNewIncomeDialog.xaml.cs">
       <DependentUpon>AddNewIncomeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\DisplayCanadianTaxInformationDialog.xaml.cs">
+      <DependentUpon>DisplayCanadianTaxInformationDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
@@ -162,6 +166,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="views\AddNewIncomeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\DisplayCanadianTaxInformationDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

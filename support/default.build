@@ -8,10 +8,10 @@
   <property name="support.dir" value="${base.dir}\support" />
   <property name="config.dir" value="${support.dir}\config" />
 
-  <property name="major" value="1" />
-  <property name="minor" value="0" />
-  <property name="build" value="0" />
-  <property name="revision" value="1" />
+  <property name="major" value="${datetime::get-year(datetime::now())}" />
+  <property name="minor" value="${datetime::get-month(datetime::now())}" />
+  <property name="build" value="${datetime::get-day(datetime::now())}" />
+  <property name="revision" value="${datetime::get-hour(datetime::now())}${datetime::get-minute(datetime::now())}" />
   <property name="version.number" value="${major}.${minor}.${build}.${revision}" />
 
   <property name="solution.file" value="${base.dir}/studio.sln" />

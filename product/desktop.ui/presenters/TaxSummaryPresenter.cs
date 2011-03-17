@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using desktop.ui.eventing;
 using desktop.ui.events;
+using desktop.ui.model;
 
 namespace desktop.ui.presenters
 {
@@ -59,11 +60,5 @@ namespace desktop.ui.presenters
         }
 
         IDictionary<Guid, TaxesForIndividual> people = new Dictionary<Guid, TaxesForIndividual>();
-    }
-
-    public class TaxesForIndividual : Observable<TaxesForIndividual>
-    {
-        public decimal TotalIncome { get; set; }
-        public decimal Taxes { get; set; }
     }
 }

@@ -90,6 +90,7 @@
     <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="IObservableCommand.cs" />
     <Compile Include="messages\private\AddedNewFamilyMember.cs" />
+    <Compile Include="model\TaxesForIndividual.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="PresenterFactory.cs" />

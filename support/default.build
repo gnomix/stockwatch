@@ -64,4 +64,14 @@
     <property name="publisher.name" value="SolidWare Inc." />
     <call target="_publish.installer" />
   </target>
+
+	<target name="run.test" depends="compile">
+  	<property name="xunit.cons.exe" value="${tools.dir}/mspec/mspec.exe" />
+		<exec program="${xunit.cons.exe}" workingdir="${tmp.dir}" commandline="${xunit.arguments}" />
+	</target>
+
+	<target name="test">
+		<property name="xunit.arguments" value="-t --html ${tmp.dir} ${tmp.dir}/specs.dll" />
+		<call target="run.test" />
+	</target>
 </project>

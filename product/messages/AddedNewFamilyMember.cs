@@ -1,7 +1,7 @@
 ﻿using System;
-using desktop.ui.eventing;
+using solidware.financials.infrastructure.eventing;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.messages
 {
     public class AddedNewFamilyMember : Event
     {

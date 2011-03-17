@@ -1,9 +1,10 @@
-﻿using desktop.ui.handlers.domain;
-using desktop.ui.handlers.orm;
-using desktop.ui.presenters;
-using gorilla.utility;
+﻿using gorilla.utility;
+using solidware.financials.infrastructure;
+using solidware.financials.messages;
+using solidware.financials.service.domain;
+using solidware.financials.service.orm;
 
-namespace desktop.ui.handlers
+namespace solidware.financials.service.handlers
 {
     public class FindAllFamilyHandler : Handles<FindAllFamily>
     {

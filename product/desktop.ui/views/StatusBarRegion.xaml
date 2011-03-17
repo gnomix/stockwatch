@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="desktop.ui.views.StatusBarRegion"
+﻿<UserControl x:Class="solidware.financials.windows.ui.views.StatusBarRegion"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StatusBar HorizontalAlignment="Right">

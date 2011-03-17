@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace desktop.ui.views
+namespace solidware.financials.windows.ui.views
 {
     public class MainMenu : Menu
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace desktop.ui.eventing
+namespace solidware.financials.infrastructure.eventing
 {
     public interface EventAggregator
     {

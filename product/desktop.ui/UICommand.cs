@@ -1,6 +1,6 @@
 using gorilla.utility;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public interface UICommand
     {

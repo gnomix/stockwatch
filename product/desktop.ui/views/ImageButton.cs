@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace desktop.ui.views
+namespace solidware.financials.windows.ui.views
 {
     public class ImageButton : System.Windows.Controls.Button
     {

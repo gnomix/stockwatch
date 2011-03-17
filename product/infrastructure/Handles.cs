@@ -1,4 +1,4 @@
-﻿namespace desktop.ui.handlers
+﻿namespace solidware.financials.infrastructure
 {
     public interface Handles<T>
     {

@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public interface ApplicationController : DialogLauncher
     {

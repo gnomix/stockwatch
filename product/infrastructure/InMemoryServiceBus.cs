@@ -1,9 +1,8 @@
 ﻿using System;
-using desktop.ui.handlers;
 using gorilla.infrastructure.container;
 using gorilla.utility;
 
-namespace desktop.ui
+namespace solidware.financials.infrastructure
 {
     public class InMemoryServiceBus : ServiceBus
     {

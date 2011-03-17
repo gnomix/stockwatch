@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "desktop.ui", "product\desktop.ui\desktop.ui.csproj", "{1E07A7D1-661C-48A2-B67B-180C6107CC92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solidware.financials", "product\desktop.ui\solidware.financials.csproj", "{1E07A7D1-661C-48A2-B67B-180C6107CC92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "specs", "product\specs\specs.csproj", "{B10E4560-2546-4A11-B2D1-5505BFCDDCC9}"
 EndProject

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace desktop.ui.messages.@private
+namespace solidware.financials.messages
 {
     public class FamilyMemberToAdd
     {

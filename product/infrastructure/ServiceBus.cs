@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace desktop.ui
+namespace solidware.financials.infrastructure
 {
     public interface ServiceBus
     {

@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using gorilla.utility;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public abstract class Observable<T> : INotifyPropertyChanged
     {

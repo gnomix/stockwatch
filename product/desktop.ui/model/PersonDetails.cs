@@ -1,7 +1,7 @@
 using System;
 using gorilla.utility;
 
-namespace desktop.ui.model
+namespace solidware.financials.windows.ui.model
 {
     public class PersonDetails
     {

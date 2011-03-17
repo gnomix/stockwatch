@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Controls;
 
-namespace desktop.ui.views
+namespace solidware.financials.windows.ui.views
 {
     static public class MenuItemExtensions
     {

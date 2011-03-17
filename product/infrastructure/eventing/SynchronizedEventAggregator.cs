@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using gorilla.utility;
 
-namespace desktop.ui.eventing
+namespace solidware.financials.infrastructure.eventing
 {
     public class SynchronizedEventAggregator : EventAggregator
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using gorilla.utility;
 
-namespace desktop.ui.views
+namespace solidware.financials.windows.ui.views
 {
     public partial class ShellWindow : RegionManager
     {

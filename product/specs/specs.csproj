@@ -55,9 +55,9 @@
     <Compile Include="Create.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\desktop.ui\desktop.ui.csproj">
+    <ProjectReference Include="..\desktop.ui\solidware.financials.csproj">
       <Project>{1E07A7D1-661C-48A2-B67B-180C6107CC92}</Project>
-      <Name>desktop.ui</Name>
+      <Name>solidware.financials</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

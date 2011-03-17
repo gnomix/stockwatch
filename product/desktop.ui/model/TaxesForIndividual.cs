@@ -1,4 +1,4 @@
-﻿namespace desktop.ui.model
+﻿namespace solidware.financials.windows.ui.model
 {
     public class TaxesForIndividual : Observable<TaxesForIndividual>
     {

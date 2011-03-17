@@ -1,6 +1,6 @@
 ﻿using gorilla.utility;
 
-namespace desktop.ui.bootstrappers
+namespace solidware.financials.windows.ui.bootstrappers
 {
     public class DefaultMapper : Mapper
     {

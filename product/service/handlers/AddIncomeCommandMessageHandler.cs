@@ -1,7 +1,8 @@
 using System;
-using desktop.ui.messages.@private;
+using solidware.financials.infrastructure;
+using solidware.financials.messages;
 
-namespace desktop.ui.handlers
+namespace solidware.financials.service.handlers
 {
     public class AddIncomeCommandMessageHandler : Handles<AddIncomeCommandMessage>
     {

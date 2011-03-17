@@ -1,4 +1,4 @@
-namespace desktop.ui.eventing
+namespace solidware.financials.infrastructure.eventing
 {
     public interface EventSubscriber<Event> where Event : eventing.Event
     {

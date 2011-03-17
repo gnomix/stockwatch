@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using desktop.ui.handlers.domain;
+using solidware.financials.service.domain;
 
-namespace desktop.ui.handlers.orm
+namespace solidware.financials.service.orm
 {
     public interface PersonRepository
     {

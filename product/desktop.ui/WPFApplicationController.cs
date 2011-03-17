@@ -1,8 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
-using desktop.ui.eventing;
+using solidware.financials.infrastructure.eventing;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public class WpfApplicationController : ApplicationController
     {
@@ -41,9 +41,9 @@ namespace desktop.ui
             dialog.open();
         }
 
-        public void load_region<Presenter, Region>() where Presenter : ui.Presenter where Region : FrameworkElement, View<Presenter>, new()
+        public void load_region<TPresenter, Region>() where TPresenter : Presenter where Region : FrameworkElement, View<TPresenter>, new()
         {
-            var presenter = factory.create<Presenter>();
+            var presenter = factory.create<TPresenter>();
             event_aggregator.subscribe(presenter);
             presenter.present();
             region_manager.region<Region>(x =>

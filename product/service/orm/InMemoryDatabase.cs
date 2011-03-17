@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using desktop.ui.handlers.domain;
 using gorilla.utility;
 using System.Linq;
+using solidware.financials.service.domain;
 
-namespace desktop.ui.handlers.orm
+namespace solidware.financials.service.orm
 {
     public class InMemoryDatabase : PersonRepository
     {

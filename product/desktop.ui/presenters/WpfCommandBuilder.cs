@@ -1,6 +1,6 @@
 using gorilla.infrastructure.container;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     public class WPFCommandBuilder : UICommandBuilder
     {

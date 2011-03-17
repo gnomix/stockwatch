@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using desktop.ui.handlers.domain;
-using desktop.ui.model;
-using desktop.ui.presenters;
 using gorilla.utility;
+using solidware.financials.messages;
+using solidware.financials.service.domain;
+using solidware.financials.windows.ui.model;
 
-namespace desktop.ui.bootstrappers
+namespace solidware.financials.windows.ui.bootstrappers
 {
     public class ConfigureMappings : NeedStartup
     {

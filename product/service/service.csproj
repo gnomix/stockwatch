@@ -8,8 +8,8 @@
     <ProjectGuid>{9928913D-5BCE-422F-9A12-13A10ACE836D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>service</RootNamespace>
-    <AssemblyName>service</AssemblyName>
+    <RootNamespace>solidware.financials.service</RootNamespace>
+    <AssemblyName>solidware.financials.service</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,11 +45,11 @@
   <ItemGroup>
     <Compile Include="handlers\AddIncomeCommandMessageHandler.cs" />
     <Compile Include="handlers\AddNewFamilyMemberHandler.cs" />
-    <Compile Include="handlers\domain\Entity.cs" />
-    <Compile Include="handlers\domain\Person.cs" />
+    <Compile Include="domain\Entity.cs" />
+    <Compile Include="domain\Person.cs" />
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
-    <Compile Include="handlers\orm\InMemoryDatabase.cs" />
-    <Compile Include="handlers\orm\PersonRepository.cs" />
+    <Compile Include="orm\InMemoryDatabase.cs" />
+    <Compile Include="orm\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

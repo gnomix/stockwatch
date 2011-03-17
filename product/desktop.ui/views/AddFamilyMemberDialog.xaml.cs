@@ -1,7 +1,7 @@
 using System.Windows;
-using desktop.ui.presenters;
+using solidware.financials.windows.ui.presenters;
 
-namespace desktop.ui.views
+namespace solidware.financials.windows.ui.views
 {
     public partial class AddFamilyMemberDialog : Dialog<AddFamilyMemberPresenter>
     {

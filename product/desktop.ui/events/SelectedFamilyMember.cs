@@ -1,7 +1,7 @@
 using System;
-using desktop.ui.eventing;
+using solidware.financials.infrastructure.eventing;
 
-namespace desktop.ui.events
+namespace solidware.financials.windows.ui.events
 {
     public class SelectedFamilyMember : Event
     {

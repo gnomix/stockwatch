@@ -1,4 +1,4 @@
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public interface TabPresenter : Presenter
     {

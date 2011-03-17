@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using desktop.ui.eventing;
-using desktop.ui.events;
-using desktop.ui.messages.@private;
-using desktop.ui.model;
+using solidware.financials.infrastructure.eventing;
+using solidware.financials.messages;
+using solidware.financials.windows.ui.events;
+using solidware.financials.windows.ui.model;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     public class TaxSummaryPresenter : Observable<TaxSummaryPresenter>, TabPresenter, EventSubscriber<AddIncomeCommandMessage>, EventSubscriber<SelectedFamilyMember>
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     public class DisplayCanadianTaxInformationViewModel : DialogPresenter
     {

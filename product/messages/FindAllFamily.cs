@@ -1,4 +1,4 @@
-﻿namespace desktop.ui.presenters
+﻿namespace solidware.financials.messages
 {
     public class FindAllFamily
     {

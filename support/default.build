@@ -33,7 +33,7 @@
   </target>
 
   <target name="_publish.installer" depends="compile">
-    <property name="project.file" value="${base.dir}\product\desktop.ui\desktop.ui.csproj" />
+    <property name="project.file" value="${base.dir}\product\desktop.ui\solidware.financials.csproj" />
     <property name="support.url" value="http://solidware.ca/" />
     <property name="command.line" value='${project.file} /t:publish /m /p:UpdateEnabled=true /p:UpdateRequired=true /p:MinimumRequiredVersion=${version.number} /p:PublisherName="${publisher.name}" /p:ProductName="${product.name}" /p:PublishUrl=${publish.url} /p:InstallUrl=${publish.url} /p:UpdateUrl=${update.url} /p:Install=True /p:ApplicationVersion=${major}.${minor}.${build}.* /p:ApplicationRevision=${revision} /p:UpdateInterval=1 /p:UpdateIntervalUnits=Minutes /p:UpdateUrlEnabled=True /p:IsWebBootstrapper=True /p:InstallFrom=Web /p:PublishDir=${publish.dir} /p:ManifestKeyFile="${key.file}" /p:ManifestCertificateThumbprint="${key.file.thumbprint}" /p:SupportUrl=${support.url}' />
     <exec program="${msbuild.exe}" commandline="${command.line}" />

@@ -1,7 +1,8 @@
 ﻿using System;
-using desktop.ui.messages.@private;
+using solidware.financials.infrastructure;
+using solidware.financials.messages;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     public class AddNewIncomeViewModel : DialogPresenter
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using gorilla.utility;
 
-namespace desktop.ui.handlers.domain
+namespace solidware.financials.service.domain
 {
     public class Entity : IEquatable<Entity>, Identifiable<Guid>
     {

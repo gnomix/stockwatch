@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public interface IObservableCommand : ICommand
     {

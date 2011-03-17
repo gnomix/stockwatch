@@ -1,6 +1,6 @@
 using gorilla.infrastructure.container;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public class WPFPresenterFactory : PresenterFactory
     {

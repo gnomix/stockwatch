@@ -1,9 +1,9 @@
-﻿using desktop.ui.handlers.domain;
-using desktop.ui.handlers.orm;
-using desktop.ui.messages.@private;
-using desktop.ui.presenters;
+﻿using solidware.financials.infrastructure;
+using solidware.financials.messages;
+using solidware.financials.service.domain;
+using solidware.financials.service.orm;
 
-namespace desktop.ui.handlers
+namespace solidware.financials.service.handlers
 {
     public class AddNewFamilyMemberHandler : Handles<FamilyMemberToAdd>
     {

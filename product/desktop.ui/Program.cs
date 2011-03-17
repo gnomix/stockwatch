@@ -2,11 +2,11 @@
 using System.Security.Principal;
 using System.Windows;
 using System.Windows.Threading;
-using desktop.ui.bootstrappers;
-using desktop.ui.views;
 using gorilla.infrastructure.logging;
+using solidware.financials.windows.ui.bootstrappers;
+using solidware.financials.windows.ui.views;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     static public class Program
     {

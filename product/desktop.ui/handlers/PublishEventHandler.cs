@@ -1,6 +1,7 @@
-﻿using desktop.ui.eventing;
+﻿using solidware.financials.infrastructure;
+using solidware.financials.infrastructure.eventing;
 
-namespace desktop.ui.handlers
+namespace solidware.financials.windows.ui.handlers
 {
     public class PublishEventHandler<T> : Handles<T> where T : Event
     {

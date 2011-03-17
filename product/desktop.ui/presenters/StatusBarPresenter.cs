@@ -1,8 +1,8 @@
 using System.Threading;
-using desktop.ui.eventing;
-using desktop.ui.events;
+using solidware.financials.infrastructure.eventing;
+using solidware.financials.windows.ui.events;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     public class StatusBarPresenter : Observable<StatusBarPresenter>, Presenter, EventSubscriber<UpdateOnLongRunningProcess>
     {

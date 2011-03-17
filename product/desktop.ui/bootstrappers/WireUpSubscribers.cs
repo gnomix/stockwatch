@@ -1,8 +1,8 @@
-using desktop.ui.eventing;
-using desktop.ui.presenters;
 using gorilla.infrastructure.container;
+using solidware.financials.infrastructure.eventing;
+using solidware.financials.windows.ui.presenters;
 
-namespace desktop.ui.bootstrappers
+namespace solidware.financials.windows.ui.bootstrappers
 {
     public class WireUpSubscribers : NeedStartup
     {

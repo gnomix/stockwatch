@@ -2,17 +2,19 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Threading;
 using Autofac;
-using desktop.ui.eventing;
-using desktop.ui.handlers;
-using desktop.ui.handlers.orm;
-using desktop.ui.messages.@private;
-using desktop.ui.presenters;
-using desktop.ui.views;
 using gorilla.infrastructure.container;
 using gorilla.infrastructure.threading;
 using gorilla.utility;
+using solidware.financials.infrastructure;
+using solidware.financials.infrastructure.eventing;
+using solidware.financials.messages;
+using solidware.financials.service.handlers;
+using solidware.financials.service.orm;
+using solidware.financials.windows.ui.handlers;
+using solidware.financials.windows.ui.presenters;
+using solidware.financials.windows.ui.views;
 
-namespace desktop.ui.bootstrappers
+namespace solidware.financials.windows.ui.bootstrappers
 {
     public static class Bootstrapper
     {

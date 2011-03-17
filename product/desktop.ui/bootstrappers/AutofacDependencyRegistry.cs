@@ -2,7 +2,7 @@
 using Autofac;
 using gorilla.infrastructure.container;
 
-namespace desktop.ui.bootstrappers
+namespace solidware.financials.windows.ui.bootstrappers
 {
     public class AutofacDependencyRegistry : DependencyRegistry
     {

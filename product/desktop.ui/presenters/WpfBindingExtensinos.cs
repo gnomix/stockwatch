@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     static public class WpfBindingExtensinos
     {

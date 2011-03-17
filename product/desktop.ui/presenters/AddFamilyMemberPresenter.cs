@@ -1,8 +1,9 @@
 using System;
-using desktop.ui.messages.@private;
 using gorilla.utility;
+using solidware.financials.infrastructure;
+using solidware.financials.messages;
 
-namespace desktop.ui.presenters
+namespace solidware.financials.windows.ui.presenters
 {
     public class AddFamilyMemberPresenter : DialogPresenter
     {

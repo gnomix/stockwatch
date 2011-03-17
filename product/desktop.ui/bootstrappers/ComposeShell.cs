@@ -1,8 +1,8 @@
 using System.Windows;
-using desktop.ui.presenters;
-using desktop.ui.views;
+using solidware.financials.windows.ui.presenters;
+using solidware.financials.windows.ui.views;
 
-namespace desktop.ui.bootstrappers
+namespace solidware.financials.windows.ui.bootstrappers
 {
     public class ComposeShell : NeedStartup
     {

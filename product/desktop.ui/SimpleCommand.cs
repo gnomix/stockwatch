@@ -1,6 +1,6 @@
 using System;
 
-namespace desktop.ui
+namespace solidware.financials.windows.ui
 {
     public class SimpleCommand : IObservableCommand
     {

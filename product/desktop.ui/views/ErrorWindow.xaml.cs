@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace desktop.ui.views
+namespace solidware.financials.windows.ui.views
 {
     public partial class ErrorWindow : Window
     {

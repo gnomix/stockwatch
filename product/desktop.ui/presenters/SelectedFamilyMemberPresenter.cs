@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using desktop.ui.eventing;
 using desktop.ui.events;
+using desktop.ui.model;
 using gorilla.utility;
 
 namespace desktop.ui.presenters
@@ -47,14 +48,4 @@ namespace desktop.ui.presenters
         }
     }
 
-    public class FindAllFamily
-    {
-    }
-
-    public class AddedNewFamilyMember : Event
-    {
-        public Guid id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-    }
 }

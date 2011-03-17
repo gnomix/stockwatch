@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using desktop.ui.eventing;
 using desktop.ui.events;
 
@@ -8,7 +9,6 @@ namespace desktop.ui.presenters
                                        EventSubscriber<AddIncomeCommandMessage>, EventSubscriber<SelectedFamilyMember>
     {
         UICommandBuilder builder;
-        Guid person_id;
 
         public TaxSummaryPresenter(UICommandBuilder builder)
         {
@@ -24,34 +24,46 @@ namespace desktop.ui.presenters
             get { return "Taxes"; }
         }
 
-        public decimal TotalIncome { get; set; }
-        public decimal Taxes { get; set; }
+        public TaxesForIndividual Selected { get; set; }
 
         public void notify(AddIncomeCommandMessage message)
         {
-            TotalIncome += message.amount;
-            if(TotalIncome <= 41544.00m)
+            Selected.TotalIncome += message.amount;
+            if (Selected.TotalIncome <= 41544.00m)
             {
-                Taxes = ((TotalIncome - 0m)*0.15m) + 0m;
+                Selected.Taxes = ((Selected.TotalIncome - 0m)*0.15m) + 0m;
             }
-            if (TotalIncome > 41544.00m && TotalIncome <= 83088.00m)
+            if (Selected.TotalIncome > 41544.00m && Selected.TotalIncome <= 83088.00m)
             {
-                Taxes = ((TotalIncome - 41544m)*0.22m) + 6232m;
+                Selected.Taxes = ((Selected.TotalIncome - 41544m)*0.22m) + 6232m;
             }
-            if(TotalIncome > 83088.00m && TotalIncome <= 128800.00m)
+            if (Selected.TotalIncome > 83088.00m && Selected.TotalIncome <= 128800.00m)
             {
-                Taxes = ((TotalIncome - 83088m)*0.26m) + 15371m;
+                Selected.Taxes = ((Selected.TotalIncome - 83088m)*0.26m) + 15371m;
             }
-            if(TotalIncome > 128800.00m)
+            if (Selected.TotalIncome > 128800.00m)
             {
-                Taxes = ((TotalIncome - 128800m)*0.29m) + 27256m;
+                Selected.Taxes = ((Selected.TotalIncome - 128800m)*0.29m) + 27256m;
             }
-            update(x => x.Taxes, x => x.TotalIncome);
+            Selected.update(x => x.Taxes, x => x.TotalIncome);
         }
 
         public void notify(SelectedFamilyMember message)
         {
-            person_id = message.id;
+            if (!people.ContainsKey(message.id))
+            {
+                people[message.id] = new TaxesForIndividual();
+            }
+            Selected = people[message.id];
+            update(x => x.Selected);
         }
+
+        IDictionary<Guid, TaxesForIndividual> people = new Dictionary<Guid, TaxesForIndividual>();
+    }
+
+    public class TaxesForIndividual : Observable<TaxesForIndividual>
+    {
+        public decimal TotalIncome { get; set; }
+        public decimal Taxes { get; set; }
     }
 }

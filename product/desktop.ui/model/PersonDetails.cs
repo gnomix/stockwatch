@@ -1,7 +1,7 @@
 using System;
 using gorilla.utility;
 
-namespace desktop.ui.presenters
+namespace desktop.ui.model
 {
     public class PersonDetails
     {

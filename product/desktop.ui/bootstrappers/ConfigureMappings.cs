@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using desktop.ui.handlers.domain;
+using desktop.ui.model;
 using desktop.ui.presenters;
 using gorilla.utility;
 

@@ -7,14 +7,28 @@ namespace desktop.ui
 {
     public abstract class Observable<T> : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged = (o, e) => {};
+        public event PropertyChangedEventHandler PropertyChanged = (o, e) => { };
 
-        protected void update(params Expression<Func<T, object>>[] properties)
+        public void update(params Expression<Func<T, object>>[] properties)
         {
-            properties.each(x =>
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(x.pick_property().Name));
-            });
+            properties.each(x => { PropertyChanged(this, new PropertyChangedEventArgs(x.pick_property().Name)); });
         }
+    }
+
+    public class ObservableProperty<T> : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged = (o, e) => { };
+
+        public T Value
+        {
+            get { return value; }
+            set
+            {
+                this.value = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Value"));
+            }
+        }
+
+        T value;
     }
 }

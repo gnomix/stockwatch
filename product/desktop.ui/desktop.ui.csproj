@@ -89,13 +89,15 @@
     <Compile Include="handlers\orm\PersonRepository.cs" />
     <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="IObservableCommand.cs" />
+    <Compile Include="messages\private\AddedNewFamilyMember.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="PresenterFactory.cs" />
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
     <Compile Include="presenters\AddNewIncomeViewModel.cs" />
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
-    <Compile Include="presenters\PersonDetails.cs" />
+    <Compile Include="messages\private\FindAllFamily.cs" />
+    <Compile Include="model\PersonDetails.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="ServiceBus.cs" />

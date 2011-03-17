@@ -8,8 +8,8 @@
     <ProjectGuid>{1E07A7D1-661C-48A2-B67B-180C6107CC92}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>desktop.ui</RootNamespace>
-    <AssemblyName>desktop.ui</AssemblyName>
+    <RootNamespace>solidware.financials.windows.ui</RootNamespace>
+    <AssemblyName>financials</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -80,25 +80,10 @@
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Dialog.cs" />
     <Compile Include="DialogPresenter.cs" />
-    <Compile Include="eventing\Event.cs" />
-    <Compile Include="eventing\EventAggregator.cs" />
-    <Compile Include="eventing\EventSubscriber.cs" />
-    <Compile Include="eventing\SynchronizedEventAggregator.cs" />
     <Compile Include="events\SelectedFamilyMember.cs" />
     <Compile Include="events\UpdateOnLongRunningProcess.cs" />
-    <Compile Include="handlers\AddIncomeCommandMessageHandler.cs" />
-    <Compile Include="handlers\AddNewFamilyMemberHandler.cs" />
-    <Compile Include="handlers\domain\Entity.cs" />
-    <Compile Include="handlers\domain\Person.cs" />
-    <Compile Include="handlers\FindAllFamilyHandler.cs" />
-    <Compile Include="handlers\Handles.cs" />
-    <Compile Include="handlers\orm\InMemoryDatabase.cs" />
-    <Compile Include="handlers\orm\PersonRepository.cs" />
     <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="IObservableCommand.cs" />
-    <Compile Include="messages\private\AddedNewFamilyMember.cs" />
-    <Compile Include="messages\private\AddIncomeCommandMessage.cs" />
-    <Compile Include="messages\private\FamilyMemberToAdd.cs" />
     <Compile Include="model\TaxesForIndividual.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
@@ -106,18 +91,15 @@
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
     <Compile Include="presenters\AddNewIncomeViewModel.cs" />
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
-    <Compile Include="messages\private\FindAllFamily.cs" />
     <Compile Include="model\PersonDetails.cs" />
     <Compile Include="presenters\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
-    <Compile Include="ServiceBus.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
     <Compile Include="presenters\WpfBindingExtensinos.cs" />
     <Compile Include="presenters\WpfCommandBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SimpleCommand.cs" />
-    <Compile Include="InMemoryServiceBus.cs" />
     <Compile Include="Tab.cs" />
     <Compile Include="TabPresenter.cs" />
     <Compile Include="UICommand.cs" />
@@ -220,6 +202,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\infrastructure\infrastructure.csproj">
+      <Project>{16D56F38-F4B0-4134-907A-837E4C62C7B7}</Project>
+      <Name>infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\messages\messages.csproj">
+      <Project>{C3DF753C-7BB7-48E0-B87D-D37ED47EDF92}</Project>
+      <Name>messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\service\service.csproj">
+      <Project>{9928913D-5BCE-422F-9A12-13A10ACE836D}</Project>
+      <Name>service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="messages\private\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

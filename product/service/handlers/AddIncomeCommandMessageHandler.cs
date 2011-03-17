@@ -1,6 +1,5 @@
 using System;
 using desktop.ui.messages.@private;
-using desktop.ui.presenters;
 
 namespace desktop.ui.handlers
 {

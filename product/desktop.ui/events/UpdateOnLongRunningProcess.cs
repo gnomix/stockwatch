@@ -1,4 +1,3 @@
-
 using desktop.ui.eventing;
 
 namespace desktop.ui.events

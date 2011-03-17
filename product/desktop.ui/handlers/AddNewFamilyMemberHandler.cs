@@ -1,5 +1,6 @@
 ﻿using desktop.ui.handlers.domain;
 using desktop.ui.handlers.orm;
+using desktop.ui.messages.@private;
 using desktop.ui.presenters;
 
 namespace desktop.ui.handlers

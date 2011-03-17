@@ -14,21 +14,4 @@ namespace desktop.ui
             properties.each(x => { PropertyChanged(this, new PropertyChangedEventArgs(x.pick_property().Name)); });
         }
     }
-
-    public class ObservableProperty<T> : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged = (o, e) => { };
-
-        public T Value
-        {
-            get { return value; }
-            set
-            {
-                this.value = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Value"));
-            }
-        }
-
-        T value;
-    }
 }

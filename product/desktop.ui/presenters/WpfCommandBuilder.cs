@@ -19,5 +19,15 @@ namespace desktop.ui.presenters
                 command.run(presenter);
             });
         }
+
+        public IObservableCommand build<Command, Specification>(Presenter presenter) where Command : UICommand where Specification : UISpecification
+        {
+            var command = container.get_a<Command>();
+            var specification = container.get_a<Specification>();
+            return new SimpleCommand(() =>
+            {
+                command.run(presenter);
+            }, () => specification.is_satisfied_by(presenter) );
+        }
     }
 }

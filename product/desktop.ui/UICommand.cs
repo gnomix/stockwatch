@@ -1,3 +1,5 @@
+using gorilla.utility;
+
 namespace desktop.ui
 {
     public interface UICommand
@@ -5,13 +7,13 @@ namespace desktop.ui
         void run<T>(T presenter) where T : Presenter;
     }
 
-    public abstract class UICommand<T> : UICommand where T : class, Presenter
+    public abstract class UICommand<TPresenter> : UICommand where TPresenter : Presenter
     {
         void UICommand.run<T1>(T1 presenter)
         {
-            run(presenter as T);
+            run(presenter.downcast_to<TPresenter>());
         }
 
-        public abstract void run(T presenter);
+        public abstract void run(TPresenter presenter);
     }
 }

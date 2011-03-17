@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using desktop.ui.eventing;
 using desktop.ui.events;
+using desktop.ui.messages.@private;
 using desktop.ui.model;
 
 namespace desktop.ui.presenters
 {
-    public class TaxSummaryPresenter : Observable<TaxSummaryPresenter>, TabPresenter,
-                                       EventSubscriber<AddIncomeCommandMessage>, EventSubscriber<SelectedFamilyMember>
+    public class TaxSummaryPresenter : Observable<TaxSummaryPresenter>, TabPresenter, EventSubscriber<AddIncomeCommandMessage>, EventSubscriber<SelectedFamilyMember>
     {
         UICommandBuilder builder;
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using desktop.ui.eventing;
+using desktop.ui.messages.@private;
 
 namespace desktop.ui.presenters
 {
@@ -14,7 +14,7 @@ namespace desktop.ui.presenters
 
         public void present()
         {
-            Add = builder.build<AddIncomeCommand>(this);
+            Add = builder.build<AddIncomeCommand, IfFamilyMemberIsSelected>(this);
             Cancel = builder.build<CancelCommand>(this);
         }
 
@@ -38,10 +38,5 @@ namespace desktop.ui.presenters
                 presenter.close();
             }
         }
-    }
-
-    public class AddIncomeCommandMessage : Event
-    {
-        public decimal amount { get; set; }
     }
 }

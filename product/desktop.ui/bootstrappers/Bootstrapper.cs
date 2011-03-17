@@ -5,6 +5,7 @@ using Autofac;
 using desktop.ui.eventing;
 using desktop.ui.handlers;
 using desktop.ui.handlers.orm;
+using desktop.ui.messages.@private;
 using desktop.ui.presenters;
 using desktop.ui.views;
 using gorilla.infrastructure.container;
@@ -49,6 +50,7 @@ namespace desktop.ui.bootstrappers
         {
             builder.RegisterType<ComposeShell>().As<NeedStartup>();
             builder.RegisterType<ConfigureMappings>().As<NeedStartup>();
+            builder.RegisterType<WireUpSubscribers>().As<NeedStartup>();
         }
 
         static void register_presentation_infrastructure(ContainerBuilder builder)
@@ -78,6 +80,7 @@ namespace desktop.ui.bootstrappers
 
             builder.RegisterType<AddNewIncomeViewModel>();
             builder.RegisterType<AddNewIncomeViewModel.AddIncomeCommand>();
+            builder.RegisterType<IfFamilyMemberIsSelected>().SingleInstance();
 
             builder.RegisterType<TaxSummaryPresenter>();
             

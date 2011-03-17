@@ -70,6 +70,7 @@
     <Compile Include="bootstrappers\DefaultMapper.cs" />
     <Compile Include="bootstrappers\NeedsShutdown.cs" />
     <Compile Include="bootstrappers\NeedStartup.cs" />
+    <Compile Include="bootstrappers\WireUpSubscribers.cs" />
     <Compile Include="CancelCommand.cs" />
     <Compile Include="Dialog.cs" />
     <Compile Include="DialogPresenter.cs" />
@@ -90,6 +91,8 @@
     <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="IObservableCommand.cs" />
     <Compile Include="messages\private\AddedNewFamilyMember.cs" />
+    <Compile Include="messages\private\AddIncomeCommandMessage.cs" />
+    <Compile Include="messages\private\FamilyMemberToAdd.cs" />
     <Compile Include="model\TaxesForIndividual.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="messages\private\FindAllFamily.cs" />
     <Compile Include="model\PersonDetails.cs" />
+    <Compile Include="presenters\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="ServiceBus.cs" />
@@ -112,6 +116,7 @@
     <Compile Include="TabPresenter.cs" />
     <Compile Include="UICommand.cs" />
     <Compile Include="UICommandBuilder.cs" />
+    <Compile Include="UISpecification.cs" />
     <Compile Include="View.cs" />
     <Compile Include="views\AddFamilyMemberDialog.xaml.cs">
       <DependentUpon>AddFamilyMemberDialog.xaml</DependentUpon>

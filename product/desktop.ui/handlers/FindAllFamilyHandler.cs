@@ -1,7 +1,7 @@
 ﻿using desktop.ui.handlers.domain;
 using desktop.ui.handlers.orm;
 using desktop.ui.presenters;
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui.handlers
 {

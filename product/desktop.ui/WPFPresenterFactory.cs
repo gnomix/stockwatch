@@ -1,4 +1,4 @@
-using infrastructure.container;
+using gorilla.infrastructure.container;
 
 namespace desktop.ui
 {

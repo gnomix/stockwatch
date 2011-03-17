@@ -88,12 +88,6 @@
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\utility\utility.csproj">
-      <Project>{39B95E47-DA9C-4C80-A395-515600C55D4B}</Project>
-      <Name>utility</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

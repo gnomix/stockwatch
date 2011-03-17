@@ -7,9 +7,9 @@ using desktop.ui.handlers;
 using desktop.ui.handlers.orm;
 using desktop.ui.presenters;
 using desktop.ui.views;
-using infrastructure.container;
-using infrastructure.threading;
-using utility;
+using gorilla.infrastructure.container;
+using gorilla.infrastructure.threading;
+using gorilla.utility;
 
 namespace desktop.ui.bootstrappers
 {

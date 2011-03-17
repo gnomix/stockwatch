@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Autofac;
-using infrastructure.container;
+using gorilla.infrastructure.container;
 
 namespace desktop.ui.bootstrappers
 {

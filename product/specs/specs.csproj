@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Mocking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="The.cs" />
+    <Compile Include="Create.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\desktop.ui\desktop.ui.csproj">

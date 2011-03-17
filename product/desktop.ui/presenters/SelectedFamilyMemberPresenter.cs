@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using desktop.ui.eventing;
 using desktop.ui.events;
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui.presenters
 {

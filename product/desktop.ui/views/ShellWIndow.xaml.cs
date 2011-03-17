@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui.views
 {

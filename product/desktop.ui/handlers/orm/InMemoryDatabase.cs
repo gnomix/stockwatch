@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using desktop.ui.handlers.domain;
-using utility;
+using gorilla.utility;
 using System.Linq;
 
 namespace desktop.ui.handlers.orm

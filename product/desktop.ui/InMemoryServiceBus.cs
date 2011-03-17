@@ -1,7 +1,7 @@
 ﻿using System;
 using desktop.ui.handlers;
-using infrastructure.container;
-using utility;
+using gorilla.infrastructure.container;
+using gorilla.utility;
 
 namespace desktop.ui
 {

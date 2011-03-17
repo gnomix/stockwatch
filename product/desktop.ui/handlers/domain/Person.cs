@@ -1,4 +1,4 @@
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui.handlers.domain
 {

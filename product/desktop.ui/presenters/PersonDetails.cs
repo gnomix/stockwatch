@@ -1,5 +1,5 @@
 using System;
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui.presenters
 {

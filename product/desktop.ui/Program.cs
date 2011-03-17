@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Threading;
 using desktop.ui.bootstrappers;
 using desktop.ui.views;
-using infrastructure.logging;
+using gorilla.infrastructure.logging;
 
 namespace desktop.ui
 {

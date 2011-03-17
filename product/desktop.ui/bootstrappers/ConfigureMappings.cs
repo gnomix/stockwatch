@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using desktop.ui.handlers.domain;
 using desktop.ui.presenters;
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui.bootstrappers
 {

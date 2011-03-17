@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
-using utility;
+using gorilla.utility;
 
 namespace desktop.ui
 {

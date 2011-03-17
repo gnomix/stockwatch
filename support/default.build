@@ -23,7 +23,7 @@
     <delete dir="${tmp.dir}" />
   </target>
 
-  <target name="init" depends="clean">
+  <target name="init" depends="clean, create.configs">
     <mkdir dir="${tmp.dir}" />
   </target>
 
@@ -74,4 +74,17 @@
 		<property name="xunit.arguments" value="-t --html ${tmp.dir} ${tmp.dir}/specs.dll" />
 		<call target="run.test" />
 	</target>
+
+	<target name="expand.template.file">
+		<copy file="${target}.template" tofile="${target}" overwrite="true">
+      <filterchain>
+        <expandproperties />
+      </filterchain>
+		</copy>
+	</target>
+
+  <target name="create.configs">
+    <property name="target" value="${src.dir}/desktop.ui/Properties/AssemblyInfo.cs" />
+    <call target="expand.template.file" />
+  </target>
 </project>

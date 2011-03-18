@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Db4objects.Db4o">
+      <HintPath>..\..\thirdparty\db4o\Db4objects.Db4o.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.Linq">
+      <HintPath>..\..\thirdparty\db4o\Db4objects.Db4o.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="gorilla.utility">
       <HintPath>..\..\thirdparty\commons\gorilla.utility.dll</HintPath>
     </Reference>
@@ -48,6 +54,7 @@
     <Compile Include="domain\Entity.cs" />
     <Compile Include="domain\Person.cs" />
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
+    <Compile Include="orm\DB4ODatabase.cs" />
     <Compile Include="orm\InMemoryDatabase.cs" />
     <Compile Include="orm\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

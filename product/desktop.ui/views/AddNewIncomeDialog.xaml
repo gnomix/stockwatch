@@ -6,7 +6,7 @@
     <StackPanel>
         <DockPanel>
         <Label>Income Amount ($):</Label>
-        <TextBox Text="{Binding Path=amount}"></TextBox>
+        <TextBox Text="{Binding Path=amount,  UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </DockPanel>
         <DockPanel LastChildFill="False" HorizontalAlignment="Right">
         <Button IsDefault="True" Command="{Binding Path=Add}">_Add</Button>

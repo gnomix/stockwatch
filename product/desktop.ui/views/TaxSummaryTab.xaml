@@ -7,6 +7,7 @@
     <StackPanel>
         <StackPanel DataContext="{Binding Path=Selected}">
             <Label>Total Income:</Label>
+            <Label Content="{Binding Path=TotalIncome}"></Label>
             <Label>Federal Tax Rates for 2011</Label>
             <ListView>
                 <ListViewItem> * 15% on the first $41,544 of taxable income, + </ListViewItem>
@@ -14,7 +15,6 @@
                 <ListViewItem> * 26% on the next $45,712 of taxable income (on the portion of taxable income between $83,088 and $128,800), + </ListViewItem>
                 <ListViewItem> * 29% of taxable income over $128,800. </ListViewItem>
             </ListView>
-            <Label Content="{Binding Path=TotalIncome}"></Label>
             <Label>Federal Taxes:</Label>
             <Label Content="{Binding Path=FederalTaxes}"></Label>
             <Label>Provincial Tax Rates for 2011</Label>

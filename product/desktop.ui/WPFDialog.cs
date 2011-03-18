@@ -13,8 +13,10 @@ namespace solidware.financials.windows.ui
 
         public void open(TPresenter presenter)
         {
-            presenter.close = () => Close();
+            DataContext = presenter;
             Owner = Application.Current.MainWindow;
+            presenter.close = () => Close();
+            presenter.present();
             ShowDialog();
         }
     }

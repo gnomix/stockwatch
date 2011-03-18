@@ -29,14 +29,11 @@ namespace solidware.financials.windows.ui
                                                                }));
         }
 
-        public void launch_dialog<Presenter, Dialog>() where Presenter : DialogPresenter where Dialog : FrameworkElement, Dialog<Presenter>, new()
+        public void launch<Presenter, Dialog>() where Presenter : DialogPresenter where Dialog : FrameworkElement, Dialog<Presenter>, new()
         {
             var presenter = factory.create<Presenter>();
             var dialog = new Dialog {DataContext = presenter};
-            presenter.close = () =>
-            {
-                dialog.Close();
-            };
+            presenter.close = () => dialog.Close();
             presenter.present();
             dialog.open();
         }

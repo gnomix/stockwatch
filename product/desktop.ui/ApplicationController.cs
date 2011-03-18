@@ -10,9 +10,4 @@ namespace solidware.financials.windows.ui
         void load_region<Presenter, Region>() where Presenter : ui.Presenter
             where Region : FrameworkElement, View<Presenter>, new();
     }
-
-    public interface DialogLauncher
-    {
-        void launch_dialog<Presenter, Dialog>() where Presenter : DialogPresenter where Dialog : FrameworkElement, Dialog<Presenter>, new();
-    }
 }

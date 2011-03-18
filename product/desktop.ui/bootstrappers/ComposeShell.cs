@@ -39,7 +39,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         void launch<Presenter, Dialog>() where Presenter : DialogPresenter
             where Dialog : FrameworkElement, Dialog<Presenter>, new()
         {
-            controller.launch_dialog<Presenter, Dialog>();
+            controller.launch<Presenter, Dialog>();
         }
     }
 }

@@ -87,4 +87,8 @@
     <property name="target" value="${src.dir}/desktop.ui/Properties/AssemblyInfo.cs" />
     <call target="expand.template.file" />
   </target>
+
+  <target name="run" depends="compile">
+    <exec program="${tmp.dir}/solidware.financials.exe" />
+  </target>
 </project>

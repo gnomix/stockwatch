@@ -35,7 +35,7 @@ namespace solidware.financials.windows.ui.presenters
         public void notify(SelectedFamilyMember message)
         {
             if (!family.ContainsKey(message.id))
-                family[message.id] = new TaxesForIndividual();
+                family[message.id] = new TaxesForIndividual(message.id);
             Selected = family[message.id];
             update(x => x.Selected);
         }

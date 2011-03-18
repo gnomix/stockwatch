@@ -2,6 +2,7 @@
 using solidware.financials.infrastructure;
 using solidware.financials.messages;
 using solidware.financials.windows.ui.events;
+using solidware.financials.windows.ui.presenters.specifications;
 
 namespace solidware.financials.windows.ui.presenters
 {
@@ -16,7 +17,7 @@ namespace solidware.financials.windows.ui.presenters
 
         public void present()
         {
-            Add = builder.build<AddIncomeCommand, IfFamilyMemberIsSelected>(this);
+            Add = builder.build<AddIncomeCommand, IfFamilyMemberIsSelected<AddNewIncomeViewModel>>(this);
             Cancel = builder.build<CancelCommand>(this);
         }
 

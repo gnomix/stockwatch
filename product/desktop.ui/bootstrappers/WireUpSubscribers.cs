@@ -1,6 +1,6 @@
-using gorilla.infrastructure.container;
+﻿using gorilla.infrastructure.container;
 using solidware.financials.infrastructure.eventing;
-using solidware.financials.windows.ui.presenters;
+using solidware.financials.windows.ui.events;
 
 namespace solidware.financials.windows.ui.bootstrappers
 {
@@ -9,7 +9,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         public void run()
         {
             var eventAggregator = Resolve.the<EventAggregator>();
-            eventAggregator.subscribe(Resolve.the<IfFamilyMemberIsSelected>());
+            eventAggregator.subscribe(new AnonymousSubscriber<SelectedFamilyMember>(x => Resolve.the<ApplicationState>().PushIn(x)));
         }
     }
 }

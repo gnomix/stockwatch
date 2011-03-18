@@ -6,6 +6,7 @@ using solidware.financials.messages;
 using solidware.financials.windows.ui;
 using solidware.financials.windows.ui.events;
 using solidware.financials.windows.ui.presenters;
+using solidware.financials.windows.ui.presenters.specifications;
 
 namespace specs.unit.ui.presenters
 {
@@ -56,7 +57,7 @@ namespace specs.unit.ui.presenters
             Establish context = () =>
             {
                 add_command = Create.an<IObservableCommand>();
-                command_builder.Stub(x => x.build<AddNewIncomeViewModel.AddIncomeCommand, IfFamilyMemberIsSelected>(sut)).Return(add_command);
+                command_builder.Stub(x => x.build<AddNewIncomeViewModel.AddIncomeCommand, IfFamilyMemberIsSelected<AddNewIncomeViewModel>>(sut)).Return(add_command);
             };
 
             Because of = () =>

@@ -12,6 +12,7 @@ using solidware.financials.service.handlers;
 using solidware.financials.service.orm;
 using solidware.financials.windows.ui.handlers;
 using solidware.financials.windows.ui.presenters;
+using solidware.financials.windows.ui.presenters.specifications;
 using solidware.financials.windows.ui.views;
 
 namespace solidware.financials.windows.ui.bootstrappers
@@ -26,7 +27,6 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.Register(x => shell_window).SingleInstance();
             builder.Register(x => shell_window).As<RegionManager>().SingleInstance();
 
-            builder.RegisterType<IfFamilyMemberIsSelected>().SingleInstance();
             register_needs_startup(builder);
 
             // infrastructure
@@ -34,6 +34,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<DefaultMapper>().As<Mapper>().SingleInstance();
             //builder.RegisterGeneric(typeof (Mapper<,>));
             builder.RegisterType<InMemoryServiceBus>().As<ServiceBus>().SingleInstance();
+            builder.RegisterGeneric(typeof(IfFamilyMemberIsSelected<>));
 
             register_presentation_infrastructure(builder);
             register_presenters(builder);
@@ -53,7 +54,6 @@ namespace solidware.financials.windows.ui.bootstrappers
         {
             builder.RegisterType<ComposeShell>().As<NeedStartup>();
             builder.RegisterType<ConfigureMappings>().As<NeedStartup>();
-
             builder.RegisterType<WireUpSubscribers>().As<NeedStartup>();
         }
 
@@ -68,6 +68,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<AsynchronousCommandProcessor>().As<CommandProcessor>().SingleInstance();
             //builder.Register<SynchronousCommandProcessor>().As<CommandProcessor>().SingleInstance();
             builder.RegisterType<WPFCommandBuilder>().As<UICommandBuilder>();
+            builder.RegisterType<InMemoryApplicationState>().As<ApplicationState>().SingleInstance();
         }
 
         static void register_presenters(ContainerBuilder builder)
@@ -81,9 +82,9 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<AddFamilyMemberPresenter>();
             builder.RegisterType<AddFamilyMemberPresenter.SaveCommand>();
 
-
             builder.RegisterType<AddNewIncomeViewModel>();
             builder.RegisterType<AddNewIncomeViewModel.AddIncomeCommand>();
+            builder.RegisterType<IfFamilyMemberIsSelected<AddNewIncomeViewModel>>();
 
             builder.RegisterType<TaxSummaryPresenter>();
             

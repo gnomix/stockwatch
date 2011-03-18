@@ -111,7 +111,7 @@
     <Compile Include="ApplicationState.cs" />
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="model\PersonDetails.cs" />
-    <Compile Include="presenters\IfFamilyMemberIsSelected.cs" />
+    <Compile Include="presenters\specifications\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />

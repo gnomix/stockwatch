@@ -17,5 +17,10 @@ namespace solidware.financials.windows.ui
         {
             database[typeof (Token)] = token;
         }
+
+        public bool HasBeenPushedIn<Token>()
+        {
+            return database.ContainsKey(typeof(Token));
+        }
     }
 }

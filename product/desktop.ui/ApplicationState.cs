@@ -4,5 +4,6 @@
     {
         Token PullOut<Token>();
         void PushIn<Token>(Token token);
+        bool HasBeenPushedIn<Token>();
     }
 }

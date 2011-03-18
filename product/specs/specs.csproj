@@ -57,6 +57,7 @@
     <Compile Include="unit\ui\InMemoryApplicationStateSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddFamilyMemberPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddNewIncomeViewModelSpecs.cs" />
+    <Compile Include="unit\ui\presenters\specifications\IfFamilyMemberIsSelectedSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\desktop.ui\solidware.financials.csproj">

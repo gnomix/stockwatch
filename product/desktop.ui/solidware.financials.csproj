@@ -99,6 +99,7 @@
     <Compile Include="events\SelectedFamilyMember.cs" />
     <Compile Include="events\UpdateOnLongRunningProcess.cs" />
     <Compile Include="handlers\PublishEventHandler.cs" />
+    <Compile Include="InMemoryApplicationState.cs" />
     <Compile Include="IObservableCommand.cs" />
     <Compile Include="model\FederalTaxes.cs" />
     <Compile Include="model\TaxesForIndividual.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="PresenterFactory.cs" />
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
     <Compile Include="presenters\AddNewIncomeViewModel.cs" />
+    <Compile Include="ApplicationState.cs" />
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="model\PersonDetails.cs" />
     <Compile Include="presenters\IfFamilyMemberIsSelected.cs" />

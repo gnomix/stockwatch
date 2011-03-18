@@ -29,7 +29,7 @@ namespace solidware.financials.windows.ui.presenters
 
         public void notify(AddIncomeCommandMessage message)
         {
-            Selected.AddIncome(message.amount);
+            Selected.AddIncome(message.Amount);
         }
 
         public void notify(SelectedFamilyMember message)

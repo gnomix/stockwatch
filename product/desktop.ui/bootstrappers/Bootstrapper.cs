@@ -26,6 +26,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.Register(x => shell_window).SingleInstance();
             builder.Register(x => shell_window).As<RegionManager>().SingleInstance();
 
+            builder.RegisterType<IfFamilyMemberIsSelected>().SingleInstance();
             register_needs_startup(builder);
 
             // infrastructure
@@ -52,6 +53,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         {
             builder.RegisterType<ComposeShell>().As<NeedStartup>();
             builder.RegisterType<ConfigureMappings>().As<NeedStartup>();
+
             builder.RegisterType<WireUpSubscribers>().As<NeedStartup>();
         }
 
@@ -82,7 +84,6 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             builder.RegisterType<AddNewIncomeViewModel>();
             builder.RegisterType<AddNewIncomeViewModel.AddIncomeCommand>();
-            builder.RegisterType<IfFamilyMemberIsSelected>().SingleInstance();
 
             builder.RegisterType<TaxSummaryPresenter>();
             

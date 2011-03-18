@@ -1,12 +1,14 @@
 ﻿using System;
 using solidware.financials.infrastructure;
 using solidware.financials.messages;
+using solidware.financials.windows.ui.events;
 
 namespace solidware.financials.windows.ui.presenters
 {
     public class AddNewIncomeViewModel : DialogPresenter
     {
         UICommandBuilder builder;
+        ApplicationState state;
 
         public AddNewIncomeViewModel(UICommandBuilder builder)
         {
@@ -19,23 +21,29 @@ namespace solidware.financials.windows.ui.presenters
             Cancel = builder.build<CancelCommand>(this);
         }
 
-        public decimal amount { get; set; }
+        public virtual decimal amount { get; set; }
         public IObservableCommand Add { get; set; }
         public IObservableCommand Cancel { get; set; }
-        public Action close { get; set; }
+        public virtual Action close { get; set; }
 
         public class AddIncomeCommand : UICommand<AddNewIncomeViewModel>
         {
             ServiceBus bus;
+            ApplicationState applicationState;
 
-            public AddIncomeCommand(ServiceBus bus)
+            public AddIncomeCommand(ServiceBus bus, ApplicationState applicationState)
             {
                 this.bus = bus;
+                this.applicationState = applicationState;
             }
 
             public override void run(AddNewIncomeViewModel presenter)
             {
-                bus.publish<AddIncomeCommandMessage>(x => { x.amount = presenter.amount; });
+                bus.publish(new AddIncomeCommandMessage
+                            {
+                                Amount = presenter.amount,
+                                PersonId = applicationState.PullOut<SelectedFamilyMember>().id
+                            });
                 presenter.close();
             }
         }

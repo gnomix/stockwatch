@@ -33,9 +33,8 @@ namespace solidware.financials.windows.ui
         {
             var presenter = factory.create<Presenter>();
             var dialog = new Dialog {DataContext = presenter};
-            presenter.close = () => dialog.Close();
             presenter.present();
-            dialog.open();
+            dialog.open(presenter);
         }
 
         public void load_region<TPresenter, Region>() where TPresenter : Presenter where Region : FrameworkElement, View<TPresenter>, new()

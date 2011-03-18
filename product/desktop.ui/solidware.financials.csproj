@@ -150,6 +150,7 @@
     <Compile Include="views\TaxSummaryTab.xaml.cs">
       <DependentUpon>TaxSummaryTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPFDialog.cs" />
     <Compile Include="WPFApplication.cs" />
     <Compile Include="WPFApplicationController.cs" />
     <Compile Include="RegionManager.cs" />

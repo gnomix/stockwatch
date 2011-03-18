@@ -1,7 +1,8 @@
-﻿<Window x:Class="solidware.financials.windows.ui.views.AddNewIncomeDialog"
+﻿<ui:WPFDialog  x:Class="solidware.financials.windows.ui.views.AddNewIncomeDialog"
+ xmlns:ui="clr-namespace:solidware.financials.windows.ui"              
+             x:TypeArguments="presenters:AddNewIncomeViewModel"  
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Add Income" Width="400" Height="100"  WindowStartupLocation="CenterOwner">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:presenters="clr-namespace:solidware.financials.windows.ui.presenters" Title="Add Income" Width="400" Height="100"  WindowStartupLocation="CenterOwner">
     <StackPanel>
         <DockPanel>
         <Label>Income Amount ($):</Label>
@@ -12,4 +13,4 @@
         <Button IsCancel="True" Command="{Binding Path=Cancel}">_Cancel</Button>
         </DockPanel>
     </StackPanel>
-</Window>
+</ui:WPFDialog >

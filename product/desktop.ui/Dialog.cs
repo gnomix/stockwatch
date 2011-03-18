@@ -1,8 +1,8 @@
 namespace solidware.financials.windows.ui
 {
-    public interface Dialog<TPresenter> : View<TPresenter> where TPresenter : DialogPresenter
+    public interface Dialog<Presenter> : View<Presenter> where Presenter : DialogPresenter
     {
-        void open();
+        void open(Presenter presenter);
         void Close();
     }
 }

@@ -8,7 +8,6 @@ namespace solidware.financials.windows.ui.presenters
     public class AddNewIncomeViewModel : DialogPresenter
     {
         UICommandBuilder builder;
-        ApplicationState state;
 
         public AddNewIncomeViewModel(UICommandBuilder builder)
         {

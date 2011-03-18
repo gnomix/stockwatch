@@ -21,12 +21,12 @@ namespace solidware.financials.windows.ui.presenters
             date_of_birth = Clock.today();
         }
 
-        public string first_name { get; set; }
-        public string last_name { get; set; }
-        public DateTime date_of_birth { get; set; }
+        public virtual string first_name { get; set; }
+        public virtual string last_name { get; set; }
+        public virtual DateTime date_of_birth { get; set; }
         public IObservableCommand Save { get; set; }
         public IObservableCommand Cancel { get; set; }
-        public Action close { get; set; }
+        public virtual Action close { get; set; }
 
         public class SaveCommand : UICommand<AddFamilyMemberPresenter>
         {
@@ -39,11 +39,11 @@ namespace solidware.financials.windows.ui.presenters
 
             public override void run(AddFamilyMemberPresenter presenter)
             {
-                bus.publish<FamilyMemberToAdd>(x =>
+                bus.publish(new FamilyMemberToAdd
                 {
-                    x.first_name = presenter.first_name;
-                    x.last_name = presenter.last_name;
-                    x.date_of_birth = presenter.date_of_birth;
+                    first_name = presenter.first_name,
+                    last_name = presenter.last_name,
+                    date_of_birth = presenter.date_of_birth,
                 });
                 presenter.close();
             }

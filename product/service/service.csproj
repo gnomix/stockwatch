@@ -59,8 +59,11 @@
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
     <Compile Include="orm\Connection.cs" />
     <Compile Include="orm\ConnectionFactory.cs" />
+    <Compile Include="orm\DB40UnitOfWork.cs" />
+    <Compile Include="orm\DB40UnitOfWorkFactory.cs" />
     <Compile Include="orm\DB4OPersonRepository.cs" />
     <Compile Include="orm\Disposable.cs" />
+    <Compile Include="orm\EmptyUnitOfWork.cs" />
     <Compile Include="orm\InMemoryDatabase.cs" />
     <Compile Include="orm\LastOpened.cs" />
     <Compile Include="orm\PersonRepository.cs" />

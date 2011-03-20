@@ -8,6 +8,7 @@ using gorilla.utility;
 using solidware.financials.infrastructure;
 using solidware.financials.infrastructure.eventing;
 using solidware.financials.messages;
+using solidware.financials.service;
 using solidware.financials.service.handlers;
 using solidware.financials.service.orm;
 using solidware.financials.windows.ui.handlers;
@@ -55,6 +56,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<ComposeShell>().As<NeedStartup>();
             builder.RegisterType<ConfigureMappings>().As<NeedStartup>();
             builder.RegisterType<WireUpSubscribers>().As<NeedStartup>();
+            new DB4OBootstrapper().run();
         }
 
         static void register_presentation_infrastructure(ContainerBuilder builder)

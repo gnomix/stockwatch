@@ -13,7 +13,6 @@ namespace solidware.financials.service.orm
         public DB4ODatabase(IObjectContainer session)
         {
             this.session = session;
-            using (var embeddedObjectContainer = Db4oEmbedded.OpenFile("c:/tmp")) { }
         }
 
         public void save(Person person)

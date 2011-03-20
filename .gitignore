@@ -8,3 +8,5 @@ _build.log
 tmp
 local.properties.xml
 %APPDATA%
+app.config
+*.stackdump

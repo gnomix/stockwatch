@@ -33,7 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="gorilla.utility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="gorilla.utility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\commons\gorilla.utility.dll</HintPath>
+    </Reference>
     <Reference Include="Machine.Specifications">
       <HintPath>..\..\thirdparty\mspec\Machine.Specifications.dll</HintPath>
     </Reference>

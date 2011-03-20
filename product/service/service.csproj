@@ -41,6 +41,7 @@
       <HintPath>..\..\thirdparty\commons\gorilla.utility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB4OBootstrapper.cs" />
     <Compile Include="handlers\AddIncomeCommandMessageHandler.cs" />
     <Compile Include="handlers\AddNewFamilyMemberHandler.cs" />
     <Compile Include="domain\Entity.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
     <Compile Include="orm\DB4ODatabase.cs" />
     <Compile Include="orm\InMemoryDatabase.cs" />
+    <Compile Include="orm\LastOpened.cs" />
     <Compile Include="orm\PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

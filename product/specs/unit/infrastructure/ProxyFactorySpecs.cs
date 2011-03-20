@@ -28,12 +28,12 @@ namespace specs.unit.infrastructure
                 command.result.ShouldEqual("mo");
             };
 
-            Establish context = () => { command = new TestCommand(); };
+            Establish context = () => { command = new TestCommand("blah"); };
 
             Because of = () =>
             {
                 interceptor = new TestInterceptor();
-                var proxy = sut.CreateProxyFor(command, interceptor);
+                var proxy = sut.CreateProxyFor<Command<string>>(command, interceptor);
                 proxy.run("mo");
             };
 
@@ -43,6 +43,13 @@ namespace specs.unit.infrastructure
 
         public class TestCommand : Command<string>
         {
+            readonly string needAConstructur;
+
+            public TestCommand(string needAConstructur)
+            {
+                this.needAConstructur = needAConstructur;
+            }
+
             public virtual void run(string item)
             {
                 result = item;

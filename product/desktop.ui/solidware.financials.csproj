@@ -60,6 +60,7 @@
     <Reference Include="Autofac">
       <HintPath>..\..\thirdparty\autofac\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL" />
     <Reference Include="gorilla.infrastructure">
       <HintPath>..\..\thirdparty\commons\gorilla.infrastructure.dll</HintPath>
     </Reference>
@@ -85,6 +86,7 @@
   <ItemGroup>
     <Compile Include="ApplicationController.cs" />
     <Compile Include="bootstrappers\AutofacDependencyRegistry.cs" />
+    <Compile Include="bootstrappers\AutofacExtensions.cs" />
     <Compile Include="bootstrappers\Bootstrapper.cs" />
     <Compile Include="bootstrappers\ComposeShell.cs" />
     <Compile Include="bootstrappers\ConfigureMappings.cs" />

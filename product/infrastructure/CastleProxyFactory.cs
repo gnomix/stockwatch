@@ -6,9 +6,9 @@ namespace solidware.financials.infrastructure
     {
         ProxyGenerator generator = new ProxyGenerator();
 
-        public Proxy CreateProxyFor<Proxy>(Proxy clazz, params IInterceptor[] interceptors) where Proxy : class
+        public Interface CreateProxyFor<Interface>(Interface target, params IInterceptor[] interceptors) where Interface : class
         {
-            return generator.CreateClassProxyWithTarget(clazz, interceptors);
+            return generator.CreateInterfaceProxyWithTarget(target, interceptors);
         }
     }
 }

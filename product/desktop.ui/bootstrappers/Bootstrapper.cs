@@ -18,9 +18,9 @@ using solidware.financials.windows.ui.views;
 
 namespace solidware.financials.windows.ui.bootstrappers
 {
-    public static class Bootstrapper
+    static public class Bootstrapper
     {
-        public static ShellWindow create_window()
+        static public ShellWindow create_window()
         {
             var builder = new ContainerBuilder();
 
@@ -35,7 +35,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<DefaultMapper>().As<Mapper>().SingleInstance();
             //builder.RegisterGeneric(typeof (Mapper<,>));
             builder.RegisterType<InMemoryServiceBus>().As<ServiceBus>().SingleInstance();
-            builder.RegisterGeneric(typeof(IfFamilyMemberIsSelected<>));
+            builder.RegisterGeneric(typeof (IfFamilyMemberIsSelected<>));
 
             register_presentation_infrastructure(builder);
             register_presenters(builder);
@@ -56,7 +56,6 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<ComposeShell>().As<NeedStartup>();
             builder.RegisterType<ConfigureMappings>().As<NeedStartup>();
             builder.RegisterType<WireUpSubscribers>().As<NeedStartup>();
-            new DB4OBootstrapper().run();
         }
 
         static void register_presentation_infrastructure(ContainerBuilder builder)
@@ -89,7 +88,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<IfFamilyMemberIsSelected<AddNewIncomeViewModel>>();
 
             builder.RegisterType<TaxSummaryPresenter>();
-            
+
             builder.RegisterType<DisplayCanadianTaxInformationViewModel>();
         }
 
@@ -97,14 +96,15 @@ namespace solidware.financials.windows.ui.bootstrappers
         {
             builder.RegisterType<PublishEventHandler<AddedNewFamilyMember>>().As<Handles<AddedNewFamilyMember>>();
             builder.RegisterType<PublishEventHandler<AddIncomeCommandMessage>>().As<Handles<AddIncomeCommandMessage>>();
-            
         }
 
         static void server_registration(ContainerBuilder builder)
         {
-            builder.RegisterType<AddNewFamilyMemberHandler>().As<Handles<FamilyMemberToAdd>>();
-            builder.RegisterType<FindAllFamilyHandler>().As<Handles<FindAllFamily>>();
+            var interceptor = new UnitOfWorkInterceptor();
+            builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
+            builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
             builder.RegisterType<InMemoryDatabase>().As<PersonRepository>().SingleInstance();
+            new DB4OBootstrapper().run();
         }
     }
 }

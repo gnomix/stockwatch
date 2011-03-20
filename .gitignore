@@ -10,3 +10,4 @@ local.properties.xml
 %APPDATA%
 app.config
 *.stackdump
+AssemblyInfo.cs

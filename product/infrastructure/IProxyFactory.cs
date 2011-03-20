@@ -4,6 +4,6 @@ namespace solidware.financials.infrastructure
 {
     public interface IProxyFactory
     {
-        T CreateProxyFor<T>(T clazz, params IInterceptor[] interceptors) where T : class;
+        T CreateProxyFor<T>(T target, params IInterceptor[] interceptors) where T : class;
     }
 }

@@ -6,11 +6,11 @@ using solidware.financials.service.domain;
 
 namespace solidware.financials.service.orm
 {
-    public class DB4ODatabase : PersonRepository
+    public class DB4OPersonRepository : PersonRepository
     {
         IObjectContainer session;
 
-        public DB4ODatabase(IObjectContainer session)
+        public DB4OPersonRepository(IObjectContainer session)
         {
             this.session = session;
         }

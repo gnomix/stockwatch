@@ -22,9 +22,9 @@ namespace solidware.financials.service.orm
 
         public void Dispose()
         {
+            context.remove(new TypedKey<Connection>());
             if (!was_committed) connection.Rollback();
             //connection.Dispose();
-            context.remove(new TypedKey<Connection>());
         }
     }
 }

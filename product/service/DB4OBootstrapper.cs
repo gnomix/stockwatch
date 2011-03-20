@@ -20,6 +20,7 @@ namespace solidware.financials.service
             using (var database = new DB4OConnectionFactory().Open())
             {
                 database.Store(new LastOpened(Clock.now()));
+                database.Commit();
             }
         }
     }

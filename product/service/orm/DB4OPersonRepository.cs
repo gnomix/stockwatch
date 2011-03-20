@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using solidware.financials.service.domain;
+using Db4objects.Db4o.Linq;
 
 namespace solidware.financials.service.orm
 {
@@ -21,12 +22,12 @@ namespace solidware.financials.service.orm
 
         public Person find_by(Guid id)
         {
-            return session.Query<Person>().Single(x => x.id == id);
+            return session.AsQueryable<Person>().Single(x => x.id == id);
         }
 
         public IEnumerable<Person> find_all()
         {
-            return session.Query<Person>();
+            return session.AsQueryable<Person>();
         }
     }
 }

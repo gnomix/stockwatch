@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\thirdparty\castle\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="gorilla.infrastructure">
       <HintPath>..\..\thirdparty\commons\gorilla.infrastructure.dll</HintPath>
     </Reference>
@@ -46,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CastleProxyFactory.cs" />
     <Compile Include="eventing\AnonymousSubscriber.cs" />
     <Compile Include="eventing\Event.cs" />
     <Compile Include="eventing\EventAggregator.cs" />
@@ -53,6 +57,7 @@
     <Compile Include="eventing\SynchronizedEventAggregator.cs" />
     <Compile Include="Handles.cs" />
     <Compile Include="InMemoryServiceBus.cs" />
+    <Compile Include="IProxyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBus.cs" />
   </ItemGroup>

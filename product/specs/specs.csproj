@@ -62,6 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="unit\infrastructure\ProxyFactorySpecs.cs" />
+    <Compile Include="unit\service\orm\UnitOfWorkInterceptorSpecs.cs" />
     <Compile Include="unit\ui\InMemoryApplicationStateSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddFamilyMemberPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddNewIncomeViewModelSpecs.cs" />
@@ -79,6 +80,10 @@
     <ProjectReference Include="..\messages\messages.csproj">
       <Project>{C3DF753C-7BB7-48E0-B87D-D37ED47EDF92}</Project>
       <Name>messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\service\service.csproj">
+      <Project>{9928913D-5BCE-422F-9A12-13A10ACE836D}</Project>
+      <Name>service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

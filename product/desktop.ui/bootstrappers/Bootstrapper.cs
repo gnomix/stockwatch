@@ -100,7 +100,7 @@ namespace solidware.financials.windows.ui.bootstrappers
 
         static void server_registration(ContainerBuilder builder)
         {
-            var interceptor = new UnitOfWorkInterceptor();
+            var interceptor = new UnitOfWorkInterceptor(null);
             builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
             builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
             builder.RegisterType<InMemoryDatabase>().As<PersonRepository>().SingleInstance();

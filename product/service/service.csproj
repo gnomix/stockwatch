@@ -57,10 +57,16 @@
     <Compile Include="domain\Entity.cs" />
     <Compile Include="domain\Person.cs" />
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
+    <Compile Include="orm\Connection.cs" />
+    <Compile Include="orm\ConnectionFactory.cs" />
     <Compile Include="orm\DB4OPersonRepository.cs" />
+    <Compile Include="orm\Disposable.cs" />
     <Compile Include="orm\InMemoryDatabase.cs" />
     <Compile Include="orm\LastOpened.cs" />
     <Compile Include="orm\PersonRepository.cs" />
+    <Compile Include="orm\TypedKey.cs" />
+    <Compile Include="orm\UnitOfWork.cs" />
+    <Compile Include="orm\UnitOfWorkFactory.cs" />
     <Compile Include="orm\UnitOfWorkInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

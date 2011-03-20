@@ -59,7 +59,7 @@
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
     <Compile Include="orm\Connection.cs" />
     <Compile Include="orm\ConnectionFactory.cs" />
-    <Compile Include="orm\DB40UnitOfWork.cs" />
+    <Compile Include="orm\DB4OUnitOfWork.cs" />
     <Compile Include="orm\DB40UnitOfWorkFactory.cs" />
     <Compile Include="orm\DB4OPersonRepository.cs" />
     <Compile Include="orm\Disposable.cs" />

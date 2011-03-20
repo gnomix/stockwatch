@@ -6,6 +6,7 @@ namespace solidware.financials.service.orm
     {
         readonly ConnectionFactory factory;
         readonly Context context;
+        Key<Connection> key = new TypedKey<Connection>();
 
         public DB40UnitOfWorkFactory(ConnectionFactory factory, Context context)
         {
@@ -15,11 +16,11 @@ namespace solidware.financials.service.orm
 
         public UnitOfWork create()
         {
-            if( context.contains(new TypedKey<Connection>()))
-                return new EmptyUnitOfWork();
+            if( context.contains(key)) return new EmptyUnitOfWork();
+
             var connection = factory.Open();
-            context.add(new TypedKey<Connection>(), connection);
-            return new DB40UnitOfWork(connection);
+            context.add(key, connection);
+            return new DB4OUnitOfWork(connection);
         }
     }
 }

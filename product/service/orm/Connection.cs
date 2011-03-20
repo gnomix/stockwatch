@@ -1,6 +1,8 @@
-﻿namespace solidware.financials.service.orm
+﻿using Db4objects.Db4o;
+
+namespace solidware.financials.service.orm
 {
-    public interface Connection
+    public interface Connection : IObjectContainer, Disposable
     {
     }
 }

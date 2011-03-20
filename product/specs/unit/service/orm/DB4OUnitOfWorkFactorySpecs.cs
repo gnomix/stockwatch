@@ -31,7 +31,7 @@ namespace specs.unit.service.orm
 
             It should_return_a_new_unit_of_work = () =>
             {
-                result.ShouldBe(typeof(DB40UnitOfWork));
+                result.ShouldBe(typeof(DB4OUnitOfWork));
             };
 
             Establish context = () =>

@@ -36,6 +36,7 @@
     <Reference Include="Castle.Core">
       <HintPath>..\..\thirdparty\castle\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Db4objects.Db4o, Version=8.0.184.15484, Culture=neutral, PublicKeyToken=6199cd4f203aa8eb, processorArchitecture=MSIL" />
     <Reference Include="gorilla.infrastructure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="gorilla.utility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -63,6 +64,7 @@
     <Compile Include="Create.cs" />
     <Compile Include="unit\infrastructure\ProxyFactorySpecs.cs" />
     <Compile Include="unit\service\orm\DB4OUnitOfWorkFactorySpecs.cs" />
+    <Compile Include="unit\service\orm\DB4OUnitOfWorkSpecs.cs" />
     <Compile Include="unit\service\orm\UnitOfWorkInterceptorSpecs.cs" />
     <Compile Include="unit\ui\InMemoryApplicationStateSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddFamilyMemberPresenterSpecs.cs" />

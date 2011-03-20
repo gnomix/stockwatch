@@ -104,6 +104,9 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
             builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
             builder.RegisterType<InMemoryDatabase>().As<PersonRepository>().SingleInstance();
+            builder.RegisterType<ScopedContext>().As<Context>().SingleInstance();
+            builder.RegisterType<PerThreadScopedStorage>().As<IScopedStorage>();
+            builder.RegisterType<CurrentThread>().As<IThread>();
             new DB4OBootstrapper().run();
         }
     }

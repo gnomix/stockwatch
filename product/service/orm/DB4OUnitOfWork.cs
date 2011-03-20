@@ -1,25 +1,30 @@
-﻿namespace solidware.financials.service.orm
+﻿using gorilla.utility;
+
+namespace solidware.financials.service.orm
 {
     public class DB4OUnitOfWork : UnitOfWork
     {
         readonly Connection connection;
+        readonly Context context;
         bool was_committed;
 
-        public DB4OUnitOfWork(Connection connection)
+        public DB4OUnitOfWork(Connection connection, Context context)
         {
             this.connection = connection;
-        }
-
-        public void Dispose()
-        {
-            if (!was_committed) connection.Rollback();
-            connection.Dispose();
+            this.context = context;
         }
 
         public void commit()
         {
             connection.Commit();
             was_committed = true;
+        }
+
+        public void Dispose()
+        {
+            if (!was_committed) connection.Rollback();
+            //connection.Dispose();
+            context.remove(new TypedKey<Connection>());
         }
     }
 }

@@ -1,3 +1,4 @@
+using gorilla.utility;
 using Machine.Specifications;
 using Rhino.Mocks;
 using solidware.financials.service.orm;
@@ -11,11 +12,13 @@ namespace specs.unit.service.orm
             Establish context = () =>
             {
                 session = Create.dependency<Connection>();
-                sut = new DB4OUnitOfWork(session);
+                the_context = Create.dependency<Context>();
+                sut = new DB4OUnitOfWork(session, the_context);
             };
 
             static protected DB4OUnitOfWork sut;
             static protected Connection session;
+            static Context the_context;
         }
 
         [Subject(typeof(DB4OUnitOfWork))]

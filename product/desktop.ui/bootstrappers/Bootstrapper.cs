@@ -100,13 +100,25 @@ namespace solidware.financials.windows.ui.bootstrappers
 
         static void server_registration(ContainerBuilder builder)
         {
-            var interceptor = new UnitOfWorkInterceptor(null);
-            builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
-            builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
-            builder.RegisterType<InMemoryDatabase>().As<PersonRepository>().SingleInstance();
+            //builder.RegisterType<InMemoryDatabase>().As<PersonRepository>().SingleInstance();
+            builder.RegisterType<DB4OPersonRepository>().As<PersonRepository>().SingleInstance();
             builder.RegisterType<ScopedContext>().As<Context>().SingleInstance();
+            //builder.Register(x => new SimpleContext(new Hashtable())).As<Context>().SingleInstance();
             builder.RegisterType<PerThreadScopedStorage>().As<IScopedStorage>();
             builder.RegisterType<CurrentThread>().As<IThread>();
+            builder.Register(x =>
+            {
+                return Lazy.load(() =>
+                {
+                    var context = Resolve.the<Context>();
+                    var key = new TypedKey<Connection>();
+                    return context.value_for(key);
+                });
+            });
+
+            var interceptor = new UnitOfWorkInterceptor(new DB40UnitOfWorkFactory(new DB4OConnectionFactory(), Lazy.load<Context>()) );
+            builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
+            builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
             new DB4OBootstrapper().run();
         }
     }

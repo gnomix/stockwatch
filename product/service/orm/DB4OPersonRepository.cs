@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Db4objects.Db4o;
 using solidware.financials.service.domain;
 
 namespace solidware.financials.service.orm
 {
     public class DB4OPersonRepository : PersonRepository
     {
-        IObjectContainer session;
+        Connection session;
 
-        public DB4OPersonRepository(IObjectContainer session)
+        public DB4OPersonRepository(Connection session)
         {
             this.session = session;
         }

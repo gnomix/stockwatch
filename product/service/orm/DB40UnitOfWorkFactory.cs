@@ -20,7 +20,7 @@ namespace solidware.financials.service.orm
 
             var connection = factory.Open();
             context.add(key, connection);
-            return new DB4OUnitOfWork(connection);
+            return new DB4OUnitOfWork(connection, context);
         }
     }
 }

@@ -59,6 +59,8 @@
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
     <Compile Include="orm\Connection.cs" />
     <Compile Include="orm\ConnectionFactory.cs" />
+    <Compile Include="orm\DB4OConnection.cs" />
+    <Compile Include="orm\DB4OConnectionFactory.cs" />
     <Compile Include="orm\DB4OUnitOfWork.cs" />
     <Compile Include="orm\DB40UnitOfWorkFactory.cs" />
     <Compile Include="orm\DB4OPersonRepository.cs" />

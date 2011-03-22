@@ -1,7 +1,8 @@
-﻿namespace solidware.financials.service.orm
+﻿using gorilla.utility;
+
+namespace solidware.financials.service.orm
 {
-    public interface UnitOfWorkFactory
+    public interface UnitOfWorkFactory : Factory<UnitOfWork>
     {
-        UnitOfWork create();
     }
 }

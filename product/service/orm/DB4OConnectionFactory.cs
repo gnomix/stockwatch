@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using Db4objects.Db4o;
-using Db4objects.Db4o.Config;
-using Db4objects.Db4o.TA;
 
 namespace solidware.financials.service.orm
 {
@@ -25,8 +23,7 @@ namespace solidware.financials.service.orm
 
         void ensure_directories_exist()
         {
-            var company_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                                           @"mokhan.ca");
+            var company_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), @"mokhan.ca");
             if (!Directory.Exists(company_dir))
                 Directory.CreateDirectory(company_dir);
 

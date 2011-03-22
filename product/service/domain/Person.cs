@@ -1,5 +1,3 @@
-using gorilla.utility;
-
 namespace solidware.financials.service.domain
 {
     public class Person : Entity

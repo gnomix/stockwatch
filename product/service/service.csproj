@@ -31,7 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL" />
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\thirdparty\castle\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Db4objects.Db4o">
       <HintPath>..\..\thirdparty\db4o\Db4objects.Db4o.dll</HintPath>
     </Reference>
@@ -52,6 +54,55 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB4OBootstrapper.cs" />
+    <Compile Include="domain\accounting\Account.cs" />
+    <Compile Include="domain\accounting\BOED.cs" />
+    <Compile Include="domain\accounting\ConversionRatio.cs" />
+    <Compile Include="domain\accounting\Currency.cs" />
+    <Compile Include="domain\accounting\DateRange.cs" />
+    <Compile Include="domain\accounting\Deposit.cs" />
+    <Compile Include="domain\accounting\DetailAccount.cs" />
+    <Compile Include="domain\accounting\Entry.cs" />
+    <Compile Include="domain\accounting\MCF.cs" />
+    <Compile Include="domain\accounting\Potential.cs" />
+    <Compile Include="domain\accounting\PotentialEntry.cs" />
+    <Compile Include="domain\accounting\Quantity.cs" />
+    <Compile Include="domain\accounting\Range.cs" />
+    <Compile Include="domain\accounting\SequentialRange.cs" />
+    <Compile Include="domain\accounting\SimpleUnitOfMeasure.cs" />
+    <Compile Include="domain\accounting\SummaryAccount.cs" />
+    <Compile Include="domain\accounting\Transaction.cs" />
+    <Compile Include="domain\accounting\TransactionDoesNotBalance.cs" />
+    <Compile Include="domain\accounting\TransactionType.cs" />
+    <Compile Include="domain\accounting\UnitOfMeasure.cs" />
+    <Compile Include="domain\accounting\Withdrawal.cs" />
+    <Compile Include="domain\Calendar.cs" />
+    <Compile Include="domain\ComparableExtensions.cs" />
+    <Compile Include="domain\Date.cs" />
+    <Compile Include="domain\DateExtensions.cs" />
+    <Compile Include="domain\hierarchy\Hierarchy.cs" />
+    <Compile Include="domain\payroll\Annually.cs" />
+    <Compile Include="domain\payroll\AnonymousVisitor.cs" />
+    <Compile Include="domain\payroll\BaseDenominator.cs" />
+    <Compile Include="domain\payroll\Compensation.cs" />
+    <Compile Include="domain\payroll\Denominator.cs" />
+    <Compile Include="domain\payroll\Fraction.cs" />
+    <Compile Include="domain\payroll\Frequency.cs" />
+    <Compile Include="domain\payroll\Grant.cs" />
+    <Compile Include="domain\payroll\History.cs" />
+    <Compile Include="domain\payroll\Money.cs" />
+    <Compile Include="domain\payroll\Monthly.cs" />
+    <Compile Include="domain\payroll\One.cs" />
+    <Compile Include="domain\payroll\Third.cs" />
+    <Compile Include="domain\payroll\Twelfth.cs" />
+    <Compile Include="domain\payroll\UnitPrice.cs" />
+    <Compile Include="domain\payroll\Units.cs" />
+    <Compile Include="domain\payroll\Vest.cs" />
+    <Compile Include="domain\property_bag\Bag.cs" />
+    <Compile Include="domain\property_bag\Property.cs" />
+    <Compile Include="domain\property_bag\PropertyBag.cs" />
+    <Compile Include="domain\property_bag\PropertyBagWithoutTarget.cs" />
+    <Compile Include="domain\property_bag\PropertyReference.cs" />
+    <Compile Include="domain\property_bag\UnknownProperty.cs" />
     <Compile Include="handlers\AddIncomeCommandMessageHandler.cs" />
     <Compile Include="handlers\AddNewFamilyMemberHandler.cs" />
     <Compile Include="domain\Entity.cs" />

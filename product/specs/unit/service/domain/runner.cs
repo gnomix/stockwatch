@@ -1,6 +1,4 @@
-﻿using Machine.Specifications;
-
-namespace specs.unit.service.domain
+﻿namespace specs.unit.service.domain
 {
     public class runner<T>
     {

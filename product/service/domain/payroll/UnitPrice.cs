@@ -2,14 +2,14 @@ namespace solidware.financials.service.domain.payroll
 {
     public class UnitPrice
     {
-        readonly double price;
+        readonly decimal price;
 
-        UnitPrice(double price)
+        UnitPrice(decimal price)
         {
             this.price = price;
         }
 
-        static public implicit operator UnitPrice(double raw)
+        static public implicit operator UnitPrice(decimal raw)
         {
             return new UnitPrice(raw);
         }

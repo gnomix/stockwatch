@@ -10,7 +10,7 @@ namespace solidware.financials.service.domain.payroll
             return new Units {units = units};
         }
 
-        public Money value_at(double price)
+        public Money value_at(decimal price)
         {
             return price*units;
         }

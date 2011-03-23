@@ -7,13 +7,20 @@ namespace specs.unit.service.domain.payroll
 {
     public class GrantSpecs
     {
-        public abstract class concern : runner<Grant>
+        public abstract class concern 
         {
-            protected override Grant create_sut()
+            Establish context = () =>
             {
                 Calendar.stop(() => new DateTime(2010, 01, 01));
-                return Grant.New(120, 10, new One<Twelfth>(), new Monthly());
-            }
+                sut = Grant.New(120, 10, new One<Twelfth>(), new Monthly());
+            };
+
+            Cleanup clean = () =>
+            {
+                Calendar.reset();
+            };
+
+            static protected Grant sut;
         }
 
         [Concern(typeof (Grant))]

@@ -5,15 +5,15 @@ namespace solidware.financials.service.domain.payroll
 {
     public class Money : IEquatable<Money>
     {
-        double value;
+        decimal value;
         static public Money Zero = new Money(0);
 
-        Money(double value)
+        Money(decimal value)
         {
             this.value = value;
         }
 
-        static public implicit operator Money(double raw)
+        static public implicit operator Money(decimal raw)
         {
             return new Money(raw);
         }
@@ -53,7 +53,7 @@ namespace solidware.financials.service.domain.payroll
             return "{0:C}".format(value);
         }
 
-        public Units at_price(double price)
+        public Units at_price(decimal price)
         {
             return Units.New((int)(value / price));
         }

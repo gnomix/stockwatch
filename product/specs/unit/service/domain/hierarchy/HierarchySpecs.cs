@@ -6,12 +6,14 @@ namespace specs.unit.service.domain.hierarchy
 {
     public class HierarchySpecs
     {
-        public abstract class concern : runner<Hierarchy>
+        public abstract class concern 
         {
-            protected override Hierarchy create_sut()
+            Establish context = () =>
             {
-                return new Hierarchy();
-            }
+                sut = new Hierarchy();
+            };
+
+            static protected Hierarchy sut;
         }
 
         [Concern(typeof (Hierarchy))]

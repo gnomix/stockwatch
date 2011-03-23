@@ -8,20 +8,19 @@ namespace specs.unit.service.domain.property_bag
 {
     public class PropertyBagSpecs
     {
-        public abstract class concern : runner<PropertyBag>
+        public abstract class concern 
         {
-            Establish c = () => Console.Out.WriteLine("init concern");
-
-            protected override PropertyBag create_sut()
+            Establish context = () =>
             {
-                return Bag.For<TargetType>();
-            }
+                sut = Bag.For<TargetType>();
+            };
+
+            static protected PropertyBag sut;
         }
 
         [Concern(typeof (PropertyBag))]
         public class when_creating_a_property_bag_from_a_known_type : concern
         {
-
             It should_include_each_property_from_the_target_type = () =>
             {
                 sut.property_named("name").should_not_be_null();

@@ -5,9 +5,10 @@ namespace specs.unit.service.domain.accounting
 {
     public class CurrencySpecs
     {
-        public abstract class concern : runner<Currency>
+        public abstract class concern 
         {
-            Cleanup clean = () => { 
+            Cleanup clean = () =>
+            {
                 SimpleUnitOfMeasure.provide_rate((x, y) => ConversionRatio.Default);
             };
         }
@@ -22,13 +23,8 @@ namespace specs.unit.service.domain.accounting
 
             It should_return_the_correct_amount = () =>
             {
-                sut.convert(1, Currency.CAD).should_be_equal_to(1.05690034);
+                Currency.USD.convert(1, Currency.CAD).should_be_equal_to(1.05690034);
             };
-
-            protected override Currency create_sut()
-            {
-                return Currency.USD;
-            }
         }
 
         [Concern(typeof (Currency))]
@@ -41,13 +37,8 @@ namespace specs.unit.service.domain.accounting
 
             It should_return_the_correct_amount = () =>
             {
-                sut.convert(1.05690034d, Currency.USD).should_be_equal_to(1.0046577561938002d);
+                Currency.CAD.convert(1.05690034d, Currency.USD).should_be_equal_to(1.0046577561938002d);
             };
-
-            protected override Currency create_sut()
-            {
-                return Currency.CAD;
-            }
         }
     }
 }

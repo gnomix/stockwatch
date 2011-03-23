@@ -7,12 +7,14 @@ namespace specs.unit.service.domain.payroll
 {
     public class CompensationSpecs
     {
-        public abstract class concern : runner<Compensation>
+        public abstract class concern 
         {
-            protected override Compensation create_sut()
+            Establish context = () =>
             {
-                return new Compensation();
-            }
+                sut = new Compensation();
+            };
+
+            static protected Compensation sut;
         }
 
         [Concern(typeof (Compensation))]
@@ -23,10 +25,10 @@ namespace specs.unit.service.domain.payroll
                 //Calendar.stop(() => new DateTime(2009, 06, 07));
                 //sut.increase_salary_to(65500);
                 Calendar.stop(() => new DateTime(2009, 09, 15));
-                sut.issue_grant(4500.00, 10.00, new One<Third>(), new Annually());
+                sut.issue_grant(4500.00m, 10.00m, new One<Third>(), new Annually());
 
                 Calendar.start();
-                sut.grant_for(new DateTime(2009, 09, 15)).change_unit_price_to(20.00);
+                sut.grant_for(new DateTime(2009, 09, 15)).change_unit_price_to(20.00m);
             };
 
             It should_indicate_that_nothing_has_vested_before_the_first_anniversary = () =>

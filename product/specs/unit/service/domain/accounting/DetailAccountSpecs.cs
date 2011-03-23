@@ -5,12 +5,14 @@ namespace specs.unit.service.domain.accounting
 {
     public class DetailAccountSpecs
     {
-        public abstract class concern : runner<DetailAccount>
+        public abstract class concern
         {
-            protected override DetailAccount create_sut()
+            Establish context = () =>
             {
-                return DetailAccount.New(Currency.CAD);
-            }
+                sut = DetailAccount.New(Currency.CAD);
+            };
+
+            static protected DetailAccount sut;
         }
 
         [Concern(typeof (DetailAccount))]

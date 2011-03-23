@@ -5,20 +5,14 @@ namespace specs.unit.service.domain.payroll
 {
     public class MoneySpecs
     {
-        public abstract class concern : runner<Money> {}
-
         [Concern(typeof (Money))]
-        public class when_two_monies_are_the_same : concern
+        public class when_two_monies_are_the_same
         {
             It should_be_equal = () =>
             {
-                sut.Equals(100.00);
+                Money sut = 100.00m;
+                sut.Equals(100.00m);
             };
-
-            protected override Money create_sut()
-            {
-                return 100.00;
-            }
         }
     }
 }

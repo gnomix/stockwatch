@@ -13,7 +13,7 @@ namespace solidware.financials.service.domain.payroll
         {
             var grant = new Grant
                         {
-                            issued_on = Calendar.now(),
+                            issued_on = Calendar.today(),
                         };
             grant.change_unit_price_to(price);
             grant.purchase(purchase_amount);
@@ -35,7 +35,7 @@ namespace solidware.financials.service.domain.payroll
 
         public virtual Money balance()
         {
-            return balance(Calendar.now());
+            return balance(Calendar.today());
         }
 
         public virtual Money balance(Date on_date)
@@ -60,7 +60,7 @@ namespace solidware.financials.service.domain.payroll
 
         UnitPrice current_unit_price()
         {
-            return unit_price(Calendar.now());
+            return unit_price(Calendar.today());
         }
 
         UnitPrice unit_price(Date on_date)

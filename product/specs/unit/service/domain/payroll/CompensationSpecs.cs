@@ -24,10 +24,10 @@ namespace specs.unit.service.domain.payroll
             {
                 //Calendar.stop(() => new DateTime(2009, 06, 07));
                 //sut.increase_salary_to(65500);
-                Calendar.stop(() => new DateTime(2009, 09, 15));
+                Calendar.freeze(() => new DateTime(2009, 09, 15));
                 sut.issue_grant(4500.00m, 10.00m, new One<Third>(), new Annually());
 
-                Calendar.start();
+                Calendar.thaw();
                 sut.grant_for(new DateTime(2009, 09, 15)).change_unit_price_to(20.00m);
             };
 

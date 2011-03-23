@@ -11,7 +11,7 @@ namespace solidware.financials.service.domain.accounting
         {
             return new Entry
                    {
-                       when_booked = Calendar.now(),
+                       when_booked = Calendar.today(),
                        transaction_type = new Transaction(),
                        amount = amount,
                    };

@@ -11,13 +11,13 @@ namespace specs.unit.service.domain.payroll
         {
             Establish context = () =>
             {
-                Calendar.stop(() => new DateTime(2010, 01, 01));
+                Calendar.freeze(() => new DateTime(2010, 01, 01));
                 sut = Grant.New(120, 10, new One<Twelfth>(), new Monthly());
             };
 
             Cleanup clean = () =>
             {
-                Calendar.reset();
+                Calendar.thaw();
             };
 
             static protected Grant sut;
@@ -28,13 +28,13 @@ namespace specs.unit.service.domain.payroll
         {
             It should_return_the_full_balance_before_the_first_vesting_date = () =>
             {
-                Calendar.stop(() => new DateTime(2010, 01, 31));
+                Calendar.freeze(() => new DateTime(2010, 01, 31));
                 sut.balance().should_be_equal_to(120);
             };
 
             It should_return_the_unvested_portion_after_the_first_vesting_date = () =>
             {
-                Calendar.stop(() => new DateTime(2010, 02, 01));
+                Calendar.freeze(() => new DateTime(2010, 02, 01));
                 sut.balance().should_be_equal_to(110);
             };
         }
@@ -44,10 +44,10 @@ namespace specs.unit.service.domain.payroll
         {
             Because b = () =>
             {
-                Calendar.stop(() => january_15);
+                Calendar.freeze(() => january_15);
                 sut.change_unit_price_to(20);
 
-                Calendar.reset();
+                Calendar.thaw();
                 sut.change_unit_price_to(40);
                 result = sut.balance(january_15);
             };

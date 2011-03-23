@@ -22,7 +22,7 @@ namespace solidware.financials.service.domain.payroll
         {
             public Event(K adjustment)
             {
-                date_of_change = Calendar.now();
+                date_of_change = Calendar.today();
                 this.adjustment = adjustment;
             }
 

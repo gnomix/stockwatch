@@ -38,7 +38,7 @@ namespace solidware.financials.service.domain.accounting
 
         public Quantity balance()
         {
-            return balance(Calendar.now());
+            return balance(Calendar.today());
         }
 
         public Quantity balance(Date date)

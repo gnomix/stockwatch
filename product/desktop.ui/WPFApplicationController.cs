@@ -1,6 +1,5 @@
 using System;
 using System.Windows;
-using System.Windows.Controls;
 using AvalonDock;
 using solidware.financials.infrastructure.eventing;
 
@@ -24,22 +23,11 @@ namespace solidware.financials.windows.ui
             where View : FrameworkElement, Tab<Presenter>, new()
         {
             var presenter = open<Presenter>();
-            //configure_region<TabControl>(x => x.Items.Add(new TabItem
-            //{
-            //    Header = presenter.Header,
-            //    Content = new View {DataContext = presenter}
-            //}));
             configure_region<DocumentPane>(x => x.Items.Add(new DocumentContent
             {
                 Title = presenter.Header,
                 Content = new View {DataContext = presenter}
             }));
-        }
-
-        public void launch<Presenter, Dialog>() where Presenter : DialogPresenter
-            where Dialog : FrameworkElement, Dialog<Presenter>, new()
-        {
-            new Dialog().open(factory.create<Presenter>());
         }
 
         public void load_region<TPresenter, Region>() where TPresenter : Presenter

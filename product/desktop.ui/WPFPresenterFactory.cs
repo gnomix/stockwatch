@@ -11,9 +11,9 @@ namespace solidware.financials.windows.ui
             this.container = container;
         }
 
-        public T create<T>() where T : Presenter
+        public TPresenter create<TPresenter>() where TPresenter : Presenter
         {
-            return container.get_a<T>();
+            return container.get_a<TPresenter>();
         }
     }
 }

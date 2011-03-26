@@ -2,7 +2,7 @@ using System.Windows;
 
 namespace solidware.financials.windows.ui
 {
-    public interface ApplicationController : DialogLauncher
+    public interface ApplicationController 
     {
         void add_tab<Presenter, Tab>() where Presenter : TabPresenter
             where Tab : FrameworkElement, Tab<Presenter>, new();

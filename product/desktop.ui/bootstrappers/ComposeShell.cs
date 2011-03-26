@@ -8,10 +8,12 @@ namespace solidware.financials.windows.ui.bootstrappers
     {
         RegionManager region_manager;
         ApplicationController controller;
+        DialogLauncher launcher;
 
-        public ComposeShell(RegionManager region_manager, ApplicationController controller)
+        public ComposeShell(RegionManager region_manager, ApplicationController controller, DialogLauncher launcher)
         {
             this.region_manager = region_manager;
+            this.launcher = launcher;
             this.controller = controller;
         }
 
@@ -39,7 +41,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         void launch<Presenter, Dialog>() where Presenter : DialogPresenter
             where Dialog : FrameworkElement, Dialog<Presenter>, new()
         {
-            controller.launch<Presenter, Dialog>();
+            launcher.launch<Presenter, Dialog>();
         }
     }
 }

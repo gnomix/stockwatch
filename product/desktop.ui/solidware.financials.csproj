@@ -181,6 +181,7 @@
     <Compile Include="WPFApplication.cs" />
     <Compile Include="WPFApplicationController.cs" />
     <Compile Include="RegionManager.cs" />
+    <Compile Include="WPFDialogLauncher.cs" />
     <Compile Include="WPFPresenterFactory.cs" />
   </ItemGroup>
   <ItemGroup>

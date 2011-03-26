@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using gorilla.utility;
 
@@ -20,6 +21,11 @@ namespace solidware.financials.windows.ui.views
                           {Tabs.GetType(), Tabs},
                           {SelectedFamilyMember.GetType(), SelectedFamilyMember},
                       };
+            DockManager.Loaded += (o, e) =>
+            {
+                if(File.Exists(settings_file)) DockManager.RestoreLayout(settings_file);
+            };
+            this.Closing += (o, e) => DockManager.SaveLayout(settings_file);
         }
 
         public void region<Region>(Action<Region> configure) where Region : UIElement
@@ -35,5 +41,6 @@ namespace solidware.financials.windows.ui.views
         }
 
         readonly IDictionary<Type, UIElement> regions;
+        string settings_file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), @"mokhan.ca\momoney\default.ui.settings");
     }
 }

@@ -64,6 +64,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         {
             SynchronizationContext.SetSynchronizationContext(new DispatcherSynchronizationContext());
             builder.RegisterType<WPFApplicationController>().As<ApplicationController>().SingleInstance();
+            builder.RegisterType<WPFDialogLauncher>().As<DialogLauncher>().SingleInstance();
             builder.RegisterType<WPFPresenterFactory>().As<PresenterFactory>().SingleInstance();
             builder.RegisterType<SynchronizedEventAggregator>().As<EventAggregator>().SingleInstance();
             //builder.Register(x => AsyncOperationManager.SynchronizationContext);

@@ -3,7 +3,7 @@
 		<ui:MainMenu x:Name="Menu" DockPanel.Dock="Top" HorizontalAlignment="Right"></ui:MainMenu>
 		<ui:StatusBarRegion x:Name="StatusBar" DockPanel.Dock="Bottom"></ui:StatusBarRegion>
 		<StackPanel>
-			<ui:SelectedFamilyMemberRegion x:Name="SelectedFamilyMember"></ui:SelectedFamilyMemberRegion>
+			<ui:ButtonBar x:Name="SelectedFamilyMember"></ui:ButtonBar>
 			<TabControl Name="Tabs"></TabControl>
 		</StackPanel>
 	</DockPanel>

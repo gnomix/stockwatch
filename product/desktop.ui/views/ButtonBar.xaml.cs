@@ -7,9 +7,9 @@ using solidware.financials.windows.ui.views.icons;
 
 namespace solidware.financials.windows.ui.views
 {
-    public partial class SelectedFamilyMemberRegion : View<SelectedFamilyMemberPresenter>
+    public partial class ButtonBar : View<SelectedFamilyMemberPresenter>
     {
-        public SelectedFamilyMemberRegion()
+        public ButtonBar()
         {
             InitializeComponent();
         }

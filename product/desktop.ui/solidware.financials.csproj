@@ -164,8 +164,8 @@
     <Compile Include="views\ImageButton.cs" />
     <Compile Include="views\MainMenu.cs" />
     <Compile Include="views\MenuItemExtensions.cs" />
-    <Compile Include="views\SelectedFamilyMemberRegion.xaml.cs">
-      <DependentUpon>SelectedFamilyMemberRegion.xaml</DependentUpon>
+    <Compile Include="views\ButtonBar.xaml.cs">
+      <DependentUpon>ButtonBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
@@ -231,7 +231,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="views\SelectedFamilyMemberRegion.xaml">
+    <Page Include="views\ButtonBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

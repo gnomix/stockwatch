@@ -16,9 +16,17 @@
           <ad:DockablePane ad:ResizingPanel.ResizeWidth="150">
             <ad:DockableContent x:Name="classesContent" Title="Classes">
               <TreeView>
-                <TreeViewItem Header="Class1"/>
-                <TreeViewItem Header="Class2"/>
-              </TreeView>
+                <TreeViewItem Header="2011">
+                    <TreeViewItem Header="January"></TreeViewItem>
+                    <TreeViewItem Header="February"></TreeViewItem>
+                    <TreeViewItem Header="March"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="2010">
+                    <TreeViewItem Header="January"></TreeViewItem>
+                    <TreeViewItem Header="February"></TreeViewItem>
+                    <TreeViewItem Header="March"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
             </ad:DockableContent>
             <ad:DockableContent x:Name="toolsContent" Title="Tools">
               <ListBox>

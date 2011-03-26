@@ -1,0 +1,40 @@
+﻿using System.IO;
+using System.Windows.Media;
+
+namespace solidware.financials.windows.ui.views.icons
+{
+    public class UIIcon
+    {
+        static public readonly UIIcon Category = new UIIcon("category.png");
+        static public readonly UIIcon Comment = new UIIcon("comment.png");
+        static public readonly UIIcon Delete = new UIIcon("delete.png");
+        static public readonly UIIcon Edit = new UIIcon("edit.png");
+        static public readonly UIIcon Help = new UIIcon("help.ico");
+        static public readonly UIIcon Plus = new UIIcon("plus.png");
+        static public readonly UIIcon Refresh = new UIIcon("refresh.png");
+        static public readonly UIIcon Running = new UIIcon("running.gif");
+        static public readonly UIIcon Success = new UIIcon("success.png");
+
+        UIIcon(string path)
+        {
+            this.path = path;
+        }
+
+        public Stream ImageStream()
+        {
+            return IconMarker.GetImage(path);
+        }
+
+        public ImageSource BitmapFrame()
+        {
+            return System.Windows.Media.Imaging.BitmapFrame.Create(ImageStream());
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Path: {0}", path);
+        }
+
+        string path;
+    }
+}

@@ -5,6 +5,7 @@
         public AddNewIncomeDialog()
         {
             InitializeComponent();
+            Icon =  icons.UIIcon.Plus.BitmapFrame();
         }
     }
 }

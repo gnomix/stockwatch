@@ -90,7 +90,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -159,6 +158,8 @@
     <Compile Include="views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\icons\UIIcon.cs" />
+    <Compile Include="views\icons\IconMarker.cs" />
     <Compile Include="views\ImageButton.cs" />
     <Compile Include="views\MainMenu.cs" />
     <Compile Include="views\MenuItemExtensions.cs" />
@@ -291,6 +292,36 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\help.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\running.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\success.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

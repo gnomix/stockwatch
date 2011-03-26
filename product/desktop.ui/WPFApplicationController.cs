@@ -26,7 +26,7 @@ namespace solidware.financials.windows.ui
             configure_region<DocumentPane>(x => x.Items.Add(new DocumentContent
             {
                 Title = presenter.Header,
-                Content = new View {DataContext = presenter}
+                Content = new View {DataContext = presenter},
             }));
         }
 

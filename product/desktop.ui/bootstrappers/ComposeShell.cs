@@ -1,6 +1,8 @@
 using System.Windows;
+using gorilla.infrastructure.container;
 using solidware.financials.windows.ui.presenters;
 using solidware.financials.windows.ui.views;
+using solidware.financials.windows.ui.views.icons;
 
 namespace solidware.financials.windows.ui.bootstrappers
 {
@@ -23,15 +25,13 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             region_manager.region<MainMenu>(x =>
             {
-                x.add("_Family")
-                    .add("_Add Member", launch<AddFamilyMemberPresenter, AddFamilyMemberDialog>);
-                x.add("_Income")
-                    .add("_Add Income", launch<AddNewIncomeViewModel, AddNewIncomeDialog>);
+                x.add("_Application").add("E_xit", () => Resolve.the<Shell>().Close());
+                x.add("_Family").add("_Add Member", launch<AddFamilyMemberPresenter, AddFamilyMemberDialog>).apply_icon(UIIcon.Plus).parent();
+                x.add("_Income").add("_Add Income", launch<AddNewIncomeViewModel, AddNewIncomeDialog>).apply_icon(UIIcon.Plus);
                 //x.add("_Deductions").add("_Add RRSP", () => { }) ;
                 //x.add("_Credits").add("_Add Credit", () => { }) ;
                 //x.add("_Benefits").add("_Add Benefit", () => { }) ;
-                x.add("_Help")
-                    .add("_Taxes", launch<DisplayCanadianTaxInformationViewModel, DisplayCanadianTaxInformationDialog>);
+                x.add("_Help").add("_Taxes", launch<DisplayCanadianTaxInformationViewModel, DisplayCanadianTaxInformationDialog>).apply_icon(UIIcon.Help);
             });
 
             controller.load_region<StatusBarPresenter, StatusBarRegion>();

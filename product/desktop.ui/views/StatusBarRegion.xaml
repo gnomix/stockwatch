@@ -1,13 +1,15 @@
 ﻿<UserControl x:Class="solidware.financials.windows.ui.views.StatusBarRegion"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StatusBar HorizontalAlignment="Right">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Background="Blue" HorizontalContentAlignment="Right">
+    <StatusBar>
     	<StatusBar.Resources>
     		<BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     	</StatusBar.Resources>
-    	<Label Content="{Binding progress_message}"></Label>
+        <StatusBarItem Content="{Binding progress_message}" />
+        <StatusBarItem>
         <ProgressBar Width="200" Height="25" IsIndeterminate="True" Visibility="{Binding Path=is_progress_bar_on, Converter={StaticResource BooleanToVisibilityConverter}}"></ProgressBar>
-        <Label Content="{Binding username}"></Label>
-        <Label Content="{Binding title}"></Label>
+        </StatusBarItem>
+        <StatusBarItem Content="{Binding username}" />
+        <StatusBarItem Content="{Binding title}" />
     </StatusBar>
 </UserControl>

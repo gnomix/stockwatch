@@ -6,7 +6,7 @@
       <RowDefinition Height="24"/>
       <RowDefinition Height="32"/>
       <RowDefinition Height="*"/>
-      <RowDefinition Height="32"/>
+      <RowDefinition Height="24"/>
     </Grid.RowDefinitions>
     <views:MainMenu x:Name="Menu"></views:MainMenu>
     <views:SelectedFamilyMemberRegion x:Name="SelectedFamilyMember" Grid.Row="1"></views:SelectedFamilyMemberRegion>

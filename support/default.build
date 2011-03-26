@@ -66,7 +66,8 @@
   </target>
 
 	<target name="run.test" depends="compile">
-  	<property name="xunit.cons.exe" value="${tools.dir}/mspec/mspec.exe" />
+  	<!-- <property name="xunit.cons.exe" value="${tools.dir}/mspec/mspec.exe" /> -->
+    <property name="xunit.cons.exe" value="${base.dir}/packages/Machine.Specifications.0.4.9.0/tools/mspec-clr4.exe" />
 		<exec program="${xunit.cons.exe}" workingdir="${tmp.dir}" commandline="${xunit.arguments}" />
 	</target>
 

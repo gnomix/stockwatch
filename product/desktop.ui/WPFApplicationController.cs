@@ -1,17 +1,18 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using AvalonDock;
 using solidware.financials.infrastructure.eventing;
 
 namespace solidware.financials.windows.ui
 {
-    public class WpfApplicationController : ApplicationController
+    public class WPFApplicationController : ApplicationController
     {
         RegionManager region_manager;
         PresenterFactory factory;
         EventAggregator event_aggregator;
 
-        public WpfApplicationController(RegionManager region_manager, PresenterFactory factory,
+        public WPFApplicationController(RegionManager region_manager, PresenterFactory factory,
                                         EventAggregator event_aggregator)
         {
             this.region_manager = region_manager;
@@ -23,9 +24,14 @@ namespace solidware.financials.windows.ui
             where View : FrameworkElement, Tab<Presenter>, new()
         {
             var presenter = open<Presenter>();
-            configure_region<TabControl>(x => x.Items.Add(new TabItem
+            //configure_region<TabControl>(x => x.Items.Add(new TabItem
+            //{
+            //    Header = presenter.Header,
+            //    Content = new View {DataContext = presenter}
+            //}));
+            configure_region<DocumentPane>(x => x.Items.Add(new DocumentContent
             {
-                Header = presenter.Header,
+                Title = presenter.Header,
                 Content = new View {DataContext = presenter}
             }));
         }

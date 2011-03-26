@@ -1,6 +1,6 @@
 ﻿<UserControl x:Class="solidware.financials.windows.ui.views.SelectedFamilyMemberRegion"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinWidth="1024">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 <Expander>
     <Expander.Header>
         <DockPanel>

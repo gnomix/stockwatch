@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading;
+using System.Windows;
 using System.Windows.Threading;
 using Autofac;
 using gorilla.infrastructure.container;
@@ -20,11 +21,12 @@ namespace solidware.financials.windows.ui.bootstrappers
 {
     static public class Bootstrapper
     {
-        static public ShellWindow create_window()
+        static public Window create_window()
         {
             var builder = new ContainerBuilder();
 
-            var shell_window = new ShellWindow();
+            //var shell_window = new ShellWindow();
+            var shell_window = new Shell();
             builder.Register(x => shell_window).SingleInstance();
             builder.Register(x => shell_window).As<RegionManager>().SingleInstance();
 
@@ -61,7 +63,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         static void register_presentation_infrastructure(ContainerBuilder builder)
         {
             SynchronizationContext.SetSynchronizationContext(new DispatcherSynchronizationContext());
-            builder.RegisterType<WpfApplicationController>().As<ApplicationController>().SingleInstance();
+            builder.RegisterType<WPFApplicationController>().As<ApplicationController>().SingleInstance();
             builder.RegisterType<WPFPresenterFactory>().As<PresenterFactory>().SingleInstance();
             builder.RegisterType<SynchronizedEventAggregator>().As<EventAggregator>().SingleInstance();
             //builder.Register(x => AsyncOperationManager.SynchronizationContext);

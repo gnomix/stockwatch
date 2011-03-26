@@ -152,6 +152,7 @@
     <Compile Include="views\AddNewIncomeDialog.xaml.cs">
       <DependentUpon>AddNewIncomeDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\ButtonExpression.cs" />
     <Compile Include="views\DisplayCanadianTaxInformationDialog.xaml.cs">
       <DependentUpon>DisplayCanadianTaxInformationDialog.xaml</DependentUpon>
     </Compile>
@@ -178,6 +179,7 @@
     <Compile Include="views\TaxSummaryTab.xaml.cs">
       <DependentUpon>TaxSummaryTab.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\WPFExtensions.cs" />
     <Compile Include="WPFDialog.cs" />
     <Compile Include="WPFApplication.cs" />
     <Compile Include="WPFApplicationController.cs" />

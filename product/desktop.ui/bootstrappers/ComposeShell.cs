@@ -36,6 +36,11 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             controller.load_region<StatusBarPresenter, StatusBarRegion>();
             controller.load_region<SelectedFamilyMemberPresenter, SelectedFamilyMemberRegion>();
+            region_manager.region<SelectedFamilyMemberRegion>(x =>
+            {
+                x.AddCommand("Add Family Member", launch<AddFamilyMemberPresenter, AddFamilyMemberDialog>, UIIcon.Plus);
+                x.AddCommand("Add Income", launch<AddNewIncomeViewModel, AddNewIncomeDialog>, UIIcon.Plus);
+            });
         }
 
         void launch<Presenter, Dialog>() where Presenter : DialogPresenter

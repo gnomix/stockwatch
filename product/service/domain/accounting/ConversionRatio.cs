@@ -2,15 +2,15 @@ namespace solidware.financials.service.domain.accounting
 {
     public class ConversionRatio
     {
-        double rate;
+        decimal rate;
         static public readonly ConversionRatio Default = new ConversionRatio(1);
 
-        public ConversionRatio(double rate)
+        public ConversionRatio(decimal rate)
         {
             this.rate = rate;
         }
 
-        public double applied_to(double amount)
+        public decimal applied_to(decimal amount)
         {
             return amount*rate;
         }

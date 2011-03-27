@@ -41,7 +41,7 @@ namespace specs.unit.service.domain.accounting
                 result.should_be_equal_to(6);
             };
 
-            static double result;
+            static decimal result;
         }
     }
 }

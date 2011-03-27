@@ -1,6 +1,6 @@
 ﻿using gorilla.utility;
 
-namespace solidware.financials.windows.ui.bootstrappers
+namespace utility
 {
     public interface NeedStartup : Command {}
 }

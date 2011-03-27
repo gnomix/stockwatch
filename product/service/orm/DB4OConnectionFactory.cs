@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Db4objects.Db4o;
+using Db4objects.Db4o.Config;
 
 namespace solidware.financials.service.orm
 {
@@ -16,9 +17,21 @@ namespace solidware.financials.service.orm
             if (null == connection)
             {
                 ensure_directories_exist();
-                connection = new DB4OConnection(Db4oEmbedded.OpenFile(database_path));
+                connection = new DB4OConnection(Db4oEmbedded.OpenFile(config(), database_path));
             }
             return connection;
+        }
+
+        IEmbeddedConfiguration config()
+        {
+            var config = Db4oEmbedded.NewConfiguration();
+            config.File.GenerateUUIDs = ConfigScope.Individually;
+            config.IdSystem.UseInMemorySystem();
+            config.Common.ActivationDepth = int.MaxValue;
+            config.Common.DetectSchemaChanges = true;
+            config.Common.MaxStackDepth = int.MaxValue;
+            config.Common.UpdateDepth = int.MaxValue;
+            return config;
         }
 
         void ensure_directories_exist()

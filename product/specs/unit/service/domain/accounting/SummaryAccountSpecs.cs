@@ -36,7 +36,7 @@ namespace specs.unit.service.domain.accounting
 
             It should_sum_the_balance_for_each_detail_account = () =>
             {
-                result.should_be_equal_to(new Quantity(100.00, Currency.CAD));
+                result.should_be_equal_to(new Quantity(100.00m, Currency.CAD));
             };
 
             static Quantity result;

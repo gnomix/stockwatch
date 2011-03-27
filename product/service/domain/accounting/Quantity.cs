@@ -4,10 +4,10 @@ namespace solidware.financials.service.domain.accounting
 {
     public class Quantity : IEquatable<Quantity>
     {
-        double amount;
+        decimal amount;
         UnitOfMeasure units;
 
-        public Quantity(double amount, UnitOfMeasure units)
+        public Quantity(decimal amount, UnitOfMeasure units)
         {
             this.units = units;
             this.amount = amount;
@@ -28,7 +28,7 @@ namespace solidware.financials.service.domain.accounting
             return new Quantity(unit_of_measure.convert(amount, units), unit_of_measure);
         }
 
-        static public implicit operator double(Quantity quanity)
+        static public implicit operator decimal(Quantity quanity)
         {
             return quanity.amount;
         }

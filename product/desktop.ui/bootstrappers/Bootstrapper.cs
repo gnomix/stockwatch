@@ -16,6 +16,7 @@ using solidware.financials.windows.ui.handlers;
 using solidware.financials.windows.ui.presenters;
 using solidware.financials.windows.ui.presenters.specifications;
 using solidware.financials.windows.ui.views;
+using utility;
 
 namespace solidware.financials.windows.ui.bootstrappers
 {
@@ -98,7 +99,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         static void register_for_message_to_listen_for(ContainerBuilder builder)
         {
             builder.RegisterType<PublishEventHandler<AddedNewFamilyMember>>().As<Handles<AddedNewFamilyMember>>();
-            builder.RegisterType<PublishEventHandler<AddIncomeCommandMessage>>().As<Handles<AddIncomeCommandMessage>>();
+            builder.RegisterType<PublishEventHandler<IncomeMessage>>().As<Handles<IncomeMessage>>();
         }
 
         static void server_registration(ContainerBuilder builder)
@@ -122,6 +123,10 @@ namespace solidware.financials.windows.ui.bootstrappers
             var interceptor = new UnitOfWorkInterceptor(new DB40UnitOfWorkFactory(new DB4OConnectionFactory(), Lazy.load<Context>()) );
             builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
             builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
+            builder.RegisterProxy<Handles<FindAllIncome>, FindAllIncomeHandler>(interceptor);
+            builder.RegisterProxy<Handles<AddIncomeCommandMessage>, AddIncomeCommandMessageHandler>(interceptor);
+
+            builder.RegisterType<ConfigureServiceMappings>().As<NeedStartup>();
             new DB4OBootstrapper().run();
         }
     }

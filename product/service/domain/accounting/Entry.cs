@@ -2,7 +2,7 @@ namespace solidware.financials.service.domain.accounting
 {
     public class Entry
     {
-        static public Entry New<Transaction>(double amount, UnitOfMeasure units) where Transaction : TransactionType, new()
+        static public Entry New<Transaction>(decimal amount, UnitOfMeasure units) where Transaction : TransactionType, new()
         {
             return New<Transaction>(new Quantity(amount, units));
         }

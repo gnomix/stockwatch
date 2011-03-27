@@ -9,4 +9,10 @@ namespace solidware.financials.messages
         public Guid PersonId { get; set; }
         public decimal Amount { get; set; }
     }
+
+    public class IncomeMessage : ValueType<IncomeMessage>, Event
+    {
+        public Guid PersonId { get; set; }
+        public decimal Amount { get; set; }
+    }
 }

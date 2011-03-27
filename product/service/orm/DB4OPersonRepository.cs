@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using gorilla.utility;
 using solidware.financials.service.domain;
 using Db4objects.Db4o.Linq;
 
@@ -17,6 +18,7 @@ namespace solidware.financials.service.orm
 
         public void save(Person person)
         {
+            person.id = new Id<Guid>(Guid.NewGuid());
             session.Store(person);
         }
 

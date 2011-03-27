@@ -16,17 +16,17 @@ namespace solidware.financials.service.domain.accounting
             return new DetailAccount(unit_of_measure);
         }
 
-        public void deposit(double amount)
+        public void deposit(decimal amount)
         {
             deposit(amount, unit_of_measure);
         }
 
-        public void deposit(double amount, UnitOfMeasure units)
+        public void deposit(decimal amount, UnitOfMeasure units)
         {
             add(Entry.New<Deposit>(amount, units));
         }
 
-        public void withdraw(double amount, UnitOfMeasure units)
+        public void withdraw(decimal amount, UnitOfMeasure units)
         {
             add(Entry.New<Withdrawal>(amount, units));
         }

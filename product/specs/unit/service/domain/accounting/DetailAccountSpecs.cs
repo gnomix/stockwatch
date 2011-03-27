@@ -20,12 +20,12 @@ namespace specs.unit.service.domain.accounting
         {
             Because b = () =>
             {
-                sut.deposit(100.01, Currency.CAD);
+                sut.deposit(100.01m, Currency.CAD);
             };
 
             It should_adjust_the_balance = () =>
             {
-                sut.balance().should_be_equal_to(new Quantity(100.01, Currency.CAD));
+                sut.balance().should_be_equal_to(new Quantity(100.01m, Currency.CAD));
             };
         }
 
@@ -34,13 +34,13 @@ namespace specs.unit.service.domain.accounting
         {
             Because b = () =>
             {
-                sut.deposit(100.01);
-                sut.withdraw(10.00, Currency.CAD);
+                sut.deposit(100.01m);
+                sut.withdraw(10.00m, Currency.CAD);
             };
 
             It should_adjust_the_balance = () =>
             {
-                sut.balance().should_be_equal_to(new Quantity(90.01, Currency.CAD));
+                sut.balance().should_be_equal_to(new Quantity(90.01m, Currency.CAD));
             };
         }
     }

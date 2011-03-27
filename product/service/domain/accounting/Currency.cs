@@ -12,7 +12,7 @@ namespace solidware.financials.service.domain.accounting
             this.pneumonic = pneumonic;
         }
 
-        public override string pretty_print(double amount)
+        public override string pretty_print(decimal amount)
         {
             return "{0:C} {1}".format(amount, this);
         }

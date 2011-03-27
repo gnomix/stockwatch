@@ -3,4 +3,7 @@
     public class FindAllFamily
     {
     }
+    public class FindAllIncome
+    {
+    }
 }

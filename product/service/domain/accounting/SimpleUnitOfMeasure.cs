@@ -4,12 +4,12 @@ namespace solidware.financials.service.domain.accounting
 
     public abstract class SimpleUnitOfMeasure : UnitOfMeasure
     {
-        public double convert(double amount, UnitOfMeasure other)
+        public decimal convert(decimal amount, UnitOfMeasure other)
         {
             return rate_table(this, other).applied_to(amount);
         }
 
-        public abstract string pretty_print(double amount);
+        public abstract string pretty_print(decimal amount);
 
         static RateTable rate_table = (x, y) => ConversionRatio.Default;
 

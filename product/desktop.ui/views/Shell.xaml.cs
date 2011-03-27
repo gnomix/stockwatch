@@ -19,7 +19,7 @@ namespace solidware.financials.windows.ui.views
                           {Menu.GetType(), Menu},
                           {DockManager.GetType(), DockManager},
                           {Tabs.GetType(), Tabs},
-                          {SelectedFamilyMember.GetType(), SelectedFamilyMember},
+                          {ButtonBar.GetType(), ButtonBar},
                       };
             DockManager.Loaded += (o, e) =>
             {

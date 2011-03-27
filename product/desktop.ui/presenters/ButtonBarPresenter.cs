@@ -9,14 +9,14 @@ using solidware.financials.windows.ui.model;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class SelectedFamilyMemberPresenter : Observable<SelectedFamilyMemberPresenter>, Presenter, EventSubscriber<AddedNewFamilyMember>
+    public class ButtonBarPresenter : Observable<ButtonBarPresenter>, Presenter, EventSubscriber<AddedNewFamilyMember>
     {
         PersonDetails selected_member;
         EventAggregator event_aggregator;
         Mapper mapper;
         ServiceBus bus;
 
-        public SelectedFamilyMemberPresenter(EventAggregator event_aggregator, Mapper mapper, ServiceBus bus)
+        public ButtonBarPresenter(EventAggregator event_aggregator, Mapper mapper, ServiceBus bus)
         {
             this.bus = bus;
             this.mapper = mapper;

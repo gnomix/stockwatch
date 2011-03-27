@@ -81,7 +81,7 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             builder.RegisterType<StatusBarPresenter>().SingleInstance();
 
-            builder.RegisterType<SelectedFamilyMemberPresenter>().SingleInstance();
+            builder.RegisterType<ButtonBarPresenter>().SingleInstance();
 
             builder.RegisterType<AddFamilyMemberPresenter>();
             builder.RegisterType<AddFamilyMemberPresenter.SaveCommand>();

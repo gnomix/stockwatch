@@ -133,7 +133,7 @@
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="model\PersonDetails.cs" />
     <Compile Include="presenters\specifications\IfFamilyMemberIsSelected.cs" />
-    <Compile Include="presenters\SelectedFamilyMemberPresenter.cs" />
+    <Compile Include="presenters\ButtonBarPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
     <Compile Include="presenters\WpfBindingExtensinos.cs" />

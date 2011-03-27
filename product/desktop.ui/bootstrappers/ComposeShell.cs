@@ -35,7 +35,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             });
 
             controller.load_region<StatusBarPresenter, StatusBarRegion>();
-            controller.load_region<SelectedFamilyMemberPresenter, ButtonBar>();
+            controller.load_region<ButtonBarPresenter, ButtonBar>();
             region_manager.region<ButtonBar>(x =>
             {
                 x.AddCommand("Add Family Member", launch<AddFamilyMemberPresenter, AddFamilyMemberDialog>, UIIcon.Plus);

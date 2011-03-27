@@ -9,7 +9,7 @@
       <RowDefinition Height="24"/>
     </Grid.RowDefinitions>
     <views:MainMenu x:Name="Menu"></views:MainMenu>
-    <views:ButtonBar x:Name="SelectedFamilyMember" Grid.Row="1"></views:ButtonBar>
+    <views:ButtonBar x:Name="ButtonBar" Grid.Row="1"></views:ButtonBar>
     <ad:DockingManager x:Name="DockManager" Grid.Row="2">
       <ad:ResizingPanel Orientation="Vertical">
         <ad:ResizingPanel Orientation="Horizontal">

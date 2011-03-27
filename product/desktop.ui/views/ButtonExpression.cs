@@ -6,7 +6,7 @@ namespace solidware.financials.windows.ui.views
 {
     public class ButtonExpression
     {
-        readonly ButtonBase button;
+        ButtonBase button;
 
         public ButtonExpression(ButtonBase button)
         {
@@ -26,20 +26,6 @@ namespace solidware.financials.windows.ui.views
                                {
                                    Content = text
                                });
-        }
-
-        public ButtonExpression SmallerImages()
-        {
-            var image = button.Content as Image ?? button.Content.downcast_to<StackPanel>().Children[0].downcast_to<Image>();
-            image.Width = image.Height = 16;
-
-            return this;
-        }
-
-        public ButtonExpression DoesNotAcceptTab()
-        {
-            button.TabIndex = int.MaxValue;
-            return this;
         }
     }
 }

@@ -43,7 +43,6 @@ namespace solidware.financials.windows.ui.views
             {
                 image = new Image();
                 button.Content = image;
-
                 image.Width = 25;
                 image.Height = 25;
             }

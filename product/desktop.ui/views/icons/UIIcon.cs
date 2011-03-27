@@ -14,18 +14,19 @@ namespace solidware.financials.windows.ui.views.icons
         static public readonly UIIcon Refresh = new UIIcon("refresh.png");
         static public readonly UIIcon Running = new UIIcon("running.gif");
         static public readonly UIIcon Success = new UIIcon("success.png");
+        static public readonly UIIcon Null = new NullUIIcon();
 
-        UIIcon(string path)
+        protected UIIcon(string path)
         {
             this.path = path;
         }
 
-        public Stream ImageStream()
+        public virtual Stream ImageStream()
         {
             return IconMarker.GetImage(path);
         }
 
-        public ImageSource BitmapFrame()
+        public virtual ImageSource BitmapFrame()
         {
             return System.Windows.Media.Imaging.BitmapFrame.Create(ImageStream());
         }
@@ -36,5 +37,20 @@ namespace solidware.financials.windows.ui.views.icons
         }
 
         string path;
+
+        class NullUIIcon : UIIcon
+        {
+            public NullUIIcon() : base(string.Empty) {}
+
+            public override Stream ImageStream()
+            {
+                return null;
+            }
+
+            public override ImageSource BitmapFrame()
+            {
+                return null;
+            }
+        }
     }
 }

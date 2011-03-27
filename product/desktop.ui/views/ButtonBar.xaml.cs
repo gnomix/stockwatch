@@ -14,29 +14,9 @@ namespace solidware.financials.windows.ui.views
             InitializeComponent();
         }
 
-        public void AddCommand(string text, Action action)
-        {
-            DockPanel.Add<Button>(x =>
-            {
-                x.VerticalAlignment = VerticalAlignment.Stretch;
-                x.Content = text;
-                x.Click += action.ToRoutedHandler();
-                x.Height = 30;
-                x.Margin = new Thickness(5, 0, 5, 0);
-                x.HorizontalAlignment = HorizontalAlignment.Right;
-            });
-        }
-
         public void AddCommand(string text, Action action, UIIcon icon)
         {
-            DockPanel.Add<Button>(x =>
-            {
-                x.ToIconButton(icon, new SimpleCommand(action)).Text(text);
-                x.VerticalAlignment = VerticalAlignment.Stretch;
-                x.Height = 30;
-                x.Margin = new Thickness(5, 0, 5, 0);
-                x.HorizontalAlignment = HorizontalAlignment.Right;
-            });
+            AddCommand(text, new SimpleCommand(action), icon);
         }
 
         public void AddCommand(string text, ICommand command, UIIcon icon)
@@ -45,8 +25,6 @@ namespace solidware.financials.windows.ui.views
             {
                 x.ToIconButton(icon, command).Text(text);
                 x.VerticalAlignment = VerticalAlignment.Stretch;
-                x.Height = 30;
-                x.Margin = new Thickness(5, 0, 5, 0);
                 x.HorizontalAlignment = HorizontalAlignment.Right;
             });
         }

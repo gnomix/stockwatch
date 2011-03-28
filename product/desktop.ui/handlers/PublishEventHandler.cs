@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls.Primitives;
-using gorilla.utility;
-using Hardcodet.Wpf.TaskbarNotification;
+﻿using gorilla.utility;
 using solidware.financials.infrastructure;
 using solidware.financials.infrastructure.eventing;
 using solidware.financials.windows.ui.views;
@@ -21,15 +19,10 @@ namespace solidware.financials.windows.ui.handlers
         public void handle(T item)
         {
             event_aggregator.publish(item);
-            region_manager.region<TaskbarIcon>(x =>
+            region_manager.region<TrayIcon>(x =>
             {
-                x.ShowCustomBalloon(new FancyBalloon {DataContext = new BalloonMessage {BalloonText = "Received {0}".format(typeof (T))}}, PopupAnimation.Slide, 4000);
+                x.Say("Received {0}".format(item));
             });
         }
-    }
-
-    public class BalloonMessage
-    {
-        public string BalloonText { get; set; }
     }
 }

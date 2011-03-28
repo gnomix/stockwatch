@@ -17,10 +17,10 @@ namespace solidware.financials.windows.ui.views.icons
         static public readonly UIIcon Running = new UIIcon("running.gif");
         static public readonly UIIcon Success = new UIIcon("success.png");
         static public readonly UIIcon Application = new UIIcon("mokhan.ico");
-        static public readonly UIIcon Close = new UIIcon("success.png");
-        static public readonly UIIcon Info = new UIIcon("success.png");
+        static public readonly UIIcon Close = new UIIcon("close.png");
+        static public readonly UIIcon Info = new UIIcon("info.png");
 
-        protected UIIcon(string path)
+        UIIcon(string path)
         {
             this.path = path;
         }

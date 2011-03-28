@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls.Primitives;
 using gorilla.utility;
-using solidware.financials.windows.ui.handlers;
 using solidware.financials.windows.ui.views.icons;
 
 namespace solidware.financials.windows.ui.views
@@ -34,7 +32,7 @@ namespace solidware.financials.windows.ui.views
             Loaded += (o, e) =>
             {
                 TaskBarIcon.Icon = UIIcon.Application.AsIcon();
-                TaskBarIcon.ShowCustomBalloon(new FancyBalloon { DataContext = new BalloonMessage { BalloonText = "Welcome"} }, PopupAnimation.Slide, 4000);
+                TaskBarIcon.Say("Welcome");
             };
         }
 

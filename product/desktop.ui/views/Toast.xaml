@@ -1,8 +1,7 @@
-﻿<UserControl x:Class="solidware.financials.windows.ui.views.FancyBalloon"
+﻿<UserControl x:Class="solidware.financials.windows.ui.views.Toast"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:tb="clr-namespace:Hardcodet.Wpf.TaskbarNotification;assembly=Hardcodet.Wpf.TaskbarNotification" 
-             Height="120" Width="240">
+             xmlns:tb="clr-namespace:Hardcodet.Wpf.TaskbarNotification;assembly=Hardcodet.Wpf.TaskbarNotification" xmlns:views="clr-namespace:solidware.financials.windows.ui.views" Height="120" Width="240">
 	<UserControl.Resources>
 		<Storyboard x:Key="FadeIn">
 			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.Opacity)">
@@ -38,7 +37,7 @@
 		</Storyboard>
 	</UserControl.Resources>
 	<UserControl.Triggers>
-		<EventTrigger RoutedEvent="tb:TaskbarIcon.BalloonShowing">
+		<EventTrigger RoutedEvent="views:TrayIcon.BalloonShowing">
 			<BeginStoryboard Storyboard="{StaticResource FadeIn}" x:Name="FadeIn_BeginStoryboard"/>
 		</EventTrigger>
 		<EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="closeImage">
@@ -51,7 +50,7 @@
 			<StopStoryboard BeginStoryboardName="FadeIn_BeginStoryboard"/>
 			<BeginStoryboard x:Name="FadeBack_BeginStoryboard1" Storyboard="{StaticResource FadeBack}"/>
 		</EventTrigger>
-		<EventTrigger RoutedEvent="tb:TaskbarIcon.BalloonClosing">
+		<EventTrigger RoutedEvent="views:TrayIcon.BalloonClosing">
 			<BeginStoryboard Storyboard="{StaticResource FadeOut}" x:Name="FadeOut_BeginStoryboard"/>
 		</EventTrigger>
 	</UserControl.Triggers>

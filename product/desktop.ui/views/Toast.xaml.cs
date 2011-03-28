@@ -2,21 +2,20 @@
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using Hardcodet.Wpf.TaskbarNotification;
 using solidware.financials.windows.ui.views.icons;
 
 namespace solidware.financials.windows.ui.views
 {
-    public partial class FancyBalloon
+    public partial class Toast
     {
         bool isClosing;
 
-        public FancyBalloon()
+        public Toast()
         {
             InitializeComponent();
             closeImage.apply_icon(UIIcon.Close);
             infoImage.apply_icon(UIIcon.Info);
-            TaskbarIcon.AddBalloonClosingHandler(this, OnBalloonClosing);
+            TrayIcon.AddBalloonClosingHandler(this, OnBalloonClosing);
         }
 
         void OnBalloonClosing(object sender, RoutedEventArgs e)
@@ -27,13 +26,13 @@ namespace solidware.financials.windows.ui.views
 
         void imgClose_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            TaskbarIcon.GetParentTaskbarIcon(this).CloseBalloon();
+            TrayIcon.GetParentTaskbarIcon(this).CloseBalloon();
         }
 
         void grid_MouseEnter(object sender, MouseEventArgs e)
         {
             if (isClosing) return;
-            TaskbarIcon.GetParentTaskbarIcon(this).ResetBalloonCloseTimer();
+            TrayIcon.GetParentTaskbarIcon(this).ResetBalloonCloseTimer();
         }
 
         void OnFadeOutCompleted(object sender, EventArgs e)

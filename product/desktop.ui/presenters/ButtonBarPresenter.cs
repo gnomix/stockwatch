@@ -44,7 +44,9 @@ namespace solidware.financials.windows.ui.presenters
 
         public void notify(AddedNewFamilyMember message)
         {
-            family_members.Add(mapper.map_from<AddedNewFamilyMember, PersonDetails>(message));
+            var person = mapper.map_from<AddedNewFamilyMember, PersonDetails>(message);
+            if (null == selected_member) SelectedMember = person;
+            family_members.Add(person);
             update(x => x.family_members);
         }
     }

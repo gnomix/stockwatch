@@ -137,6 +137,7 @@
     <Compile Include="presenters\ButtonBarPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
+    <Compile Include="presenters\ToastViewModel.cs" />
     <Compile Include="presenters\WpfBindingExtensinos.cs" />
     <Compile Include="presenters\WpfCommandBuilder.cs" />
     <Compile Include="Program.cs" />
@@ -180,9 +181,10 @@
     <Compile Include="views\TaxSummaryTab.xaml.cs">
       <DependentUpon>TaxSummaryTab.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\FancyBalloon.xaml.cs">
-      <DependentUpon>FancyBalloon.xaml</DependentUpon>
+    <Compile Include="views\Toast.xaml.cs">
+      <DependentUpon>Toast.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\TrayIcon.cs" />
     <Compile Include="views\WPFExtensions.cs" />
     <Compile Include="WPFDialog.cs" />
     <Compile Include="WPFApplication.cs" />
@@ -255,7 +257,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\FancyBalloon.xaml">
+    <Page Include="views\Toast.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,8 +340,8 @@
     <EmbeddedResource Include="views\icons\success.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="views\images\close.png" />
-    <Resource Include="views\images\info.png" />
+    <EmbeddedResource Include="views\icons\close.png" />
+    <EmbeddedResource Include="views\icons\info.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="views\icons\mokhan.ico" />

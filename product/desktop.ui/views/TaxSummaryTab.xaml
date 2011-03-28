@@ -4,23 +4,64 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" >
-    <StackPanel>
+    <DockPanel MinWidth="1024">
         <StackPanel DataContext="{Binding Path=Selected}">
-            <Label>Total Income:</Label>
-            <Label Content="{Binding Path=TotalIncome}"></Label>
-            <Label>Federal Tax Rates for 2011</Label>
-            <ListView>
-                <ListViewItem> * 15% on the first $41,544 of taxable income, + </ListViewItem>
-                <ListViewItem> * 22% on the next $41,544 of taxable income (on the portion of taxable income between $41,544 and $83,088), + </ListViewItem>
-                <ListViewItem> * 26% on the next $45,712 of taxable income (on the portion of taxable income between $83,088 and $128,800), + </ListViewItem>
-                <ListViewItem> * 29% of taxable income over $128,800. </ListViewItem>
-            </ListView>
-            <Label>Federal Taxes:</Label>
-            <Label Content="{Binding Path=FederalTaxes}"></Label>
-            <Label>Provincial Tax Rates for 2011</Label>
-            <ListView>
-                <ListViewItem> * 10% of taxable income </ListViewItem>
-            </ListView>
+            <StackPanel Margin="5,5,5,5">
+            <Label FontWeight="Bold">Income</Label>
+            <DockPanel>
+                <Label Width="100">Individual:</Label>
+                <Label Content="{Binding Path=TotalIncome}" FontWeight="Bold"></Label>
+            </DockPanel>
+            <DockPanel>
+                <Label Width="100">Family:</Label>
+                <Label Content="{Binding Path=TotalFamilyIncome}" FontWeight="Bold"></Label>
+            </DockPanel>
+            </StackPanel>
+            <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
+            <StackPanel Margin="5,5,5,5" Width="500">
+                <Label FontWeight="Bold">Federal Taxes</Label>
+                <Expander Header="Tax Rates">
+                <StackPanel>
+                <Label FontSize="10" FontWeight="Bold">Federal Tax Rates for 2011</Label>
+                <ListView FontSize="10">
+                    <ListViewItem> * 15% on the first $41,544 of taxable income, + </ListViewItem>
+                    <ListViewItem> * 22% on the next $41,544 of taxable income (on the portion of taxable income between $41,544 and $83,088), + </ListViewItem>
+                    <ListViewItem> * 26% on the next $45,712 of taxable income (on the portion of taxable income between $83,088 and $128,800), + </ListViewItem>
+                    <ListViewItem> * 29% of taxable income over $128,800. </ListViewItem>
+                </ListView>
+                </StackPanel>
+                </Expander>
+                <DockPanel>
+                    <Label Width="100">Individual:</Label>
+                    <Label Content="{Binding Path=FederalTaxes}" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Width="100">Family:</Label>
+                    <Label Content="{Binding Path=FederalFamilyTaxes}" FontWeight="Bold"/>
+                </DockPanel>
+                <DataGrid Margin="5,5,5,5" ItemsSource="{Binding FederalTaxesGrid, Mode=OneWay}" IsReadOnly="True"></DataGrid>
+            </StackPanel>
+            <StackPanel Margin="5,5,5,5" Width="500">
+                <Label FontWeight="Bold">Provincial Taxes</Label>
+                <Expander Header="Provincial Tax Rates">
+                    <StackPanel>
+                    <Label FontSize="10" FontWeight="Bold">Provincial Tax Rates for 2011</Label>
+                    <ListView FontSize="10">
+                        <ListViewItem> * 10% of taxable income </ListViewItem>
+                    </ListView>
+                    </StackPanel>
+                </Expander>
+                <DockPanel>
+                    <Label Width="100">Individual:</Label>
+                    <Label Content="{Binding Path=ProvincialTaxes}" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Width="100">Family:</Label>
+                    <Label Content="{Binding Path=FamilyProvincialTaxes}" FontWeight="Bold"/>
+                </DockPanel>
+                <DataGrid Margin="5,5,5,5" ItemsSource="{Binding ProvincialTaxesGrid, Mode=OneWay}" IsReadOnly="true"></DataGrid>
+            </StackPanel>
+            </DockPanel>
         </StackPanel>
-    </StackPanel>
+    </DockPanel>
 </UserControl>

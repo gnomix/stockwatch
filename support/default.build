@@ -43,7 +43,7 @@
     <property name="publish.url" value="${tmp.dir}\public\" />
     <property name="update.url" value="${publish.url}" />
     <property name="publish.dir" value="${publish.url}" />
-    <property name="product.name" value="More Money (LOCAL)" />
+    <property name="product.name" value="Family Finances (LOCAL)" />
     <property name="publisher.name" value="SolidWare Inc." />
     <call target="_publish.installer" />
   </target>
@@ -60,29 +60,28 @@
     <property name="publish.url" value="http://mokhan.ca/downloads/apps/momoney/" />
     <property name="update.url" value="${publish.url}" />
     <property name="publish.dir" value="${tmp.dir}\public\" />
-    <property name="product.name" value="More Money" />
+    <property name="product.name" value="Family Finances" />
     <property name="publisher.name" value="SolidWare Inc." />
     <call target="_publish.installer" />
   </target>
 
-	<target name="run.test" depends="compile">
-  	<!-- <property name="xunit.cons.exe" value="${tools.dir}/mspec/mspec.exe" /> -->
+  <target name="run.test" depends="compile">
     <property name="xunit.cons.exe" value="${base.dir}/packages/Machine.Specifications.0.4.9.0/tools/mspec-clr4.exe" />
-		<exec program="${xunit.cons.exe}" workingdir="${tmp.dir}" commandline="${xunit.arguments}" />
-	</target>
+    <exec program="${xunit.cons.exe}" workingdir="${tmp.dir}" commandline="${xunit.arguments}" />
+  </target>
 
-	<target name="test">
-		<property name="xunit.arguments" value="-t --html ${tmp.dir} ${tmp.dir}/specs.dll" />
-		<call target="run.test" />
-	</target>
+  <target name="test">
+    <property name="xunit.arguments" value="-t --html ${tmp.dir} ${tmp.dir}/specs.dll" />
+    <call target="run.test" />
+  </target>
 
-	<target name="expand.template.file">
-		<copy file="${target}.template" tofile="${target}" overwrite="true">
+  <target name="expand.template.file">
+    <copy file="${target}.template" tofile="${target}" overwrite="true">
       <filterchain>
-        <expandproperties />
+	<expandproperties />
       </filterchain>
-		</copy>
-	</target>
+    </copy>
+  </target>
 
   <target name="create.configs">
     <property name="target" value="${src.dir}/desktop.ui/Properties/AssemblyInfo.cs" />

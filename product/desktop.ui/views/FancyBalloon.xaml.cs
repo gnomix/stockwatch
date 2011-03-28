@@ -19,14 +19,6 @@ namespace solidware.financials.windows.ui.views
             TaskbarIcon.AddBalloonClosingHandler(this, OnBalloonClosing);
         }
 
-        static public readonly DependencyProperty BalloonTextProperty = DependencyProperty.Register("BalloonText", typeof (string), typeof (FancyBalloon), new FrameworkPropertyMetadata(""));
-
-        public string BalloonText
-        {
-            get { return (string) GetValue(BalloonTextProperty); }
-            set { SetValue(BalloonTextProperty, value); }
-        }
-
         void OnBalloonClosing(object sender, RoutedEventArgs e)
         {
             e.Handled = true;

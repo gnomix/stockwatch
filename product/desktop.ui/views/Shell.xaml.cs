@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using gorilla.utility;
+using solidware.financials.windows.ui.handlers;
+using solidware.financials.windows.ui.views.icons;
 
 namespace solidware.financials.windows.ui.views
 {
@@ -20,12 +23,19 @@ namespace solidware.financials.windows.ui.views
                           {DockManager.GetType(), DockManager},
                           {Tabs.GetType(), Tabs},
                           {ButtonBar.GetType(), ButtonBar},
+                          {TaskBarIcon.GetType(), TaskBarIcon},
                       };
             DockManager.Loaded += (o, e) =>
             {
-                if(File.Exists(settings_file)) DockManager.RestoreLayout(settings_file);
+                if (File.Exists(settings_file)) DockManager.RestoreLayout(settings_file);
             };
-            this.Closing += (o, e) => DockManager.SaveLayout(settings_file);
+            Closing += (o, e) => DockManager.SaveLayout(settings_file);
+            Closing += (o, e) => TaskBarIcon.Dispose();
+            Loaded += (o, e) =>
+            {
+                TaskBarIcon.Icon = UIIcon.Application.AsIcon();
+                TaskBarIcon.ShowCustomBalloon(new FancyBalloon { DataContext = new BalloonMessage { BalloonText = "Welcome"} }, PopupAnimation.Slide, 4000);
+            };
         }
 
         public void region<Region>(Action<Region> configure) where Region : UIElement

@@ -1,10 +1,12 @@
-﻿using System.IO;
+﻿using System.Drawing;
+using System.IO;
 using System.Windows.Media;
 
 namespace solidware.financials.windows.ui.views.icons
 {
     public class UIIcon
     {
+        static public readonly UIIcon Null = new NullUIIcon();
         static public readonly UIIcon Category = new UIIcon("category.png");
         static public readonly UIIcon Comment = new UIIcon("comment.png");
         static public readonly UIIcon Delete = new UIIcon("delete.png");
@@ -14,7 +16,9 @@ namespace solidware.financials.windows.ui.views.icons
         static public readonly UIIcon Refresh = new UIIcon("refresh.png");
         static public readonly UIIcon Running = new UIIcon("running.gif");
         static public readonly UIIcon Success = new UIIcon("success.png");
-        static public readonly UIIcon Null = new NullUIIcon();
+        static public readonly UIIcon Application = new UIIcon("mokhan.ico");
+        static public readonly UIIcon Close = new UIIcon("success.png");
+        static public readonly UIIcon Info = new UIIcon("success.png");
 
         protected UIIcon(string path)
         {
@@ -24,6 +28,11 @@ namespace solidware.financials.windows.ui.views.icons
         public virtual Stream ImageStream()
         {
             return IconMarker.GetImage(path);
+        }
+        
+        public virtual Icon AsIcon()
+        {
+            return new Icon(ImageStream());
         }
 
         public virtual ImageSource BitmapFrame()

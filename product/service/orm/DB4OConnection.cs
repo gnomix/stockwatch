@@ -9,9 +9,9 @@ namespace solidware.financials.service.orm
 {
     public class DB4OConnection : Connection
     {
-        readonly IEmbeddedObjectContainer session;
+        readonly IObjectContainer session;
 
-        public DB4OConnection(IEmbeddedObjectContainer session)
+        public DB4OConnection(IObjectContainer session)
         {
             this.session = session;
         }
@@ -119,11 +119,6 @@ namespace solidware.financials.service.orm
         public IList<Extent> Query<Extent>(IComparer<Extent> comparer)
         {
             return session.Query(comparer);
-        }
-
-        public void Backup(string path)
-        {
-            session.Backup(path);
         }
     }
 }

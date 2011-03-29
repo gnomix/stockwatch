@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Ext;
 using Db4objects.Db4o.Query;
+using gorilla.utility;
 
 namespace solidware.financials.service.orm
 {
     public class DB4OConnection : Connection
     {
         readonly IObjectContainer session;
+        Id<long> id = new Id<long>(DateTime.Now.Ticks);
 
         public DB4OConnection(IObjectContainer session)
         {

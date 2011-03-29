@@ -17,7 +17,9 @@ namespace solidware.financials.service.handlers
 
         public void handle(AddIncomeCommandMessage item)
         {
-            family.find_by(item.PersonId).IncomeAccount().deposit(item.Amount);
+            var person = family.find_by(item.PersonId);
+            person.IncomeAccount().deposit(item.Amount);
+            family.save(person);
             bus.publish<IncomeMessage>(x =>
             {
                 x.Amount = item.Amount;

@@ -3,5 +3,6 @@
     public interface ConnectionFactory
     {
         Connection Open();
+        Connection Open(string path);
     }
 }

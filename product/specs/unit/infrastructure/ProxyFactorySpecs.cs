@@ -9,7 +9,10 @@ namespace specs.unit.infrastructure
     {
         public class concern
         {
-            Establish context = () => { sut = new CastleProxyFactory(); };
+            Establish context = () =>
+            {
+                sut = new CastleProxyFactory();
+            };
 
             static protected IProxyFactory sut;
         }
@@ -18,17 +21,18 @@ namespace specs.unit.infrastructure
         {
             It should_intercept_calls_made_to_that_class = () =>
             {
-                //
                 interceptor.Intercepted.ShouldBeTrue();
             };
 
             It should_make_the_call_on_the_original_class = () =>
             {
-                //
                 command.result.ShouldEqual("mo");
             };
 
-            Establish context = () => { command = new TestCommand("blah"); };
+            Establish context = () =>
+            {
+                command = new TestCommand("blah");
+            };
 
             Because of = () =>
             {
@@ -43,11 +47,11 @@ namespace specs.unit.infrastructure
 
         public class TestCommand : Command<string>
         {
-            readonly string needAConstructur;
+            readonly string needAConstructor;
 
-            public TestCommand(string needAConstructur)
+            public TestCommand(string needAConstructor)
             {
-                this.needAConstructur = needAConstructur;
+                this.needAConstructor = needAConstructor;
             }
 
             public virtual void run(string item)

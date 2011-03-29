@@ -18,7 +18,8 @@ namespace solidware.financials.service.orm
 
         public void save(Person person)
         {
-            person.id = new Id<Guid>(Guid.NewGuid());
+            if(person.id.Equals(Id<Guid>.Default))
+                person.id = new Id<Guid>(Guid.NewGuid());
             session.Store(person);
         }
 

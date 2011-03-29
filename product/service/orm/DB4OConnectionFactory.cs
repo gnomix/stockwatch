@@ -13,10 +13,16 @@ namespace solidware.financials.service.orm
 
         public Connection Open()
         {
+            ensure_directories_exist();
+            return Open(database_path);
+        }
+
+        public Connection Open(string path)
+        {
             if (null == connection)
             {
-                ensure_directories_exist();
                 connection = new DB4OConnection(Db4oFactory.OpenFile(database_path));
+                connection.Ext().Configure().ActivationDepth(int.MaxValue);
                 connection.Ext().Configure().UpdateDepth(int.MaxValue);
             }
             return connection;

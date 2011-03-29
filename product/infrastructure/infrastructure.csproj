@@ -60,6 +60,7 @@
     <Compile Include="Handles.cs" />
     <Compile Include="InMemoryServiceBus.cs" />
     <Compile Include="IProxyFactory.cs" />
+    <Compile Include="Lazy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBus.cs" />
   </ItemGroup>

@@ -96,6 +96,7 @@
     <Compile Include="unit\service\orm\DB4OUnitOfWorkFactorySpecs.cs" />
     <Compile Include="unit\service\orm\DB4OUnitOfWorkSpecs.cs" />
     <Compile Include="unit\service\orm\EmptyUnitOfWorkSpecs.cs" />
+    <Compile Include="unit\service\orm\SimpleIdentityMapSpecs.cs" />
     <Compile Include="unit\service\orm\UnitOfWorkInterceptorSpecs.cs" />
     <Compile Include="unit\ui\InMemoryApplicationStateSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddFamilyMemberPresenterSpecs.cs" />

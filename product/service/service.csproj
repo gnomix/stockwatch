@@ -123,6 +123,8 @@
     <Compile Include="orm\DB4OPersonRepository.cs" />
     <Compile Include="orm\Disposable.cs" />
     <Compile Include="orm\EmptyUnitOfWork.cs" />
+    <Compile Include="orm\IdentityMap.cs" />
+    <Compile Include="orm\SimpleIdentityMap.cs" />
     <Compile Include="orm\InMemoryDatabase.cs" />
     <Compile Include="orm\LastOpened.cs" />
     <Compile Include="orm\PersonRepository.cs" />

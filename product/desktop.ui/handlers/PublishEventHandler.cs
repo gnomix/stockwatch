@@ -21,7 +21,7 @@ namespace solidware.financials.windows.ui.handlers
             event_aggregator.publish(item);
             region_manager.region<TrayIcon>(x =>
             {
-                x.Say("Received {0}".format(item));
+                x.Say("{0}".format(item));
             });
         }
     }

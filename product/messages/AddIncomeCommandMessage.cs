@@ -14,5 +14,10 @@ namespace solidware.financials.messages
     {
         public Guid PersonId { get; set; }
         public decimal Amount { get; set; }
+
+        public override string ToString()
+        {
+            return "You got paid {0:C}!".format(Amount);
+        }
     }
 }

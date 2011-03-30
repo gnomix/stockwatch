@@ -8,7 +8,7 @@ using solidware.financials.windows.ui.model;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class TaxSummaryPresenter : Observable<TaxSummaryPresenter>, TabPresenter, EventSubscriber<IncomeMessage>, EventSubscriber<SelectedFamilyMember>
+    public class TaxSummaryPresenter : ObservablePresenter<TaxSummaryPresenter>, TabPresenter, EventSubscriber<IncomeMessage>, EventSubscriber<SelectedFamilyMember>
     {
         UICommandBuilder builder;
         ServiceBus bus;

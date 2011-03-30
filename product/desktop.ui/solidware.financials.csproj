@@ -126,7 +126,7 @@
     <Compile Include="model\FederalTaxes.cs" />
     <Compile Include="model\TaxesForIndividual.cs" />
     <Compile Include="model\TaxRow.cs" />
-    <Compile Include="Observable.cs" />
+    <Compile Include="ObservablePresenter.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="PresenterFactory.cs" />
     <Compile Include="presenters\AddFamilyMemberPresenter.cs" />
@@ -157,12 +157,21 @@
       <DependentUpon>AddNewIncomeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\ButtonExpression.cs" />
+    <Compile Include="views\controls\ClipboardHelper.cs" />
+    <Compile Include="views\controls\Column.cs" />
+    <Compile Include="views\controls\DataGridTable.cs" />
+    <Compile Include="views\controls\IObservable.cs" />
+    <Compile Include="views\controls\ObjectExtensions.cs" />
+    <Compile Include="views\controls\Observable.cs" />
+    <Compile Include="views\controls\Row.cs" />
+    <Compile Include="views\controls\SmartCollection.cs" />
     <Compile Include="views\DisplayCanadianTaxInformationDialog.xaml.cs">
       <DependentUpon>DisplayCanadianTaxInformationDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\ExtendedTextColumn.cs" />
     <Compile Include="views\icons\UIIcon.cs" />
     <Compile Include="views\icons\IconMarker.cs" />
     <Compile Include="views\ImageButton.cs" />
@@ -177,6 +186,7 @@
     <Compile Include="views\ShellWIndow.xaml.cs">
       <DependentUpon>ShellWIndow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\controls\SmartGrid.cs" />
     <Compile Include="views\StatusBarRegion.xaml.cs">
       <DependentUpon>StatusBarRegion.xaml</DependentUpon>
     </Compile>

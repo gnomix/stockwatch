@@ -19,19 +19,19 @@ namespace solidware.financials.windows.ui
             this.factory = factory;
         }
 
-        public void add_tab<Presenter, View>() where Presenter : TabPresenter
-            where View : FrameworkElement, Tab<Presenter>, new()
+        public void add_tab<Presenter, View>() where Presenter : TabPresenter where View : FrameworkElement, Tab<Presenter>, new()
         {
             var presenter = open<Presenter>();
+            var view = new View();
+            view.bind_to(presenter);
             configure_region<DocumentPane>(x => x.Items.Add(new DocumentContent
             {
                 Title = presenter.Header,
-                Content = new View {DataContext = presenter},
+                Content = view,
             }));
         }
 
-        public void load_region<TPresenter, Region>() where TPresenter : Presenter
-            where Region : FrameworkElement, View<TPresenter>, new()
+        public void load_region<TPresenter, Region>() where TPresenter : Presenter where Region : FrameworkElement, View<TPresenter>, new()
         {
             configure_region<Region>(x => { x.DataContext = open<TPresenter>(); });
         }

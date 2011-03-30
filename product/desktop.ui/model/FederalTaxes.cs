@@ -1,4 +1,6 @@
-﻿namespace solidware.financials.windows.ui.model
+﻿using utility;
+
+namespace solidware.financials.windows.ui.model
 {
     public class FederalTaxes
     {
@@ -7,7 +9,7 @@
             var taxes = 0m;
             if (totalIncome <= 41544.00m)
             {
-                taxes = ((totalIncome - 0m)*0.15m) + 0m;
+                taxes = totalIncome.subtract(0m).multiply_by(0.15m).add(0m);
             }
             if (totalIncome > 41544.00m && totalIncome <= 83088.00m)
             {

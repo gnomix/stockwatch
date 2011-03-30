@@ -5,7 +5,7 @@ using gorilla.utility;
 
 namespace solidware.financials.windows.ui
 {
-    public abstract class Observable<T> : INotifyPropertyChanged
+    public abstract class ObservablePresenter<T> : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = (o, e) => { };
 

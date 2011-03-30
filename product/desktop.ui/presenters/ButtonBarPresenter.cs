@@ -9,7 +9,7 @@ using solidware.financials.windows.ui.model;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class ButtonBarPresenter : Observable<ButtonBarPresenter>, Presenter, EventSubscriber<AddedNewFamilyMember>
+    public class ButtonBarPresenter : ObservablePresenter<ButtonBarPresenter>, Presenter, EventSubscriber<AddedNewFamilyMember>
     {
         PersonDetails selected_member;
         EventAggregator event_aggregator;

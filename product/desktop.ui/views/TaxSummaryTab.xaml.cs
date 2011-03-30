@@ -8,5 +8,10 @@ namespace solidware.financials.windows.ui.views
         {
             InitializeComponent();
         }
+
+        public void bind_to(TaxSummaryPresenter presenter)
+        {
+            DataContext = presenter;
+        }
     }
 }

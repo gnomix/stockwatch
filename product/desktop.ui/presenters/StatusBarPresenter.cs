@@ -4,7 +4,7 @@ using solidware.financials.windows.ui.events;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class StatusBarPresenter : Observable<StatusBarPresenter>, Presenter, EventSubscriber<UpdateOnLongRunningProcess>
+    public class StatusBarPresenter : ObservablePresenter<StatusBarPresenter>, Presenter, EventSubscriber<UpdateOnLongRunningProcess>
     {
         public string progress_message { get; set; }
         public bool is_progress_bar_on { get; set; }

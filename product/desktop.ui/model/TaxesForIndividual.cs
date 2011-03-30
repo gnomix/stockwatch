@@ -4,7 +4,7 @@ using solidware.financials.windows.ui.presenters;
 
 namespace solidware.financials.windows.ui.model
 {
-    public class TaxesForIndividual : Observable<TaxesForIndividual>
+    public class TaxesForIndividual : ObservablePresenter<TaxesForIndividual>
     {
         public TaxesForIndividual(Guid id, FederalTaxesViewModel federalTaxes)
         {

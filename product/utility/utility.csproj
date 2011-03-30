@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="MapKey.cs" />
     <Compile Include="MapperRegistery.cs" />
+    <Compile Include="Mathematics.cs" />
     <Compile Include="NeedsShutdown.cs" />
     <Compile Include="NeedStartup.cs" />
   </ItemGroup>

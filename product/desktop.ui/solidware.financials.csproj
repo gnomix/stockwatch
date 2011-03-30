@@ -125,6 +125,7 @@
     <Compile Include="IObservableCommand.cs" />
     <Compile Include="model\FederalTaxes.cs" />
     <Compile Include="model\TaxesForIndividual.cs" />
+    <Compile Include="model\TaxRow.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="PresenterFactory.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="ApplicationState.cs" />
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="model\PersonDetails.cs" />
+    <Compile Include="presenters\FederalTaxesViewModel.cs" />
     <Compile Include="presenters\specifications\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\ButtonBarPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />

@@ -30,6 +30,7 @@ namespace solidware.financials.windows.ui.presenters
         }
 
         public TaxesForIndividual Selected { get; set; }
+        public FederalTaxesViewModel FederalTaxes { get { return Selected.FederalTaxes; } }
 
         public void notify(IncomeMessage message)
         {
@@ -45,7 +46,7 @@ namespace solidware.financials.windows.ui.presenters
         TaxesForIndividual TaxesFor(Guid id)
         {
             if (!family.ContainsKey(id))
-                family[id] = new TaxesForIndividual(id);
+                family[id] = new TaxesForIndividual(id, new FederalTaxesViewModel(id));
             return family[id];
         }
 

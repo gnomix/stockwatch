@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" >
     <DockPanel MinWidth="1024">
-        <StackPanel DataContext="{Binding Path=Selected}">
+        <StackPanel>
             <StackPanel Margin="5,5,5,5">
             <Label FontWeight="Bold">Income</Label>
             <DockPanel>
                 <Label Width="100">Individual:</Label>
-                <Label Content="{Binding Path=TotalIncome}" FontWeight="Bold"></Label>
+                <Label Content="{Binding Path=Selected.TotalIncome}" FontWeight="Bold"></Label>
             </DockPanel>
             <DockPanel>
                 <Label Width="100">Family:</Label>
-                <Label Content="{Binding Path=TotalFamilyIncome}" FontWeight="Bold"></Label>
+                <Label Content="{Binding Path=Selected.TotalFamilyIncome}" FontWeight="Bold"></Label>
             </DockPanel>
             </StackPanel>
             <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
@@ -33,13 +33,13 @@
                 </Expander>
                 <DockPanel>
                     <Label Width="100">Individual:</Label>
-                    <Label Content="{Binding Path=FederalTaxes}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=FederalTaxes.FederalTaxes}" FontWeight="Bold"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Width="100">Family:</Label>
-                    <Label Content="{Binding Path=FederalFamilyTaxes}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=FederalTaxes.FederalFamilyTaxes}" FontWeight="Bold"/>
                 </DockPanel>
-                <DataGrid Margin="5,5,5,5" ItemsSource="{Binding FederalTaxesGrid, Mode=OneWay}" IsReadOnly="True"></DataGrid>
+                <DataGrid Margin="5,5,5,5" ItemsSource="{Binding FederalTaxes.FederalTaxesGrid, Mode=OneWay}" IsReadOnly="True"></DataGrid>
             </StackPanel>
             <StackPanel Margin="5,5,5,5" Width="500">
                 <Label FontWeight="Bold">Provincial Taxes</Label>
@@ -53,13 +53,13 @@
                 </Expander>
                 <DockPanel>
                     <Label Width="100">Individual:</Label>
-                    <Label Content="{Binding Path=ProvincialTaxes}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=Selected.ProvincialTaxes}" FontWeight="Bold"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Width="100">Family:</Label>
-                    <Label Content="{Binding Path=FamilyProvincialTaxes}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=Selected.FamilyProvincialTaxes}" FontWeight="Bold"/>
                 </DockPanel>
-                <DataGrid Margin="5,5,5,5" ItemsSource="{Binding ProvincialTaxesGrid, Mode=OneWay}" IsReadOnly="true"></DataGrid>
+                <DataGrid Margin="5,5,5,5" ItemsSource="{Binding Selected.ProvincialTaxesGrid, Mode=OneWay}" IsReadOnly="true"></DataGrid>
             </StackPanel>
             </DockPanel>
         </StackPanel>

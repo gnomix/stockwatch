@@ -11,16 +11,18 @@ namespace solidware.financials.windows.ui.presenters
         public TaxesForFamily()
         {
             Income = Money.Null;
+            ProvincialTaxes = Money.Null;
             FederalTaxes = Money.Null;
         }
 
         public Observable<Money> Income { get; set; }
+        public Observable<Money> ProvincialTaxes { get; set; }
         public Observable<Money> FederalTaxes { get; set; }
 
         public TaxesForIndividual TaxesFor(Guid id)
         {
             if (!family.ContainsKey(id))
-                family[id] = new TaxesForIndividual(id, new FederalTaxesViewModel(id));
+                family[id] = new TaxesForIndividual(id, new FederalTaxesViewModel(id), new ProvincialTaxesViewModel(id));
             return family[id];
         }
 
@@ -28,6 +30,7 @@ namespace solidware.financials.windows.ui.presenters
         {
             TaxesFor(personId).AddIncome(amount);
             Income.Value = family.Values.Sum(x => x.Income.Value);
+            ProvincialTaxes.Value = family.Values.Sum(x => x.ProvincialTaxes.Taxes.Value);
             FederalTaxes.Value = family.Values.Sum(x => x.FederalTaxes.Taxes.Value);
         }
 

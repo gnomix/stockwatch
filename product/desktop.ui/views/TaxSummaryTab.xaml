@@ -21,7 +21,7 @@
             <StackPanel Width="500">
                 <DockPanel>
                     <Label Width="100">Individual:</Label>
-                    <Label Content="{Binding Path=Individual.FederalTaxes.Taxes.Value}" ContentStringFormat="{}{0:C}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=Individual.FederalTaxes.Taxes.Value}" FontWeight="Bold"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Width="100">Family:</Label>
@@ -40,8 +40,16 @@
                 </Expander>
             </StackPanel>
             </GroupBox>
-            <StackPanel Margin="5,5,5,5" Width="500">
-                <Label FontWeight="Bold">Provincial Taxes</Label>
+            <GroupBox Header="Provincial Taxes" Margin="5,5,5,5">
+            <StackPanel Width="500">
+                <DockPanel>
+                    <Label Width="100">Individual:</Label>
+                    <Label Content="{Binding Path=Individual.ProvincialTaxes.Taxes.Value}" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Width="100">Family:</Label>
+                    <Label Content="{Binding Path=Family.ProvincialTaxes.Value}" FontWeight="Bold" Foreground="Red" />
+                </DockPanel>
                 <Expander Header="Provincial Tax Rates">
                     <StackPanel>
                     <Label FontSize="10" FontWeight="Bold">Provincial Tax Rates for 2011</Label>
@@ -50,11 +58,8 @@
                     </ListView>
                     </StackPanel>
                 </Expander>
-                <DockPanel>
-                    <Label Width="100">Individual:</Label>
-                    <Label Content="{Binding Path=Individual.ProvincialTaxes}" FontWeight="Bold"/>
-                </DockPanel>
             </StackPanel>
+            </GroupBox>
             </DockPanel>
         </StackPanel>
     </DockPanel>

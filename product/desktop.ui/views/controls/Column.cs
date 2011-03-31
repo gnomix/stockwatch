@@ -2,7 +2,12 @@
 
 namespace solidware.financials.windows.ui.views.controls
 {
-    public class Column<T> : IEquatable<Column<T>>
+    public interface IColumn
+    {
+        string Title { get; }
+    }
+
+    public class Column<T> : IEquatable<Column<T>>, IColumn
     {
         public string Title { get; private set; }
 
@@ -46,12 +51,12 @@ namespace solidware.financials.windows.ui.views.controls
             return (Title != null ? Title.GetHashCode() : 0);
         }
 
-        public static bool operator ==(Column<T> left, Column<T> right)
+        static public bool operator ==(Column<T> left, Column<T> right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Column<T> left, Column<T> right)
+        static public bool operator !=(Column<T> left, Column<T> right)
         {
             return !Equals(left, right);
         }

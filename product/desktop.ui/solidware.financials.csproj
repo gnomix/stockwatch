@@ -135,12 +135,13 @@
     <Compile Include="presenters\DisplayCanadianTaxInformationViewModel.cs" />
     <Compile Include="model\PersonDetails.cs" />
     <Compile Include="presenters\FederalTaxesViewModel.cs" />
+    <Compile Include="presenters\Money.cs" />
     <Compile Include="presenters\specifications\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\ButtonBarPresenter.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
     <Compile Include="presenters\ToastViewModel.cs" />
-    <Compile Include="presenters\WpfBindingExtensinos.cs" />
+    <Compile Include="presenters\WpfBindingExtensions.cs" />
     <Compile Include="presenters\WpfCommandBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SimpleCommand.cs" />
@@ -160,9 +161,9 @@
     <Compile Include="views\controls\ClipboardHelper.cs" />
     <Compile Include="views\controls\Column.cs" />
     <Compile Include="views\controls\DataGridTable.cs" />
-    <Compile Include="views\controls\IObservable.cs" />
-    <Compile Include="views\controls\ObjectExtensions.cs" />
     <Compile Include="views\controls\Observable.cs" />
+    <Compile Include="views\controls\ObjectExtensions.cs" />
+    <Compile Include="views\controls\ObservableProperty.cs" />
     <Compile Include="views\controls\Row.cs" />
     <Compile Include="views\controls\SmartCollection.cs" />
     <Compile Include="views\DisplayCanadianTaxInformationDialog.xaml.cs">

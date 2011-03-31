@@ -1,4 +1,5 @@
 ﻿using System;
+using gorilla.utility;
 using solidware.financials.infrastructure;
 using solidware.financials.messages;
 using solidware.financials.windows.ui.events;
@@ -19,9 +20,11 @@ namespace solidware.financials.windows.ui.presenters
         {
             Add = builder.build<AddIncomeCommand, IfFamilyMemberIsSelected<AddNewIncomeViewModel>>(this);
             Cancel = builder.build<CancelCommand>(this);
+            date = Clock.now();
         }
 
         public virtual decimal amount { get; set; }
+        public virtual DateTime date { get; set; }
         public IObservableCommand Add { get; set; }
         public IObservableCommand Cancel { get; set; }
         public virtual Action close { get; set; }
@@ -42,10 +45,12 @@ namespace solidware.financials.windows.ui.presenters
                 bus.publish(new AddIncomeCommandMessage
                             {
                                 Amount = presenter.amount,
-                                PersonId = applicationState.PullOut<SelectedFamilyMember>().id
+                                PersonId = applicationState.PullOut<SelectedFamilyMember>().id,
+                                Date = presenter.date,
                             });
                 presenter.close();
             }
         }
+
     }
 }

@@ -22,9 +22,9 @@ namespace solidware.financials.windows.ui.views.controls
         {
             if (value is T)
                 return (T)value;
-            if(value is IObservable)
+            if(value is Observable)
             {
-                return (T)((IObservable)value).Value;
+                return (T)((Observable)value).Value;
             }
             return (T)Convert.ChangeType(value, typeof (T));
         }

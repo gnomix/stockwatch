@@ -4,7 +4,7 @@ using gorilla.utility;
 
 namespace solidware.financials.windows.ui.views.controls
 {
-    public class Row : Dictionary<string, IObservable> 
+    public class Row : Dictionary<string, Observable> 
     {
         DataGridTable table;
 
@@ -20,16 +20,16 @@ namespace solidware.financials.windows.ui.views.controls
 
         public virtual void AddToCell<T>(Column<T> column, T value)
         {
-            AddToCell(column, (IObservable)new Observable<T>(value));
+            AddToCell(column, (Observable)new ObservableProperty<T>(value));
         }
 
-        public virtual void AddToCell<T>(Column<T> column, IObservable value)
+        public virtual void AddToCell<T>(Column<T> column, Observable value)
         {
             this[column] = value;
             table.each(row =>
             {
                 if (!row.HasValueStoredIn(column))
-                    row[column] = new Observable<T>(default(T));
+                    row[column] = new ObservableProperty<T>(default(T));
             });
         }
 

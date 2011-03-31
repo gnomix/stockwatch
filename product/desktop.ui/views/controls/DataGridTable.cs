@@ -11,6 +11,11 @@ namespace solidware.financials.windows.ui.views.controls
             return FindRowMatching(row => row.ValueStoredIn(column).Equals(expectedValue));
         }
 
+        public virtual bool HasRowFor<ColumnType>(Column<ColumnType> column, ColumnType expected)
+        {
+            return this.Any(row => row.ValueStoredIn(column).Equals(expected));
+        }
+
         public virtual Row FindRowMatching(Func<Row, bool> condition)
         {
             return this.First(condition);

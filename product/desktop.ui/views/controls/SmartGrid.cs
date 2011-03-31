@@ -1,13 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
-using gorilla.utility;
 
 namespace solidware.financials.windows.ui.views.controls
 {
@@ -16,20 +12,8 @@ namespace solidware.financials.windows.ui.views.controls
         static SmartGrid()
         {
             IsReadOnlyProperty.OverrideMetadata(typeof (SmartGrid), new FrameworkPropertyMetadata((o, e) => ((SmartGrid) o).ConfigureColumns()));
-            ValueConvertersProperty.OverrideMetadata(typeof (SmartGrid), new FrameworkPropertyMetadata((o, e) => ((SmartGrid) o).ConfigureColumns()));
             CommandManager.RegisterClassCommandBinding(typeof (SmartGrid), new CommandBinding(ApplicationCommands.Paste, (o, e) => ((SmartGrid) o).OnExecutedPaste()));
         }
-
-        static public readonly DependencyProperty ReadOnlyColumnsProperty = DependencyProperty.Register("ReadOnlyColumns", typeof (IEnumerable<string>), typeof (SmartGrid));
-        static public readonly DependencyProperty HeaderColumnsProperty = DependencyProperty.Register("HeaderColumns", typeof (IEnumerable<string>), typeof (SmartGrid));
-
-        static public readonly DependencyProperty ValueConvertersProperty = DependencyProperty.Register("ValueConverters", typeof (IEnumerable<KeyValuePair<string, IValueConverter>>),
-                                                                                                        typeof (SmartGrid));
-
-        static public readonly DependencyProperty ReadOnlyItemsProperty = DependencyProperty.Register("ReadOnlyItems", typeof (IEnumerable<IDictionary<string, object>>), typeof (SmartGrid));
-
-        static readonly SolidColorBrush HeaderColour = Brushes.LightGray;
-        static readonly SolidColorBrush ReadOnlyColour = Brushes.WhiteSmoke;
 
         public SmartGrid()
         {
@@ -44,95 +28,11 @@ namespace solidware.financials.windows.ui.views.controls
                           };
         }
 
-        public virtual IEnumerable<IDictionary<string, object>> ReadOnlyItems
-        {
-            get { return (IEnumerable<IDictionary<string, object>>) GetValue(ReadOnlyItemsProperty) ?? Enumerable.Empty<IDictionary<string, object>>(); }
-            set { SetValue(ReadOnlyItemsProperty, value); }
-        }
-
-        public IEnumerable<string> ReadOnlyColumns
-        {
-            get { return (IEnumerable<string>) GetValue(ReadOnlyColumnsProperty) ?? Enumerable.Empty<string>(); }
-            set
-            {
-                SetValue(ReadOnlyColumnsProperty, value);
-                if (Columns != null && Columns.Count > 0)
-                {
-                    ConfigureColumns();
-                }
-            }
-        }
-
-        public IEnumerable<string> HeaderColumns
-        {
-            get { return (IEnumerable<string>) GetValue(HeaderColumnsProperty) ?? Enumerable.Empty<string>(); }
-            set
-            {
-                SetValue(HeaderColumnsProperty, value);
-                if (Columns != null && Columns.Count > 0)
-                {
-                    ConfigureColumns();
-                }
-            }
-        }
-
-        public IEnumerable<KeyValuePair<string, IValueConverter>> ValueConverters
-        {
-            get { return (IEnumerable<KeyValuePair<string, IValueConverter>>) GetValue(ValueConvertersProperty) ?? Enumerable.Empty<KeyValuePair<string, IValueConverter>>(); }
-            set
-            {
-                SetValue(ValueConvertersProperty, value);
-                if (Columns != null && Columns.Count > 0)
-                {
-                    ConfigureColumns();
-                }
-            }
-        }
-
         void ConfigureColumns()
         {
             foreach (var column in Columns)
             {
-                var header = column.Header.ToString();
-                column.IsReadOnly = IsReadOnly || ReadOnlyColumns.Contains(header);
-
-                Brush background = null;
-                if (HeaderColumns.Contains(header))
-                {
-                    background = HeaderColour;
-                }
-                else if (ReadOnlyColumns.Contains(header))
-                {
-                    background = ReadOnlyColour;
-                }
-                if (background != null)
-                {
-                    if (column.CellStyle == null) column.CellStyle = new Style();
-                    SetPropertyIfNotPresent(column, BackgroundProperty, background);
-                    SetPropertyIfNotPresent(column, ForegroundProperty, Brushes.Black);
-                }
-
-                var textColumn = column as DataGridTextColumn;
-                if (textColumn == null) continue;
-                var binding = textColumn.Binding as Binding;
-                if (binding == null) continue;
-                if (binding.Converter != null) continue; // Converter has already been bound and cannot be changed.
-
-                var valueConverter = ValueConverters.SingleOrDefault(x => x.Key == header).Value;
-
-                if (valueConverter != null)
-                {
-                    binding.Converter = valueConverter;
-                }
-            }
-        }
-
-        static void SetPropertyIfNotPresent(DataGridColumn column, DependencyProperty dependencyProperty, Brush brush)
-        {
-            var existing = column.CellStyle.Setters.OfType<Setter>().FirstOrDefault(x => x.Property == dependencyProperty);
-            if (existing == null)
-            {
-                column.CellStyle.Setters.Add(new Setter(dependencyProperty, brush));
+                column.IsReadOnly = IsReadOnly;
             }
         }
 
@@ -141,34 +41,23 @@ namespace solidware.financials.windows.ui.views.controls
             base.OnItemsSourceChanged(oldValue, newValue);
             if (newValue == null) return;
 
-           var enumerator = newValue.GetEnumerator();
+            var enumerator = newValue.GetEnumerator();
             if (!enumerator.MoveNext()) return;
 
-            var firstRow = enumerator.Current as IDictionary<string, IObservable>;
-
+            var firstRow = enumerator.Current as Row;
             if (firstRow == null) return;
 
-            AutoGenerateColumns = false; 
+            AutoGenerateColumns = false;
             Columns.Clear();
             foreach (var pair in firstRow)
             {
-                Columns.Add(new ExtendedTextColumn {Header = pair.Key, Binding = new Binding("[" + pair.Key + "].Value")});
+                Columns.Add(new ExtendedTextColumn
+                            {
+                                Header = pair.Key,
+                                Binding = new Binding("[" + pair.Key + "].Value")
+                            });
             }
             ConfigureColumns();
-        }
-
-        protected override void OnLoadingRow(DataGridRowEventArgs e)
-        {
-            if (ReadOnlyItems != null)
-            {
-                e.Row.IsEnabled = !IsItemReadOnly(e.Row.Item);
-                if (!e.Row.IsEnabled)
-                {
-                    e.Row.Background = HeaderColour;
-                }
-            }
-
-            base.OnLoadingRow(e);
         }
 
         protected virtual void OnExecutedPaste()
@@ -196,15 +85,9 @@ namespace solidware.financials.windows.ui.views.controls
                 {
                     var column = ColumnFromDisplayIndex(j);
                     if (column.IsReadOnly) continue;
-                    if (IsItemReadOnly(Items[i])) continue;
                     column.OnPastingCellClipboardContent(Items[i], rowData[rowDataIndex][columnDataIndex]);
                 }
             }
-        }
-
-        bool IsItemReadOnly(object item)
-        {
-            return ReadOnlyItems.Any(x => ReferenceEquals(x, item));
         }
 
         protected override void OnKeyUp(KeyEventArgs e)

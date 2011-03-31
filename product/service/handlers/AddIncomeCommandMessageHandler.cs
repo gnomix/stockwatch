@@ -24,6 +24,7 @@ namespace solidware.financials.service.handlers
             {
                 x.Amount = item.Amount;
                 x.PersonId = item.PersonId;
+                x.Date = item.Date;
             });
         }
     }

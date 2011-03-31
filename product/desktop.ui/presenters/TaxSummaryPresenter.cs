@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using solidware.financials.infrastructure;
+﻿using solidware.financials.infrastructure;
 using solidware.financials.infrastructure.eventing;
 using solidware.financials.messages;
 using solidware.financials.windows.ui.events;
 using solidware.financials.windows.ui.model;
-using solidware.financials.windows.ui.views.controls;
 
 namespace solidware.financials.windows.ui.presenters
 {
@@ -19,8 +15,7 @@ namespace solidware.financials.windows.ui.presenters
         {
             this.builder = builder;
             this.bus = bus;
-            FamilyIncome = Money.Null;
-            TotalFamilyFederalTaxes = Money.Null;
+            Family = new TaxesForFamily();
         }
 
         public string Header
@@ -28,9 +23,8 @@ namespace solidware.financials.windows.ui.presenters
             get { return "Taxes"; }
         }
 
-        public TaxesForIndividual Selected { get; set; }
-        public Observable<Money> FamilyIncome { get; set; }
-        public Observable<Money> TotalFamilyFederalTaxes { get; set; }
+        public TaxesForIndividual Individual { get; set; }
+        public TaxesForFamily Family { get; set; }
 
         public void present()
         {
@@ -39,24 +33,14 @@ namespace solidware.financials.windows.ui.presenters
 
         public void notify(IncomeMessage message)
         {
-            FamilyIncome.Value += message.Amount;
-            TaxesFor(message.PersonId).AddIncome(message.Amount);
-            TotalFamilyFederalTaxes.Value = family.Values.Sum(x => x.FederalTaxes.Taxes.Value);
+            Family.AddIncomeFor(message.PersonId, message.Amount);
+            update(x => x.Family);
         }
 
         public void notify(SelectedFamilyMember message)
         {
-            Selected = TaxesFor(message.id);
-            update(x => x.Selected);
+            Individual = Family.TaxesFor(message.id);
+            update(x => x.Individual);
         }
-
-        TaxesForIndividual TaxesFor(Guid id)
-        {
-            if (!family.ContainsKey(id))
-                family[id] = new TaxesForIndividual(id, new FederalTaxesViewModel(id));
-            return family[id];
-        }
-
-        IDictionary<Guid, TaxesForIndividual> family = new Dictionary<Guid, TaxesForIndividual>();
     }
 }

@@ -138,6 +138,7 @@
     <Compile Include="presenters\Money.cs" />
     <Compile Include="presenters\specifications\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\ButtonBarPresenter.cs" />
+    <Compile Include="presenters\TaxesForFamily.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
     <Compile Include="presenters\ToastViewModel.cs" />

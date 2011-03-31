@@ -2,18 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:controls="clr-namespace:solidware.financials.windows.ui.views.controls" mc:Ignorable="d" >
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" >
     <DockPanel MinWidth="1024">
         <StackPanel>
             <StackPanel Margin="5,5,5,5">
             <Label FontWeight="Bold">Income</Label>
             <DockPanel>
                 <Label Width="100">Individual:</Label>
-                <Label Content="{Binding Path=Selected.TotalIncome.Value}" FontWeight="Bold"></Label>
+                <Label Content="{Binding Path=Individual.Income.Value}" FontWeight="Bold"></Label>
             </DockPanel>
             <DockPanel>
                 <Label Width="100">Family:</Label>
-                <Label Content="{Binding Path=FamilyIncome.Value}" FontWeight="Bold"></Label>
+                <Label Content="{Binding Path=Family.Income.Value}" FontWeight="Bold" Foreground="Green"></Label>
             </DockPanel>
             </StackPanel>
             <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
@@ -21,11 +21,11 @@
             <StackPanel Width="500">
                 <DockPanel>
                     <Label Width="100">Individual:</Label>
-                    <Label Content="{Binding Path=Selected.FederalTaxes.Taxes.Value}" ContentStringFormat="{}{0:C}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=Individual.FederalTaxes.Taxes.Value}" ContentStringFormat="{}{0:C}" FontWeight="Bold"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Width="100">Family:</Label>
-                    <Label Content="{Binding Path=TotalFamilyFederalTaxes}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=Family.FederalTaxes.Value}" FontWeight="Bold" Foreground="Red" />
                 </DockPanel>
                 <Expander Header="Tax Rates">
                 <StackPanel>
@@ -52,7 +52,7 @@
                 </Expander>
                 <DockPanel>
                     <Label Width="100">Individual:</Label>
-                    <Label Content="{Binding Path=Selected.ProvincialTaxes}" FontWeight="Bold"/>
+                    <Label Content="{Binding Path=Individual.ProvincialTaxes}" FontWeight="Bold"/>
                 </DockPanel>
             </StackPanel>
             </DockPanel>

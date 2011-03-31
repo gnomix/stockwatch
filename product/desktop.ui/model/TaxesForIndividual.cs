@@ -8,19 +8,19 @@ namespace solidware.financials.windows.ui.model
     {
         public TaxesForIndividual(Guid id, FederalTaxesViewModel federalTaxes)
         {
-            FederalTaxes = federalTaxes;
             Id = id;
-            TotalIncome = Money.Null;
+            Income = Money.Null;
+            FederalTaxes = federalTaxes;
         }
 
         public Guid Id { get; private set; }
-        public Observable<Money> TotalIncome { get; private set; }
+        public Observable<Money> Income { get; private set; }
         public FederalTaxesViewModel FederalTaxes { get; set; }
 
         public void AddIncome(decimal amount)
         {
-            TotalIncome.Value += amount;
-            FederalTaxes.ApplyTaxesTo(TotalIncome.Value);
+            Income.Value += amount;
+            FederalTaxes.ApplyTaxesTo(Income.Value);
         }
     }
 }

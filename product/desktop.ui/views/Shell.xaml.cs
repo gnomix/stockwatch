@@ -20,6 +20,7 @@ namespace solidware.financials.windows.ui.views
                           {Menu.GetType(), Menu},
                           {DockManager.GetType(), DockManager},
                           {Tabs.GetType(), Tabs},
+                          {ResizingPanel.GetType(), ResizingPanel},
                           {ButtonBar.GetType(), ButtonBar},
                           {TaskBarIcon.GetType(), TaskBarIcon},
                       };
@@ -40,6 +41,11 @@ namespace solidware.financials.windows.ui.views
         {
             ensure_that_the_region_exists<Region>();
             configure(regions[typeof (Region)].downcast_to<Region>());
+        }
+
+        public void region<Region>(Configuration<Region> configuration) where Region : UIElement
+        {
+            region<Region>(x => configuration.configure(x));
         }
 
         void ensure_that_the_region_exists<Region>()

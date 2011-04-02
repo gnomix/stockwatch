@@ -1,6 +1,5 @@
 using System;
 using System.Windows;
-using AvalonDock;
 using solidware.financials.infrastructure.eventing;
 
 namespace solidware.financials.windows.ui
@@ -11,8 +10,7 @@ namespace solidware.financials.windows.ui
         PresenterFactory factory;
         EventAggregator event_aggregator;
 
-        public WPFApplicationController(RegionManager region_manager, PresenterFactory factory,
-                                        EventAggregator event_aggregator)
+        public WPFApplicationController(RegionManager region_manager, PresenterFactory factory, EventAggregator event_aggregator)
         {
             this.region_manager = region_manager;
             this.event_aggregator = event_aggregator;
@@ -24,11 +22,7 @@ namespace solidware.financials.windows.ui
             var presenter = open<Presenter>();
             var view = new View();
             view.bind_to(presenter);
-            configure_region<DocumentPane>(x => x.Items.Add(new DocumentContent
-            {
-                Title = presenter.Header,
-                Content = view,
-            }));
+            region_manager.region(new TabRegionConfiguration(presenter,view));
         }
 
         public void load_region<TPresenter, Region>() where TPresenter : Presenter where Region : FrameworkElement, View<TPresenter>, new()

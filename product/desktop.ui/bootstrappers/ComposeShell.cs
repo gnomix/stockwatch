@@ -32,6 +32,7 @@ namespace solidware.financials.windows.ui.bootstrappers
                 //x.add("_Deductions").add("_Add RRSP", () => { }) ;
                 //x.add("_Credits").add("_Add Credit", () => { }) ;
                 //x.add("_Benefits").add("_Add Benefit", () => { }) ;
+                //x.add("_Window").add("_Taxes", () => controller.add_tab<TaxSummaryPresenter, TaxSummaryTab>()).apply_icon(UIIcon.Category);
                 x.add("_Help").add("_Taxes", launch<DisplayCanadianTaxInformationViewModel, DisplayCanadianTaxInformationDialog>).apply_icon(UIIcon.Help);
             });
 

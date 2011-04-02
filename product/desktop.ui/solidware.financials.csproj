@@ -149,6 +149,7 @@
     <Compile Include="SimpleCommand.cs" />
     <Compile Include="Tab.cs" />
     <Compile Include="TabPresenter.cs" />
+    <Compile Include="TabRegionConfiguration.cs" />
     <Compile Include="UICommand.cs" />
     <Compile Include="UICommandBuilder.cs" />
     <Compile Include="UISpecification.cs" />

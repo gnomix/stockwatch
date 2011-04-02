@@ -29,6 +29,11 @@ namespace solidware.financials.windows.ui.views
             configure(regions[typeof (Region)].downcast_to<Region>());
         }
 
+        public void region<Region>(Configuration<Region> configuration) where Region : UIElement
+        {
+            region<Region>(x => configuration.configure(x));
+        }
+
         void ensure_that_the_region_exists<Region>()
         {
             if (!regions.ContainsKey(typeof (Region)))

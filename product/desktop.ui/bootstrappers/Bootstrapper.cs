@@ -147,7 +147,8 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             builder.RegisterType<ConfigureServiceMappings>().As<NeedStartup>();
 
-            builder.RegisterType<StubLookupService>().As<StockPriceLookupService>();
+            //builder.RegisterType<StubLookupService>().As<StockPriceLookupService>();
+            builder.RegisterType<GoogleLookupService>().As<StockPriceLookupService>();
 
             new DB4OBootstrapper().run();
         }

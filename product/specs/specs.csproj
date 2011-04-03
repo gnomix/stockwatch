@@ -106,6 +106,7 @@
     <Compile Include="unit\ui\InMemoryApplicationStateSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddFamilyMemberPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddNewIncomeViewModelSpecs.cs" />
+    <Compile Include="unit\ui\presenters\AddNewStockSymbolPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\specifications\IfFamilyMemberIsSelectedSpecs.cs" />
     <Compile Include="unit\ui\presenters\StockWatchPresenterSpecs.cs" />
   </ItemGroup>

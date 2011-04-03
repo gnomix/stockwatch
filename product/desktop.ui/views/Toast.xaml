@@ -37,7 +37,7 @@
 		</Storyboard>
 	</UserControl.Resources>
 	<UserControl.Triggers>
-		<EventTrigger RoutedEvent="views:TrayIcon.BalloonShowing">
+		<EventTrigger RoutedEvent="tb:TaskbarIcon.BalloonShowing">
 			<BeginStoryboard Storyboard="{StaticResource FadeIn}" x:Name="FadeIn_BeginStoryboard"/>
 		</EventTrigger>
 		<EventTrigger RoutedEvent="Mouse.MouseEnter" SourceName="closeImage">
@@ -50,7 +50,7 @@
 			<StopStoryboard BeginStoryboardName="FadeIn_BeginStoryboard"/>
 			<BeginStoryboard x:Name="FadeBack_BeginStoryboard1" Storyboard="{StaticResource FadeBack}"/>
 		</EventTrigger>
-		<EventTrigger RoutedEvent="views:TrayIcon.BalloonClosing">
+		<EventTrigger RoutedEvent="tb:TaskbarIcon.BalloonClosing">
 			<BeginStoryboard Storyboard="{StaticResource FadeOut}" x:Name="FadeOut_BeginStoryboard"/>
 		</EventTrigger>
 	</UserControl.Triggers>

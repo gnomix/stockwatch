@@ -34,7 +34,7 @@ namespace specs.unit.ui.presenters
 
             Establish context = () =>
             {
-                cancel_command = Create.an<IObservableCommand>();
+                cancel_command = Create.an<ObservableCommand>();
                 command_builder.Stub(x => x.build<CancelCommand>(sut)).Return(cancel_command);
             };
 
@@ -44,7 +44,7 @@ namespace specs.unit.ui.presenters
                 sut.Cancel.Execute(sut);
             };
 
-            static IObservableCommand cancel_command;
+            static ObservableCommand cancel_command;
         }
 
         public class when_clicking_the_add_button : concern
@@ -56,7 +56,7 @@ namespace specs.unit.ui.presenters
 
             Establish context = () =>
             {
-                add_command = Create.an<IObservableCommand>();
+                add_command = Create.an<ObservableCommand>();
                 command_builder.Stub(x => x.build<AddNewIncomeViewModel.AddIncomeCommand, IfFamilyMemberIsSelected<AddNewIncomeViewModel>>(sut)).Return(add_command);
             };
 
@@ -66,7 +66,7 @@ namespace specs.unit.ui.presenters
                 sut.Add.Execute(sut);
             };
 
-            static IObservableCommand add_command;
+            static ObservableCommand add_command;
         }
 
         public class when_the_add_button_is_pressed

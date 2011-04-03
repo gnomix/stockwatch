@@ -23,6 +23,7 @@ namespace solidware.financials.windows.ui.views
                           {ResizingPanel.GetType(), ResizingPanel},
                           {ButtonBar.GetType(), ButtonBar},
                           {TaskBarIcon.GetType(), TaskBarIcon},
+                          {StockWatch.GetType(), StockWatch},
                       };
             DockManager.Loaded += (o, e) =>
             {

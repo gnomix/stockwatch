@@ -94,6 +94,8 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<TaxSummaryPresenter>();
 
             builder.RegisterType<DisplayCanadianTaxInformationViewModel>();
+
+            builder.RegisterType<StockWatchPresenter>();
         }
 
         static void register_for_message_to_listen_for(ContainerBuilder builder)
@@ -108,8 +110,8 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<DB4OPersonRepository>().As<PersonRepository>().SingleInstance();
             builder.RegisterType<ScopedContext>().As<Context>().SingleInstance();
             //builder.Register(x => new SimpleContext(new Hashtable())).As<Context>().SingleInstance();
-            builder.RegisterType<PerThreadScopedStorage>().As<IScopedStorage>();
-            builder.RegisterType<CurrentThread>().As<IThread>();
+            builder.RegisterType<PerThreadScopedStorage>().As<ScopedStorage>();
+            builder.RegisterType<CurrentThread>().As<ApplicationThread>();
             builder.Register(x =>
             {
                 return Lazy.load(() =>

@@ -31,7 +31,7 @@ namespace specs.unit.ui.presenters
 
             Establish context = () =>
             {
-                cancel = Create.an<IObservableCommand>();
+                cancel = Create.an<ObservableCommand>();
                 command_builder.Stub(x => x.build<CancelCommand>(sut)).Return(cancel);
             };
 
@@ -41,7 +41,7 @@ namespace specs.unit.ui.presenters
                 sut.Cancel.Execute(sut);
             };
 
-            static IObservableCommand cancel;
+            static ObservableCommand cancel;
         }
 
         public class when_clicking_the_save_button : concern
@@ -53,7 +53,7 @@ namespace specs.unit.ui.presenters
 
             Establish context = () =>
             {
-                save = Create.an<IObservableCommand>();
+                save = Create.an<ObservableCommand>();
                 command_builder.Stub(x => x.build<AddFamilyMemberPresenter.SaveCommand>(sut)).Return(save);
             };
 
@@ -63,7 +63,7 @@ namespace specs.unit.ui.presenters
                 sut.Save.Execute(sut);
             };
 
-            static IObservableCommand save;
+            static ObservableCommand save;
         }
 
         public class SaveCommandSpecs

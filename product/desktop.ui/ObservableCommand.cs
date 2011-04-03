@@ -2,7 +2,7 @@ using System.Windows.Input;
 
 namespace solidware.financials.windows.ui
 {
-    public interface IObservableCommand : ICommand
+    public interface ObservableCommand : ICommand
     {
         void notify_observers();
     }

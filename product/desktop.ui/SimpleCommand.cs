@@ -2,7 +2,7 @@ using System;
 
 namespace solidware.financials.windows.ui
 {
-    public class SimpleCommand : IObservableCommand
+    public class SimpleCommand : ObservableCommand
     {
         Action action = () => {};
         Func<bool> predicate;

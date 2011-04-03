@@ -2,7 +2,7 @@ namespace solidware.financials.windows.ui
 {
     public interface UICommandBuilder
     {
-        IObservableCommand build<Command>(Presenter presenter) where Command : UICommand;
-        IObservableCommand build<Command, Specification>(Presenter presenter) where Command : UICommand where Specification : UISpecification;
+        ObservableCommand build<Command>(Presenter presenter) where Command : UICommand;
+        ObservableCommand build<Command, Specification>(Presenter presenter) where Command : UICommand where Specification : UISpecification;
     }
 }

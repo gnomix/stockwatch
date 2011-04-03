@@ -46,14 +46,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\db4o-devel.8.1.184.15492\lib\net40\Db4objects.Db4o.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="gorilla.infrastructure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="gorilla.infrastructure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\commons\gorilla.infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="gorilla.utility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\commons\gorilla.utility.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Specifications, Version=0.4.9.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Machine.Specifications.0.4.9.0\lib\Machine.Specifications.dll</HintPath>
+      <HintPath>..\..\thirdparty\mspec\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Reflection">
       <HintPath>..\..\packages\db4o-devel.8.1.184.15492\lib\net40\Mono.Reflection.dll</HintPath>
@@ -102,6 +105,7 @@
     <Compile Include="unit\ui\presenters\AddFamilyMemberPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\AddNewIncomeViewModelSpecs.cs" />
     <Compile Include="unit\ui\presenters\specifications\IfFamilyMemberIsSelectedSpecs.cs" />
+    <Compile Include="unit\ui\presenters\StockWatchPresenterSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\desktop.ui\solidware.financials.csproj">

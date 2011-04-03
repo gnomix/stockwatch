@@ -11,7 +11,7 @@ namespace solidware.financials.windows.ui.presenters
             this.container = container;
         }
 
-        public IObservableCommand build<Command>(Presenter presenter) where Command : UICommand
+        public ObservableCommand build<Command>(Presenter presenter) where Command : UICommand
         {
             var command = container.get_a<Command>();
             return new SimpleCommand(() =>
@@ -20,7 +20,7 @@ namespace solidware.financials.windows.ui.presenters
             });
         }
 
-        public IObservableCommand build<Command, Specification>(Presenter presenter) where Command : UICommand where Specification : UISpecification
+        public ObservableCommand build<Command, Specification>(Presenter presenter) where Command : UICommand where Specification : UISpecification
         {
             var command = container.get_a<Command>();
             var specification = container.get_a<Specification>();

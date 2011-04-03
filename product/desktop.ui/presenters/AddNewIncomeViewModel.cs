@@ -25,8 +25,8 @@ namespace solidware.financials.windows.ui.presenters
 
         public virtual decimal amount { get; set; }
         public virtual DateTime date { get; set; }
-        public IObservableCommand Add { get; set; }
-        public IObservableCommand Cancel { get; set; }
+        public ObservableCommand Add { get; set; }
+        public ObservableCommand Cancel { get; set; }
         public virtual Action close { get; set; }
 
         public class AddIncomeCommand : UICommand<AddNewIncomeViewModel>

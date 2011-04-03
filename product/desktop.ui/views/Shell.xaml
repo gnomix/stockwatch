@@ -44,10 +44,7 @@
 						</TreeView>
 					</ad:DockableContent>
 					<ad:DockableContent x:Name="stocksContent" Title="Stocks">
-						<ListBox>
-							<ListBoxItem Content="ARX.TO" />
-							<ListBoxItem Content="TD.TO" />
-						</ListBox>
+                        <views:StockWatch x:Name="StockWatch"></views:StockWatch>
 					</ad:DockableContent>
 				</ad:DockablePane>
 				<ad:DocumentPane Name="Tabs"></ad:DocumentPane>

@@ -123,7 +123,7 @@
     <Compile Include="events\UpdateOnLongRunningProcess.cs" />
     <Compile Include="handlers\PublishEventHandler.cs" />
     <Compile Include="InMemoryApplicationState.cs" />
-    <Compile Include="IObservableCommand.cs" />
+    <Compile Include="ObservableCommand.cs" />
     <Compile Include="model\TaxesForIndividual.cs" />
     <Compile Include="model\TaxRow.cs" />
     <Compile Include="ObservablePresenter.cs" />
@@ -139,6 +139,8 @@
     <Compile Include="presenters\ProvincialTaxesViewModel.cs" />
     <Compile Include="presenters\specifications\IfFamilyMemberIsSelected.cs" />
     <Compile Include="presenters\ButtonBarPresenter.cs" />
+    <Compile Include="presenters\StockViewModel.cs" />
+    <Compile Include="presenters\StockWatchPresenter.cs" />
     <Compile Include="presenters\TaxesForFamily.cs" />
     <Compile Include="presenters\TaxSummaryPresenter.cs" />
     <Compile Include="presenters\StatusBarPresenter.cs" />
@@ -193,6 +195,9 @@
     <Compile Include="views\controls\SmartGrid.cs" />
     <Compile Include="views\StatusBarRegion.xaml.cs">
       <DependentUpon>StatusBarRegion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\StockWatch.xaml.cs">
+      <DependentUpon>StockWatch.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\TaxSummaryTab.xaml.cs">
       <DependentUpon>TaxSummaryTab.xaml</DependentUpon>
@@ -268,6 +273,10 @@
     <Page Include="views\StatusBarRegion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\StockWatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="views\TaxSummaryTab.xaml">
       <SubType>Designer</SubType>

@@ -24,8 +24,8 @@ namespace solidware.financials.windows.ui.presenters
         public virtual string first_name { get; set; }
         public virtual string last_name { get; set; }
         public virtual DateTime date_of_birth { get; set; }
-        public IObservableCommand Save { get; set; }
-        public IObservableCommand Cancel { get; set; }
+        public ObservableCommand Save { get; set; }
+        public ObservableCommand Cancel { get; set; }
         public virtual Action close { get; set; }
 
         public class SaveCommand : UICommand<AddFamilyMemberPresenter>

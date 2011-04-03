@@ -157,13 +157,13 @@
     <Compile Include="UICommandBuilder.cs" />
     <Compile Include="UISpecification.cs" />
     <Compile Include="View.cs" />
-    <Compile Include="views\AddFamilyMemberDialog.xaml.cs">
+    <Compile Include="views\dialogs\AddFamilyMemberDialog.xaml.cs">
       <DependentUpon>AddFamilyMemberDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\AddNewIncomeDialog.xaml.cs">
+    <Compile Include="views\dialogs\AddNewIncomeDialog.xaml.cs">
       <DependentUpon>AddNewIncomeDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\ButtonExpression.cs" />
+    <Compile Include="views\controls\ButtonExpression.cs" />
     <Compile Include="views\controls\ClipboardHelper.cs" />
     <Compile Include="views\controls\Column.cs" />
     <Compile Include="views\controls\DataGridTable.cs" />
@@ -181,13 +181,13 @@
     <Compile Include="views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\ExtendedTextColumn.cs" />
+    <Compile Include="views\controls\ExtendedTextColumn.cs" />
     <Compile Include="views\icons\UIIcon.cs" />
     <Compile Include="views\icons\IconMarker.cs" />
     <Compile Include="views\ImageButton.cs" />
     <Compile Include="views\MainMenu.cs" />
     <Compile Include="views\MenuItemExtensions.cs" />
-    <Compile Include="views\ButtonBar.xaml.cs">
+    <Compile Include="views\controls\ButtonBar.xaml.cs">
       <DependentUpon>ButtonBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\Shell.xaml.cs">
@@ -246,11 +246,11 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="views\AddFamilyMemberDialog.xaml">
+    <Page Include="views\dialogs\AddFamilyMemberDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="views\AddNewIncomeDialog.xaml">
+    <Page Include="views\dialogs\AddNewIncomeDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -266,7 +266,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="views\ButtonBar.xaml">
+    <Page Include="views\controls\ButtonBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

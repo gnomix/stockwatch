@@ -1,4 +1,4 @@
-﻿<ui:WPFDialog  x:Class="solidware.financials.windows.ui.views.AddNewIncomeDialog"
+﻿<ui:WPFDialog  x:Class="solidware.financials.windows.ui.views.dialogs.AddNewIncomeDialog"
  xmlns:ui="clr-namespace:solidware.financials.windows.ui"              
              x:TypeArguments="presenters:AddNewIncomeViewModel"  
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

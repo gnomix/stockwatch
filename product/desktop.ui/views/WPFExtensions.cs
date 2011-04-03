@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using solidware.financials.windows.ui.views.controls;
 using solidware.financials.windows.ui.views.icons;
 
 namespace solidware.financials.windows.ui.views

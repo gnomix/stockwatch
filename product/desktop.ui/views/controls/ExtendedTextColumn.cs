@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace solidware.financials.windows.ui.views
+namespace solidware.financials.windows.ui.views.controls
 {
     public class ExtendedTextColumn : DataGridTextColumn
     {

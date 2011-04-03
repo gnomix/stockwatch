@@ -2,7 +2,7 @@
 using System.Windows.Controls.Primitives;
 using gorilla.utility;
 
-namespace solidware.financials.windows.ui.views
+namespace solidware.financials.windows.ui.views.controls
 {
     public class ButtonExpression
     {

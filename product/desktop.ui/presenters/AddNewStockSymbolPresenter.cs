@@ -6,7 +6,7 @@ namespace solidware.financials.windows.ui.presenters
 {
     public class AddNewStockSymbolPresenter : DialogPresenter
     {
-        readonly UICommandBuilder builder;
+        UICommandBuilder builder;
 
         public AddNewStockSymbolPresenter(UICommandBuilder builder)
         {

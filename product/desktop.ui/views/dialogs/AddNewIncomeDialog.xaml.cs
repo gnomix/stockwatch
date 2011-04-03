@@ -1,4 +1,4 @@
-﻿namespace solidware.financials.windows.ui.views
+﻿namespace solidware.financials.windows.ui.views.dialogs
 {
     public partial class AddNewIncomeDialog
     {

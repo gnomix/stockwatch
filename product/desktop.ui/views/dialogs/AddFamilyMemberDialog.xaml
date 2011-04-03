@@ -1,4 +1,4 @@
-<ui:WPFDialog x:Class="solidware.financials.windows.ui.views.AddFamilyMemberDialog"
+<ui:WPFDialog x:Class="solidware.financials.windows.ui.views.dialogs.AddFamilyMemberDialog"
  xmlns:ui="clr-namespace:solidware.financials.windows.ui"              
              x:TypeArguments="presenters:AddFamilyMemberPresenter"  
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

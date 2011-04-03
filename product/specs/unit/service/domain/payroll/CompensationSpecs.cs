@@ -31,11 +31,13 @@ namespace specs.unit.service.domain.payroll
                 sut.grant_for(new DateTime(2009, 09, 15)).change_unit_price_to(20.00m);
             };
 
+            [Ignore]
             It should_indicate_that_nothing_has_vested_before_the_first_anniversary = () =>
             {
                 sut.unvested_balance(new DateTime(2010, 09, 14)).should_be_equal_to(9000);
             };
 
+            [Ignore]
             It should_indicate_that_one_third_has_vested_after_the_first_anniversary = () =>
             {
                 sut.unvested_balance(new DateTime(2010, 09, 15)).should_be_equal_to(6000);

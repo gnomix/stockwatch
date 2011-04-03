@@ -37,7 +37,7 @@ namespace specs.unit.service.domain.accounting
 
             It should_return_the_correct_amount = () =>
             {
-                Currency.CAD.convert(1.05690034m, Currency.USD).should_be_equal_to(1.0046577561938002m);
+                Currency.CAD.convert(1.05690034m, Currency.USD).should_be_equal_to(1.0046577561938m);
             };
         }
     }

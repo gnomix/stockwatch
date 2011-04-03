@@ -5,7 +5,7 @@ using System.Windows.Input;
 using solidware.financials.windows.ui.presenters;
 using solidware.financials.windows.ui.views.icons;
 
-namespace solidware.financials.windows.ui.views
+namespace solidware.financials.windows.ui.views.controls
 {
     public partial class ButtonBar : View<ButtonBarPresenter>
     {

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="solidware.financials.windows.ui.views.ButtonBar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<UserControl x:Class="solidware.financials.windows.ui.views.controls.ButtonBar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 <DockPanel Name="DockPanel" LastChildFill="False">
     <ComboBox ItemsSource="{Binding family_members}" SelectedItem="{Binding SelectedMember}" Width="150"></ComboBox>
     <!--<Label Content="{Binding Path=SelectedMember.first_name, Mode=OneWay}"/>-->

@@ -1,4 +1,5 @@
 using Machine.Specifications;
+using Rhino.Mocks;
 using solidware.financials.infrastructure;
 using solidware.financials.messages;
 using solidware.financials.windows.ui;
@@ -69,6 +70,7 @@ namespace specs.unit.ui.presenters
                 {
                     presenter = Create.an<AddNewStockSymbolPresenter>();
                     presenter.is_told_to(x => x.Symbol).it_will_return("TD.TO");
+                    presenter.Stub(x => x.close).Return(() => { closed = true; });
                 };
 
                 Because of = () =>
@@ -81,7 +83,13 @@ namespace specs.unit.ui.presenters
                     bus.received(x => x.publish(new StartWatchingSymbol {Symbol = "TD.TO"}));
                 };
 
+                It should_close_the_dialog = () =>
+                {
+                    closed.should_be_true();
+                };
+
                 static AddNewStockSymbolPresenter presenter;
+                static bool closed;
             }
         }
     }

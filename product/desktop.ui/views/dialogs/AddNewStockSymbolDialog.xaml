@@ -1,4 +1,4 @@
-﻿<ui:WPFDialog x:Class="solidware.financials.windows.ui.views.dialogs.AddNewStockSymbolDialog" xmlns:ui="clr-namespace:solidware.financials.windows.ui" x:TypeArguments="presenters:AddNewStockSymbolPresenter" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:presenters="clr-namespace:solidware.financials.windows.ui.presenters" Title="AddNewStockSymbolDialog" Height="300" Width="300">
+﻿<ui:WPFDialog x:Class="solidware.financials.windows.ui.views.dialogs.AddNewStockSymbolDialog" xmlns:ui="clr-namespace:solidware.financials.windows.ui" x:TypeArguments="presenters:AddNewStockSymbolPresenter" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:presenters="clr-namespace:solidware.financials.windows.ui.presenters" Title="Watch New Stock" Width="400" Height="90" WindowStartupLocation="CenterOwner">
     <StackPanel>
         <DockPanel>
             <Label Width="120px">Symbol:</Label>

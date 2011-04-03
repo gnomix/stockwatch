@@ -16,7 +16,7 @@ namespace solidware.financials.windows.ui.presenters
         public ObservableCommand Add { get; set; }
         public ObservableCommand Cancel { get; set; }
         public virtual string Symbol { get; set; }
-        public Action close { get; set; }
+        public virtual Action close { get; set; }
 
         public void present()
         {
@@ -36,6 +36,7 @@ namespace solidware.financials.windows.ui.presenters
             public override void run(AddNewStockSymbolPresenter presenter)
             {
                 bus.publish(new StartWatchingSymbol {Symbol = presenter.Symbol});
+                presenter.close();
             }
         }
     }

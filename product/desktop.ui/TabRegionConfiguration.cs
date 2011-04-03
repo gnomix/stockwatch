@@ -1,12 +1,11 @@
 ﻿using System.Windows;
 using AvalonDock;
 using gorilla.utility;
+using solidware.financials.windows.ui.views;
 
 namespace solidware.financials.windows.ui
 {
-    public class TabRegionConfiguration :
-        //Configuration<ResizingPanel>,
-        Configuration<DocumentPane>
+    public class TabRegionConfiguration : Configuration<DocumentPane>
     {
         readonly TabPresenter presenter;
         readonly FrameworkElement view;
@@ -17,25 +16,17 @@ namespace solidware.financials.windows.ui
             this.view = view;
         }
 
-        public void configure(ResizingPanel panel)
-        {
-            var pane = new DocumentPane();
-            pane.Items.Add(new DocumentContent
-                           {
-                               Title = presenter.Header,
-                               Content = view,
-                           });
-            panel.Children.Add(pane);
-        }
-
         public void configure(DocumentPane item)
         {
-            item.Items.Add(new DocumentContent
+            var document = new DocumentContent
                            {
                                Title = presenter.Header,
                                Content = view,
                                IsCloseable = false
-                           });
+                           };
+            item.Items.Add(document);
+            document.Show(((Shell) Application.Current.MainWindow).DockManager);
+            //document.Activate();
         }
     }
 }

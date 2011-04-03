@@ -2,14 +2,17 @@ using System;
 using gorilla.infrastructure.threading;
 using Machine.Specifications;
 using Rhino.Mocks;
+using solidware.financials.infrastructure;
+using solidware.financials.messages;
 using solidware.financials.windows.ui;
 using solidware.financials.windows.ui.presenters;
+using solidware.financials.windows.ui.views.dialogs;
 
 namespace specs.unit.ui.presenters
 {
     public class StockWatchPresenterSpecs
     {
-        [Subject(typeof(StockWatchPresenter))]
+        [Subject(typeof (StockWatchPresenter))]
         public abstract class concern
         {
             Establish context = () =>
@@ -70,6 +73,70 @@ namespace specs.unit.ui.presenters
             };
 
             static ObservableCommand refresh_command;
+        }
+
+        public class AddSymbolCommandSpecs
+        {
+            public class when_a_user_wants_to_watch_a_new_symbol
+            {
+                Establish context = () =>
+                {
+                    presenter = Create.an<StockWatchPresenter>();
+                    controller = Create.dependency<DialogLauncher>();
+                    sut = new StockWatchPresenter.AddSymbolCommand(controller);
+                };
+
+                Because of = () =>
+                {
+                    sut.run(presenter);
+                };
+
+                It should_launch_the_add_stock_symbol_dialog = () =>
+                {
+                    controller.received(x => x.launch<AddNewStockSymbolPresenter, AddNewStockSymbolDialog>());
+                };
+
+                static DialogLauncher controller;
+                static StockWatchPresenter.AddSymbolCommand sut;
+                static StockWatchPresenter presenter;
+            }
+        }
+
+        public class RefreshStockPricesCommandSpecs
+        {
+            public class concern
+            {
+                Establish context = () =>
+                {
+                    bus = Create.dependency<ServiceBus>();
+
+                    sut = new StockWatchPresenter.RefreshStockPricesCommand(bus);
+                };
+
+                static protected ServiceBus bus;
+                static protected StockWatchPresenter.RefreshStockPricesCommand sut;
+            }
+
+            public class when_refreshing_the_stock_prices : concern
+            {
+                Establish context = () =>
+                {
+                    presenter = Create.an<StockWatchPresenter>();
+                    presenter.is_told_to(x => x.Stocks).it_will_return(new StockViewModel {Symbol = "ARX.TO"});
+                };
+
+                Because of = () =>
+                {
+                    sut.run(presenter);
+                };
+
+                It should_fetch_the_stock_price_for_each_symbol = () =>
+                {
+                    bus.was_told_to(x => x.publish(new StockPriceRequestQuery {Symbol = "ARX.TO"}));
+                };
+
+                static StockWatchPresenter presenter;
+            }
         }
     }
 }

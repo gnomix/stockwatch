@@ -3,7 +3,6 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 using Autofac;
-using Castle.DynamicProxy;
 using gorilla.infrastructure.container;
 using gorilla.infrastructure.threading;
 using gorilla.utility;

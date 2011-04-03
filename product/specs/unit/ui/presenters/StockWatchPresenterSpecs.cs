@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using gorilla.infrastructure.threading;
 using Machine.Specifications;
 using Rhino.Mocks;
@@ -73,6 +74,28 @@ namespace specs.unit.ui.presenters
             };
 
             static ObservableCommand refresh_command;
+        }
+
+        public class when_a_stock_price_changes : concern
+        {
+            Establish context = () =>
+            {
+                sut.Stocks.Add(new StockViewModel
+                               {
+                                   Symbol = "ARX.TO",
+                                   Price = 20.00m.ToObservable()
+                               });
+            };
+
+            Because of = () =>
+            {
+                sut.notify(new CurrentStockPrice {Symbol = "ARX.TO", Price = 25.50m});
+            };
+
+            It should_display_the_new_price = () =>
+            {
+                sut.Stocks.Last().Price.Value.should_be_equal_to(25.50m);
+            };
         }
 
         public class AddSymbolCommandSpecs

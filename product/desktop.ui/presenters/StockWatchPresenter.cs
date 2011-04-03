@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using gorilla.infrastructure.threading;
 using gorilla.utility;
 using solidware.financials.infrastructure;
+using solidware.financials.infrastructure.eventing;
 using solidware.financials.messages;
 using solidware.financials.windows.ui.views.dialogs;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class StockWatchPresenter : Presenter, TimerClient
+    public class StockWatchPresenter : Presenter, TimerClient, EventSubscriber<CurrentStockPrice>
     {
         UICommandBuilder builder;
         Timer timer;
@@ -17,11 +19,7 @@ namespace solidware.financials.windows.ui.presenters
 
         public StockWatchPresenter(UICommandBuilder builder, Timer timer)
         {
-            Stocks = new ObservableCollection<StockViewModel>
-                     {
-                         new StockViewModel {Symbol = "ARX.TO", Price = 25.00m.ToObservable()},
-                         new StockViewModel {Symbol = "TD.TO", Price = 85.00m.ToObservable()},
-                     };
+            Stocks = new ObservableCollection<StockViewModel>();
             this.builder = builder;
             this.timer = timer;
         }
@@ -39,6 +37,11 @@ namespace solidware.financials.windows.ui.presenters
         public void notify()
         {
             refresh_command.Execute(this);
+        }
+
+        public void notify(CurrentStockPrice message)
+        {
+            Stocks.Single(x => x.IsFor(message.Symbol)).ChangePriceTo(message.Price);
         }
 
         public class AddSymbolCommand : UICommand<StockWatchPresenter>

@@ -18,8 +18,9 @@ namespace solidware.financials.messages
         public override string ToString()
         {
             var builder = new StringBuilder();
-            builder.AppendLine("{0} {1:C} {2} / {3}%".format(Symbol,Price,Change, ChangePercentage));
-            builder.AppendLine("O:{0:C} H:{1:C} L:{2:C}".format(Open, High, Low));
+            builder.AppendLine("{0} {1:C}".format(Symbol.ToUpperInvariant(), Price));
+            builder.AppendLine("{0} / {1}%".format(Change, ChangePercentage));
+            //builder.AppendLine("O:{0:C} H:{1:C} L:{2:C}".format(Open, High, Low));
             return builder.ToString();
         }
     }

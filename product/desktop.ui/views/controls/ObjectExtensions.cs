@@ -18,15 +18,14 @@ namespace solidware.financials.windows.ui.views.controls
         {
             return value is T;
         }
-        public static T As<T>(this object value)
+
+        static public T As<T>(this object value)
         {
             if (value is T)
-                return (T)value;
-            if(value is Observable)
-            {
-                return (T)((Observable)value).Value;
-            }
-            return (T)Convert.ChangeType(value, typeof (T));
+                return (T) value;
+            if (value is Observable)
+                return (T) ((Observable) value).Value;
+            return (T) Convert.ChangeType(value, typeof (T));
         }
     }
 }

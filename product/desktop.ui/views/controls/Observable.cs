@@ -5,7 +5,7 @@ namespace solidware.financials.windows.ui.views.controls
 {
     public interface Observable<T> : Observable
     {
-        T Value { get; set; }
+        new T Value { get; set; }
         void WhenChanged(Action observer);
     }
 

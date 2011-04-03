@@ -16,11 +16,7 @@ namespace solidware.financials.service.handlers
 
         public void handle(StockPriceRequestQuery item)
         {
-            bus.publish(new CurrentStockPrice
-                        {
-                            Symbol = item.Symbol,
-                            Price = service.FindPriceFor(item.Symbol),
-                        });
+            bus.publish(service.FindPriceFor(item.Symbol));
         }
     }
 }

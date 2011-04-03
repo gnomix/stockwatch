@@ -1,12 +1,17 @@
 ﻿using System;
+using solidware.financials.messages;
 
 namespace solidware.financials.service.handlers
 {
     public class StubLookupService : StockPriceLookupService
     {
-        public decimal FindPriceFor(string symbol)
+        public CurrentStockPrice FindPriceFor(string symbol)
         {
-            return Convert.ToDecimal(new Random().NextDouble());
+            return new CurrentStockPrice
+                   {
+                       Symbol = symbol,
+                       Price = Convert.ToDecimal(new Random().NextDouble()),
+                   };
         }
     }
 }

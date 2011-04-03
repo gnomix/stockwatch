@@ -3,18 +3,43 @@ using System.IO;
 using System.Net;
 using gorilla.utility;
 using Newtonsoft.Json;
+using solidware.financials.messages;
 
 namespace solidware.financials.service.handlers
 {
     public class GoogleLookupService : StockPriceLookupService
     {
-        public decimal FindPriceFor(string symbol)
+        public CurrentStockPrice FindPriceFor(string symbol)
         {
             //www.google.com/finance/info?infotype=infoquoteall&q=C,JPM,AIG
-            dynamic convert = JsonConvert.DeserializeObject(Open("http://www.google.com/finance/info?infotype=infoquoteall&q={0}".format(symbol)).Remove(0, 4));
-            var item = convert[0];
-            Console.Out.WriteLine(item);
-            return item.l;
+            try
+            {
+                dynamic convert = JsonConvert.DeserializeObject(Open("http://www.google.com/finance/info?infotype=infoquoteall&q={0}".format(symbol)).Remove(0, 4));
+                var item = convert[0];
+                Console.Out.WriteLine(item);
+                var price = MapFrom(item);
+                price.Symbol = symbol;
+                return price;
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine(e);
+                return new CurrentStockPrice {Symbol = symbol};
+            }
+        }
+
+        CurrentStockPrice MapFrom(dynamic item)
+        {
+            return new CurrentStockPrice
+                   {
+                       Symbol = item.t,
+                       Price = item.l,
+                       Change = item.c,
+                       ChangePercentage = item.cp,
+                       High = item.hi,
+                       Low = item.lo,
+                       Open = item.op,
+                   };
         }
 
         string Open(string url)
@@ -23,27 +48,6 @@ namespace solidware.financials.service.handlers
             {
                 return reader.ReadToEnd();
             }
-        }
-
-        public class GoogleFeed
-        {
-            public int id { get; set; }
-            public string Symbol { get; set; }
-            public string Exchange { get; set; }
-            public decimal CurrentPrice { get; set; }
-            public string LastTradeTime { get; set; }
-            public string Change { get; set; }
-            public string ChangePercentage { get; set; }
-            public decimal Open { get; set; }
-            public decimal High { get; set; }
-            public decimal Low { get; set; }
-            public decimal Volume { get; set; }
-            public decimal AverageVolume { get; set; }
-            public decimal OneYearHigh { get; set; }
-            public decimal OneYearLow { get; set; }
-            public string MarketCapital { get; set; }
-            public string Name { get; set; }
-            public string Type { get; set; }
         }
 
         /*

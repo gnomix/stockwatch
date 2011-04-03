@@ -1,7 +1,9 @@
-﻿namespace solidware.financials.service.handlers
+﻿using solidware.financials.messages;
+
+namespace solidware.financials.service.handlers
 {
     public interface StockPriceLookupService
     {
-        decimal FindPriceFor(string symbol);
+        CurrentStockPrice FindPriceFor(string symbol);
     }
 }

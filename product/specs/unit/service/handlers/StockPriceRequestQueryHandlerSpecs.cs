@@ -26,7 +26,8 @@ namespace specs.unit.service.handlers
             Establish context = () =>
             {
                 query = new StockPriceRequestQuery {Symbol = "ARX.TO"};
-                service.is_told_to(x => x.FindPriceFor("ARX.TO")).it_will_return(26.81m);
+                price = new CurrentStockPrice();
+                service.is_told_to(x => x.FindPriceFor("ARX.TO")).it_will_return(price);
             };
 
             Because of = () =>
@@ -36,14 +37,11 @@ namespace specs.unit.service.handlers
 
             It should_publish_the_current_price = () =>
             {
-                bus.was_told_to(x => x.publish(new CurrentStockPrice
-                                               {
-                                                   Symbol = "ARX.TO",
-                                                   Price = 26.81m,
-                                               }));
+                bus.was_told_to(x => x.publish(price));
             };
 
             static StockPriceRequestQuery query;
+            static CurrentStockPrice price;
         }
     }
 }

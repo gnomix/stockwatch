@@ -15,7 +15,6 @@ namespace solidware.financials.windows.ui.presenters
     {
         UICommandBuilder builder;
         Timer timer;
-        ObservableCommand refresh_command;
 
         public StockWatchPresenter(UICommandBuilder builder, Timer timer)
         {
@@ -26,17 +25,18 @@ namespace solidware.financials.windows.ui.presenters
 
         public virtual ICollection<StockViewModel> Stocks { get; set; }
         public ObservableCommand AddSymbol { get; set; }
+        public ObservableCommand Refresh { get; set; }
 
         public void present()
         {
             timer.start_notifying(this, new TimeSpan(0, 1, 0));
             AddSymbol = builder.build<AddSymbolCommand>(this);
-            refresh_command = builder.build<RefreshStockPricesCommand>(this);
+            Refresh = builder.build<RefreshStockPricesCommand>(this);
         }
 
         public void notify()
         {
-            refresh_command.Execute(this);
+            Refresh.Execute(this);
         }
 
         public void notify(CurrentStockPrice message)

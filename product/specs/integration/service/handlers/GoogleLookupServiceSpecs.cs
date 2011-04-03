@@ -1,4 +1,5 @@
 using Machine.Specifications;
+using solidware.financials.messages;
 using solidware.financials.service.handlers;
 
 namespace specs.integration.service.handlers
@@ -19,11 +20,11 @@ namespace specs.integration.service.handlers
 
             It should_not_blow_up = () =>
             {
-                result.should_be_greater_than(0m);
+                result.Price.should_be_greater_than(0m);
             };
 
             static GoogleLookupService sut;
-            static decimal result;
+            static CurrentStockPrice result;
         }
     }
 }

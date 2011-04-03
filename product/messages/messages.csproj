@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AddedNewFamilyMember.cs" />
     <Compile Include="AddIncomeCommandMessage.cs" />
+    <Compile Include="CurrentStockPrice.cs" />
     <Compile Include="FamilyMemberToAdd.cs" />
     <Compile Include="FindAllFamily.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -98,6 +98,7 @@
     <Compile Include="unit\service\domain\payroll\MoneySpecs.cs" />
     <Compile Include="unit\service\domain\property_bag\PropertyBagSpecs.cs" />
     <Compile Include="unit\service\handlers\AddIncomeCommandMessageHandlerSpecs.cs" />
+    <Compile Include="unit\service\handlers\StockPriceRequestQueryHandlerSpecs.cs" />
     <Compile Include="unit\service\orm\DB4OUnitOfWorkFactorySpecs.cs" />
     <Compile Include="unit\service\orm\DB4OUnitOfWorkSpecs.cs" />
     <Compile Include="unit\service\orm\EmptyUnitOfWorkSpecs.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="unit\ui\presenters\AddNewStockSymbolPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\specifications\IfFamilyMemberIsSelectedSpecs.cs" />
     <Compile Include="unit\ui\presenters\StockWatchPresenterSpecs.cs" />
+    <Compile Include="unit\ui\RunInBackgroundInterceptorSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\desktop.ui\solidware.financials.csproj">

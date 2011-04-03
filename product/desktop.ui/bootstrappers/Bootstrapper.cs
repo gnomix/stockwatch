@@ -3,6 +3,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 using Autofac;
+using Castle.DynamicProxy;
 using gorilla.infrastructure.container;
 using gorilla.infrastructure.threading;
 using gorilla.utility;
@@ -114,6 +115,7 @@ namespace solidware.financials.windows.ui.bootstrappers
         {
             builder.RegisterType<PublishEventHandler<AddedNewFamilyMember>>().As<Handles<AddedNewFamilyMember>>();
             builder.RegisterType<PublishEventHandler<IncomeMessage>>().As<Handles<IncomeMessage>>();
+            builder.RegisterType<PublishEventHandler<CurrentStockPrice>>().As<Handles<CurrentStockPrice>>();
         }
 
         static void server_registration(ContainerBuilder builder)
@@ -134,13 +136,19 @@ namespace solidware.financials.windows.ui.bootstrappers
                 });
             });
 
-            var interceptor = new UnitOfWorkInterceptor(new DB40UnitOfWorkFactory(new DB4OConnectionFactory(), Lazy.load<Context>()));
-            builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
-            builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
-            builder.RegisterProxy<Handles<FindAllIncome>, FindAllIncomeHandler>(interceptor);
-            builder.RegisterProxy<Handles<AddIncomeCommandMessage>, AddIncomeCommandMessageHandler>(interceptor);
+            var unit_of_work_interceptor = new UnitOfWorkInterceptor(new DB40UnitOfWorkFactory(new DB4OConnectionFactory(), Lazy.load<Context>()));
+            builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(unit_of_work_interceptor);
+            builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(unit_of_work_interceptor);
+            builder.RegisterProxy<Handles<FindAllIncome>, FindAllIncomeHandler>(unit_of_work_interceptor);
+            builder.RegisterProxy<Handles<AddIncomeCommandMessage>, AddIncomeCommandMessageHandler>(unit_of_work_interceptor);
+
+            var run_in_background = new RunInBackgroundInterceptor(Lazy.load<CommandProcessor>());
+            builder.RegisterProxy<Handles<StockPriceRequestQuery>, StockPriceRequestQueryHandler>(run_in_background);
 
             builder.RegisterType<ConfigureServiceMappings>().As<NeedStartup>();
+
+            builder.RegisterType<StubLookupService>().As<StockPriceLookupService>();
+
             new DB4OBootstrapper().run();
         }
     }

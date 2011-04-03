@@ -114,6 +114,8 @@
     <Compile Include="domain\Person.cs" />
     <Compile Include="handlers\FindAllFamilyHandler.cs" />
     <Compile Include="handlers\FindAllIncomeHandler.cs" />
+    <Compile Include="handlers\StockPriceLookupService.cs" />
+    <Compile Include="handlers\StockPriceRequestQueryHandler.cs" />
     <Compile Include="orm\Connection.cs" />
     <Compile Include="orm\ConnectionFactory.cs" />
     <Compile Include="orm\DB4OConnection.cs" />

@@ -29,7 +29,7 @@ namespace solidware.financials.windows.ui.presenters
 
         public void present()
         {
-            timer.start_notifying(this, new TimeSpan(0, 1, 0));
+            timer.start_notifying(this, new TimeSpan(0, 0, 10));
             AddSymbol = builder.build<AddSymbolCommand>(this);
             refresh_command = builder.build<RefreshStockPricesCommand>(this);
         }

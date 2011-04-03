@@ -82,7 +82,7 @@ namespace specs.unit.ui.presenters
             {
                 sut.Stocks.Add(new StockViewModel(symbol:"ARX.TO")
                                {
-                                   Price = 20.00m.ToObservable()
+                                   Price = new Money(20.00m).ToObservable(),
                                });
             };
 
@@ -93,7 +93,7 @@ namespace specs.unit.ui.presenters
 
             It should_display_the_new_price = () =>
             {
-                sut.Stocks.Last().Price.Value.should_be_equal_to(25.50m);
+                sut.Stocks.Last().Price.Value.should_be_equal_to(new Money(25.50m));
             };
         }
 

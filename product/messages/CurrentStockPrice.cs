@@ -7,5 +7,10 @@ namespace solidware.financials.messages
     {
         public string Symbol { get; set; }
         public decimal Price { get; set; }
+
+        public override string ToString()
+        {
+            return "{0}: {1:C}".format(Symbol, Price);
+        }
     }
 }

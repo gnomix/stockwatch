@@ -6,7 +6,7 @@
 				<DataTemplate>
 					<DockPanel>
 						<Label Content="{Binding Path=Symbol}" DockPanel.Dock="Left" Width="90"></Label>
-						<Label Content="{Binding Path=Price}" DockPanel.Dock="Right" HorizontalAlignment="Right" HorizontalContentAlignment="Right"></Label>
+						<Label Content="{Binding Path=Price.Value}" DockPanel.Dock="Right" HorizontalAlignment="Right" HorizontalContentAlignment="Right"></Label>
 					</DockPanel>
 				</DataTemplate>
 			</ListView.ItemTemplate>

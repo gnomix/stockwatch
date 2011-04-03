@@ -1,4 +1,6 @@
-﻿namespace solidware.financials.service.handlers
+﻿using System;
+
+namespace solidware.financials.service.handlers
 {
     public interface StockPriceLookupService
     {
@@ -9,7 +11,7 @@
     {
         public decimal FindPriceFor(string symbol)
         {
-            return 24.00m;
+            return Convert.ToDecimal(new Random().NextDouble());
         }
     }
 }

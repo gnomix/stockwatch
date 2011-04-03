@@ -41,7 +41,11 @@ namespace solidware.financials.windows.ui.views
         public void region<Region>(Action<Region> configure) where Region : UIElement
         {
             ensure_that_the_region_exists<Region>();
-            configure(regions[typeof (Region)].downcast_to<Region>());
+            Action action = () =>
+            {
+                configure(regions[typeof (Region)].downcast_to<Region>());
+            };
+            Dispatcher.BeginInvoke(action);
         }
 
         public void region<Region>(Configuration<Region> configuration) where Region : UIElement

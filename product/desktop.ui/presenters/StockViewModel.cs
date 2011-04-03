@@ -7,11 +7,11 @@ namespace solidware.financials.windows.ui.presenters
         public StockViewModel(string symbol)
         {
             Symbol = symbol;
-            Price = 0m.ToObservable();
+            Price = Money.Null;
         }
 
         public string Symbol { get; set; }
-        public Observable<decimal> Price { get; set; }
+        public Observable<Money> Price { get; set; }
 
         public bool IsFor(string symbol)
         {

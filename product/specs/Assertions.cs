@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using gorilla.utility;
 using Machine.Specifications;
 
 namespace specs
@@ -42,6 +44,20 @@ namespace specs
             items_to_peek_in_to.Contains(items_to_look_for).should_be_true();
         }
 
+        static public void should_contain<T>(this IEnumerable<T> items, params T[] items_to_find)
+        {
+            foreach (var item_to_find in items_to_find)
+            {
+                items.should_contain(item_to_find);
+            }
+        }
+
+        static public void should_contain<T>(this IEnumerable<T> items, Expression<Func<T, bool>> criteria)
+        {
+            if (items.Any(criteria.Compile())) return;
+            throw new ArgumentException("Could not find {0}".format(criteria));
+        }
+
         static public void should_not_contain<T>(this IEnumerable<T> items_to_peek_into, T item_to_look_for)
         {
             items_to_peek_into.Contains(item_to_look_for).should_be_false();
@@ -72,13 +88,6 @@ namespace specs
             item.ShouldBeFalse();
         }
 
-        static public void should_contain<T>(this IEnumerable<T> items, params T[] items_to_find)
-        {
-            foreach (var item_to_find in items_to_find)
-            {
-                items.should_contain(item_to_find);
-            }
-        }
 
         static public void should_only_contain<T>(this IEnumerable<T> items, params T[] itemsToFind)
         {

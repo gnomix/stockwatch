@@ -11,7 +11,7 @@ using solidware.financials.windows.ui.views.dialogs;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class StockWatchPresenter : Presenter, TimerClient, EventSubscriber<CurrentStockPrice>
+    public class StockWatchPresenter : Presenter, TimerClient, EventSubscriber<CurrentStockPrice>, EventSubscriber<StartWatchingSymbol>
     {
         UICommandBuilder builder;
         Timer timer;
@@ -24,7 +24,7 @@ namespace solidware.financials.windows.ui.presenters
             this.timer = timer;
         }
 
-        public virtual IEnumerable<StockViewModel> Stocks { get; set; }
+        public virtual ICollection<StockViewModel> Stocks { get; set; }
         public ObservableCommand AddSymbol { get; set; }
 
         public void present()
@@ -42,6 +42,11 @@ namespace solidware.financials.windows.ui.presenters
         public void notify(CurrentStockPrice message)
         {
             Stocks.Single(x => x.IsFor(message.Symbol)).ChangePriceTo(message.Price);
+        }
+
+        public void notify(StartWatchingSymbol message)
+        {
+            Stocks.Add(new StockViewModel(symbol: message.Symbol));
         }
 
         public class AddSymbolCommand : UICommand<StockWatchPresenter>

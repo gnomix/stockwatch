@@ -4,6 +4,12 @@ namespace solidware.financials.windows.ui.presenters
 {
     public class StockViewModel
     {
+        public StockViewModel(string symbol)
+        {
+            Symbol = symbol;
+            Price = 0m.ToObservable();
+        }
+
         public string Symbol { get; set; }
         public Observable<decimal> Price { get; set; }
 

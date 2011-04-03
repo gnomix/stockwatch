@@ -115,6 +115,7 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<PublishEventHandler<AddedNewFamilyMember>>().As<Handles<AddedNewFamilyMember>>();
             builder.RegisterType<PublishEventHandler<IncomeMessage>>().As<Handles<IncomeMessage>>();
             builder.RegisterType<PublishEventHandler<CurrentStockPrice>>().As<Handles<CurrentStockPrice>>();
+            builder.RegisterType<PublishEventHandler<StartWatchingSymbol>>().As<Handles<StartWatchingSymbol>>();
         }
 
         static void server_registration(ContainerBuilder builder)

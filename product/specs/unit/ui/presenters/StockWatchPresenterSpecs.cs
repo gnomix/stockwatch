@@ -80,9 +80,8 @@ namespace specs.unit.ui.presenters
         {
             Establish context = () =>
             {
-                sut.Stocks.Add(new StockViewModel
+                sut.Stocks.Add(new StockViewModel(symbol:"ARX.TO")
                                {
-                                   Symbol = "ARX.TO",
                                    Price = 20.00m.ToObservable()
                                });
             };
@@ -95,6 +94,19 @@ namespace specs.unit.ui.presenters
             It should_display_the_new_price = () =>
             {
                 sut.Stocks.Last().Price.Value.should_be_equal_to(25.50m);
+            };
+        }
+
+        public class when_starting_to_watch_a_new_symbol : concern
+        {
+            Because of = () =>
+            {
+                sut.notify(new StartWatchingSymbol {Symbol = "TD.TO",});
+            };
+
+            It should_add_the_new_symbol_to_the_list_of_stocks_to_watch = () =>
+            {
+                sut.Stocks.should_contain(x => x.Symbol.Equals("TD.TO"));
             };
         }
 
@@ -145,7 +157,7 @@ namespace specs.unit.ui.presenters
                 Establish context = () =>
                 {
                     presenter = Create.an<StockWatchPresenter>();
-                    presenter.is_told_to(x => x.Stocks).it_will_return(new StockViewModel {Symbol = "ARX.TO"});
+                    presenter.is_told_to(x => x.Stocks).it_will_return(new StockViewModel (symbol : "ARX.TO"));
                 };
 
                 Because of = () =>

@@ -43,12 +43,17 @@ namespace specs
             return options.Return(item);
         }
 
+        static public IMethodOptions<ICollection<R>> it_will_return<R>(this IMethodOptions<ICollection<R>> options, params R[] items)
+        {
+            return options.Return(items.ToList());
+        }
+
         static public IMethodOptions<IEnumerable<R>> it_will_return<R>(this IMethodOptions<IEnumerable<R>> options, params R[] items)
         {
             return options.Return(items.AsEnumerable());
         }
 
-        static public IMethodOptions<IEnumerable<R>> it_will_return_nothing<R>( this IMethodOptions<IEnumerable<R>> options)
+        static public IMethodOptions<IEnumerable<R>> it_will_return_nothing<R>(this IMethodOptions<IEnumerable<R>> options)
         {
             return options.it_will_return();
         }

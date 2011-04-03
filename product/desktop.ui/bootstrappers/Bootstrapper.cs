@@ -17,6 +17,7 @@ using solidware.financials.windows.ui.presenters;
 using solidware.financials.windows.ui.presenters.specifications;
 using solidware.financials.windows.ui.views;
 using utility;
+using Timer = gorilla.infrastructure.threading.Timer;
 
 namespace solidware.financials.windows.ui.bootstrappers
 {
@@ -45,8 +46,12 @@ namespace solidware.financials.windows.ui.bootstrappers
             register_for_message_to_listen_for(builder);
             server_registration(builder);
 
-            shell_window.Closed += (o, e) => Resolve.the<CommandProcessor>().stop();
-            shell_window.Closed += (o, e) => Resolve.the<IEnumerable<NeedsShutdown>>();
+            builder.RegisterType<StopEssentialServices>().As<NeedsShutdown>();
+
+            shell_window.Closed += (o, e) =>
+            {
+                Resolve.the<IEnumerable<NeedsShutdown>>().each(x => x.run());
+            };
 
             Resolve.initialize_with(new AutofacDependencyRegistry(builder));
             Resolve.the<IEnumerable<NeedStartup>>().each(x => x.run());
@@ -74,6 +79,8 @@ namespace solidware.financials.windows.ui.bootstrappers
             //builder.Register<SynchronousCommandProcessor>().As<CommandProcessor>().SingleInstance();
             builder.RegisterType<WPFCommandBuilder>().As<UICommandBuilder>();
             builder.RegisterType<InMemoryApplicationState>().As<ApplicationState>().SingleInstance();
+
+            builder.RegisterType<IntervalTimer>().As<Timer>().SingleInstance();
         }
 
         static void register_presenters(ContainerBuilder builder)
@@ -96,6 +103,11 @@ namespace solidware.financials.windows.ui.bootstrappers
             builder.RegisterType<DisplayCanadianTaxInformationViewModel>();
 
             builder.RegisterType<StockWatchPresenter>();
+            builder.RegisterType<StockWatchPresenter.AddSymbolCommand>();
+            builder.RegisterType<StockWatchPresenter.RefreshStockPricesCommand>();
+
+            builder.RegisterType<AddNewStockSymbolPresenter>();
+            builder.RegisterType<AddNewStockSymbolPresenter.AddCommand>();
         }
 
         static void register_for_message_to_listen_for(ContainerBuilder builder)
@@ -122,7 +134,7 @@ namespace solidware.financials.windows.ui.bootstrappers
                 });
             });
 
-            var interceptor = new UnitOfWorkInterceptor(new DB40UnitOfWorkFactory(new DB4OConnectionFactory(), Lazy.load<Context>()) );
+            var interceptor = new UnitOfWorkInterceptor(new DB40UnitOfWorkFactory(new DB4OConnectionFactory(), Lazy.load<Context>()));
             builder.RegisterProxy<Handles<FamilyMemberToAdd>, AddNewFamilyMemberHandler>(interceptor);
             builder.RegisterProxy<Handles<FindAllFamily>, FindAllFamilyHandler>(interceptor);
             builder.RegisterProxy<Handles<FindAllIncome>, FindAllIncomeHandler>(interceptor);

@@ -200,6 +200,9 @@
       <DependentUpon>ShellWIndow.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\controls\SmartGrid.cs" />
+    <Compile Include="views\SingleStockTab.xaml.cs">
+      <DependentUpon>SingleStockTab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\StatusBarRegion.xaml.cs">
       <DependentUpon>StatusBarRegion.xaml</DependentUpon>
     </Compile>
@@ -280,6 +283,10 @@
     <Page Include="views\ShellWIndow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="views\SingleStockTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="views\StatusBarRegion.xaml">
       <Generator>MSBuild:Compile</Generator>

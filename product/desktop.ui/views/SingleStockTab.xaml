@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="solidware.financials.windows.ui.views.SingleStockTab" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" mc:Ignorable="d"
+	<DockPanel>
+		<Label Content="{Binding Path=Header}"></Label>
+		<Charting:Chart>
+			<Charting:LineSeries ItemsSource="{Binding Path=Chart}" IndependentValueBinding="{Binding Path=Key}" DependentValueBinding="{Binding Path=Value}"></Charting:LineSeries>
+		</Charting:Chart>
+	</DockPanel>
+</UserControl>

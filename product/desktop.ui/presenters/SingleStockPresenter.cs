@@ -24,14 +24,20 @@ namespace solidware.financials.windows.ui.presenters
             get { return symbol_to_watch; }
         }
 
-        public void present()
-        {
-        }
+        public void present() {}
 
         public void notify(CurrentStockPrice message)
         {
             if (symbol_to_watch.Equals(message.Symbol))
                 Chart.Add(new KeyValuePair<DateTime, decimal>(Clock.now(), message.Price));
+        }
+
+        public class Factory
+        {
+            public virtual SingleStockPresenter create_for(string symbol)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

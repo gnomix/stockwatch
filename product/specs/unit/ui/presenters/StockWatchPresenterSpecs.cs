@@ -80,7 +80,7 @@ namespace specs.unit.ui.presenters
         {
             Establish context = () =>
             {
-                sut.Stocks.Add(new StockViewModel(symbol:"ARX.TO")
+                sut.Stocks.Add(new StockViewModel(symbol:"ARX.TO", builder: null)
                                {
                                    Price = new Money(20.00m).ToObservable(),
                                });
@@ -157,7 +157,7 @@ namespace specs.unit.ui.presenters
                 Establish context = () =>
                 {
                     presenter = Create.an<StockWatchPresenter>();
-                    presenter.is_told_to(x => x.Stocks).it_will_return(new StockViewModel (symbol : "ARX.TO"));
+                    presenter.is_told_to(x => x.Stocks).it_will_return(new StockViewModel (symbol : "ARX.TO", builder: null));
                 };
 
                 Because of = () =>

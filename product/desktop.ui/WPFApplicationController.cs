@@ -1,5 +1,6 @@
 using System;
 using System.Windows;
+using gorilla.utility;
 using solidware.financials.infrastructure.eventing;
 
 namespace solidware.financials.windows.ui
@@ -17,12 +18,17 @@ namespace solidware.financials.windows.ui
             this.factory = factory;
         }
 
-        public void add_tab<Presenter, View>() where Presenter : TabPresenter where View : FrameworkElement, Tab<Presenter>, new()
+        public void add_tab<Presenter, View>() where Presenter : TabPresenter where View : Tab<Presenter>, new()
         {
             var presenter = open<Presenter>();
             var view = new View();
             view.bind_to(presenter);
-            region_manager.region(new TabRegionConfiguration(presenter,view));
+            region_manager.region(new TabRegionConfiguration(presenter,view.downcast_to<FrameworkElement>()));
+        }
+
+        public void load_tab<Presenter, View>(Presenter presenter) where Presenter : TabPresenter where View : Tab<Presenter>, new()
+        {
+            throw new NotImplementedException();
         }
 
         public void load_region<TPresenter, Region>() where TPresenter : Presenter where Region : FrameworkElement, View<TPresenter>, new()

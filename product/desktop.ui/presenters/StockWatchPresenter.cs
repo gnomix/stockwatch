@@ -41,12 +41,12 @@ namespace solidware.financials.windows.ui.presenters
 
         public void notify(CurrentStockPrice message)
         {
-            Stocks.Single(x => x.IsFor(message.Symbol)).ChangePriceTo(message.Price);
+            Stocks.Single(x => x.is_for(message.Symbol)).change_price_to(message.Price);
         }
 
         public void notify(StartWatchingSymbol message)
         {
-            Stocks.Add(new StockViewModel(symbol: message.Symbol)); 
+            Stocks.Add(new StockViewModel(symbol: message.Symbol, builder: builder)); 
         }
 
         public class AddSymbolCommand : UICommand<StockWatchPresenter>

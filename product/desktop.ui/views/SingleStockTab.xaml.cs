@@ -2,11 +2,16 @@
 
 namespace solidware.financials.windows.ui.views
 {
-    public partial class SingleStockTab : View<SingleStockPresenter>
+    public partial class SingleStockTab : Tab<SingleStockPresenter>
     {
         public SingleStockTab()
         {
             InitializeComponent();
+        }
+
+        public void bind_to(SingleStockPresenter presenter)
+        {
+            DataContext = presenter;
         }
     }
 }

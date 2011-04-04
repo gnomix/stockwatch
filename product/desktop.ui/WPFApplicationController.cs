@@ -23,17 +23,24 @@ namespace solidware.financials.windows.ui
             var presenter = open<Presenter>();
             var view = new View();
             view.bind_to(presenter);
-            region_manager.region(new TabRegionConfiguration(presenter,view.downcast_to<FrameworkElement>()));
+            region_manager.region(new TabRegionConfiguration(presenter, view.downcast_to<FrameworkElement>()));
         }
 
         public void load_tab<Presenter, View>(Presenter presenter) where Presenter : TabPresenter where View : Tab<Presenter>, new()
         {
-            throw new NotImplementedException();
+            event_aggregator.subscribe(presenter);
+            presenter.present();
+            var view = new View();
+            view.bind_to(presenter);
+            region_manager.region(new TabRegionConfiguration(presenter, view.downcast_to<FrameworkElement>()));
         }
 
         public void load_region<TPresenter, Region>() where TPresenter : Presenter where Region : FrameworkElement, View<TPresenter>, new()
         {
-            configure_region<Region>(x => { x.DataContext = open<TPresenter>(); });
+            configure_region<Region>(x =>
+            {
+                x.DataContext = open<TPresenter>();
+            });
         }
 
         void configure_region<TRegion>(Action<TRegion> configure) where TRegion : UIElement

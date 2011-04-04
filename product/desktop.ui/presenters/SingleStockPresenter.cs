@@ -36,7 +36,7 @@ namespace solidware.financials.windows.ui.presenters
         {
             public virtual SingleStockPresenter create_for(string symbol)
             {
-                throw new NotImplementedException();
+                return new SingleStockPresenter(symbol);
             }
         }
     }

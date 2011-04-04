@@ -46,7 +46,9 @@ namespace solidware.financials.windows.ui.presenters
 
         public void notify(StartWatchingSymbol message)
         {
-            Stocks.Add(new StockViewModel(symbol: message.Symbol, builder: builder)); 
+            var presenter = new StockViewModel(symbol: message.Symbol, builder: builder);
+            presenter.present();
+            Stocks.Add(presenter);
         }
 
         public class AddSymbolCommand : UICommand<StockWatchPresenter>

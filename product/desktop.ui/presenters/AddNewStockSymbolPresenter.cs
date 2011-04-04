@@ -35,7 +35,7 @@ namespace solidware.financials.windows.ui.presenters
 
             public override void run(AddNewStockSymbolPresenter presenter)
             {
-                bus.publish(new StartWatchingSymbol {Symbol = presenter.Symbol});
+                bus.publish(new StartWatchingSymbol {Symbol = presenter.Symbol.ToUpperInvariant()});
                 presenter.close();
             }
         }

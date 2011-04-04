@@ -108,6 +108,11 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             builder.RegisterType<AddNewStockSymbolPresenter>();
             builder.RegisterType<AddNewStockSymbolPresenter.AddCommand>();
+
+            builder.RegisterType<StockViewModel.MoreCommand>();
+
+            builder.RegisterType<SingleStockPresenter>();
+            builder.RegisterType<SingleStockPresenter.Factory>();
         }
 
         static void register_for_message_to_listen_for(ContainerBuilder builder)

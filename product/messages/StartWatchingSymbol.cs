@@ -9,7 +9,7 @@ namespace solidware.financials.messages
 
         public override string ToString()
         {
-            return "I will start watching {0}".format(Symbol.ToUpperInvariant());
+            return "I will start watching {0}".format(Symbol);
         }
     }
 }

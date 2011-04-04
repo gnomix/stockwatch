@@ -111,6 +111,7 @@
     <Compile Include="unit\ui\presenters\AddNewStockSymbolPresenterSpecs.cs" />
     <Compile Include="IllegalExtensions.cs" />
     <Compile Include="unit\ui\presenters\specifications\IfFamilyMemberIsSelectedSpecs.cs" />
+    <Compile Include="unit\ui\presenters\SingleStockPresenterSpecs.cs" />
     <Compile Include="unit\ui\presenters\StockWatchPresenterSpecs.cs" />
     <Compile Include="unit\ui\RunInBackgroundInterceptorSpecs.cs" />
   </ItemGroup>

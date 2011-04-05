@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BooleanLogic.cs" />
     <Compile Include="MapKey.cs" />
     <Compile Include="MapperRegistery.cs" />
     <Compile Include="Mathematics.cs" />

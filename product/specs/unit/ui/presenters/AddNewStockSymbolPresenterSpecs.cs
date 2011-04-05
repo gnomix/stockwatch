@@ -27,7 +27,7 @@ namespace specs.unit.ui.presenters
             {
                 add_command = Create.an<ObservableCommand>();
                 cancel_command = Create.an<ObservableCommand>();
-                builder.is_told_to(x => x.build<AddNewStockSymbolPresenter.AddCommand>(sut)).it_will_return(add_command);
+                builder.is_told_to(x => x.build<AddNewStockSymbolPresenter.AddCommand, AddNewStockSymbolPresenter.IsValid>(sut)).it_will_return(add_command);
                 builder.is_told_to(x => x.build<CancelCommand>(sut)).it_will_return(cancel_command);
             };
 
@@ -55,7 +55,7 @@ namespace specs.unit.ui.presenters
             Because of = () =>
             {
                 sut.present();
-                result = sut[x => x.Symbol];
+                result = sut.Symbol["Value"];
             };
 
             It should_display_an_error = () =>
@@ -85,7 +85,7 @@ namespace specs.unit.ui.presenters
                 Establish context = () =>
                 {
                     presenter = Create.an<AddNewStockSymbolPresenter>();
-                    presenter.is_told_to(x => x.Symbol).it_will_return("TD.TO");
+                    presenter.is_told_to(x => x.Symbol).it_will_return("TD.TO".ToObservable());
                     presenter.Stub(x => x.close).Return(() =>
                     {
                         closed = true;
@@ -109,6 +109,63 @@ namespace specs.unit.ui.presenters
 
                 static AddNewStockSymbolPresenter presenter;
                 static bool closed;
+            }
+        }
+
+        public class IsValidSpecs
+        {
+            public class concern
+            {
+                Establish context = () =>
+                {
+                    sut = new AddNewStockSymbolPresenter.IsValid();
+                };
+
+                static protected AddNewStockSymbolPresenter.IsValid sut;
+            }
+
+            public class when_a_valid_symbol_is_entered : concern
+            {
+                Establish context = () =>
+                {
+                    presenter = Create.an<AddNewStockSymbolPresenter>();
+                    presenter.is_told_to(x => x.Symbol).it_will_return("ARX.TO".ToObservable());
+                };
+
+                Because of = () =>
+                {
+                    result = sut.is_satisfied_by(presenter);
+                };
+
+                It should_be_valid = () =>
+                {
+                    result.should_be_true();
+                };
+
+                static bool result;
+                static AddNewStockSymbolPresenter presenter;
+            }
+
+            public class when_a_invalid_symbol_is_entered : concern
+            {
+                Establish context = () =>
+                {
+                    presenter = Create.an<AddNewStockSymbolPresenter>();
+                    presenter.is_told_to(x => x.Symbol).it_will_return("".ToObservable());
+                };
+
+                Because of = () =>
+                {
+                    result = sut.is_satisfied_by(presenter);
+                };
+
+                It should_be_invalid = () =>
+                {
+                    result.should_be_false();
+                };
+
+                static bool result;
+                static AddNewStockSymbolPresenter presenter;
             }
         }
     }

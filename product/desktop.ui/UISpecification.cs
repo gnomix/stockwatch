@@ -7,8 +7,7 @@ namespace solidware.financials.windows.ui
         bool is_satisfied_by<T>(T presenter) where T : Presenter;
     }
 
-    public abstract class UISpecification<TPresenter> : UISpecification, Specification<TPresenter>
-        where TPresenter : Presenter
+    public abstract class UISpecification<TPresenter> : UISpecification, Specification<TPresenter> where TPresenter : Presenter
     {
         bool UISpecification.is_satisfied_by<T>(T presenter)
         {

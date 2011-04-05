@@ -1,47 +1,33 @@
 ﻿using System;
-using System.Linq.Expressions;
 using gorilla.utility;
 using solidware.financials.infrastructure;
 using solidware.financials.messages;
 using solidware.financials.windows.ui.presenters.validation;
+using solidware.financials.windows.ui.views.controls;
+using utility;
 
 namespace solidware.financials.windows.ui.presenters
 {
-    public class AddNewStockSymbolPresenter : DialogPresenter, INotification<AddNewStockSymbolPresenter>
+    public class AddNewStockSymbolPresenter : DialogPresenter
     {
         public AddNewStockSymbolPresenter(UICommandBuilder builder)
         {
             this.builder = builder;
-            Notification = new Notification<AddNewStockSymbolPresenter>();
+            Symbol = new ObservableProperty<string>();
         }
 
         public ObservableCommand Add { get; set; }
         public ObservableCommand Cancel { get; set; }
-        public virtual string Symbol { get; set; }
+        public virtual Observable<string> Symbol { get; set; }
         public virtual Action close { get; set; }
-        public Notification<AddNewStockSymbolPresenter> Notification { get; set; }
 
         public void present()
         {
-            Add = builder.build<AddCommand>(this);
+            Add = builder.build<AddCommand, IsValid>(this);
             Cancel = builder.build<CancelCommand>(this);
 
-            Notification.Register<Error>(x => x.Symbol, () => Symbol.is_blank(), () => "Please specify a symbol.");
-        }
-
-        public string this[string property]
-        {
-            get { return Notification[property]; }
-        }
-
-        public string this[Expression<Func<AddNewStockSymbolPresenter, object>> property]
-        {
-            get { return Notification[property]; }
-        }
-
-        public string Error
-        {
-            get { return Notification.Error; }
+            Symbol.Notify(Add);
+            Symbol.Register<Error>(x => x.is_blank(), () => "Please specify a symbol.");
         }
 
         UICommandBuilder builder;
@@ -57,8 +43,16 @@ namespace solidware.financials.windows.ui.presenters
 
             public override void run(AddNewStockSymbolPresenter presenter)
             {
-                bus.publish(new StartWatchingSymbol {Symbol = presenter.Symbol.ToUpperInvariant()});
+                bus.publish(new StartWatchingSymbol {Symbol = presenter.Symbol.Value.ToUpperInvariant()});
                 presenter.close();
+            }
+        }
+
+        public class IsValid : UISpecification<AddNewStockSymbolPresenter>
+        {
+            public override bool is_satisfied_by(AddNewStockSymbolPresenter presenter)
+            {
+                return presenter.Symbol.not(x => x.Value.is_blank());
             }
         }
     }

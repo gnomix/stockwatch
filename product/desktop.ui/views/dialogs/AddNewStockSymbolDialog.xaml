@@ -13,7 +13,7 @@
 		</StackPanel.Resources>
 		<DockPanel>
 			<Label Width="120px">Symbol:</Label>
-			<TextBox Text="{Binding Path=Symbol, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{StaticResource Error}"></TextBox>
+			<TextBox Text="{Binding Path=Symbol.Value, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" Style="{StaticResource Error}"></TextBox>
 		</DockPanel>
 		<DockPanel LastChildFill="False" HorizontalAlignment="Right">
 			<Button IsDefault="True" Command="{Binding Path=Add}">_Add</Button>

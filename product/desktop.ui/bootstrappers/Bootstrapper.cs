@@ -108,6 +108,7 @@ namespace solidware.financials.windows.ui.bootstrappers
 
             builder.RegisterType<AddNewStockSymbolPresenter>();
             builder.RegisterType<AddNewStockSymbolPresenter.AddCommand>();
+            builder.RegisterType<AddNewStockSymbolPresenter.IsValid>();
 
             builder.RegisterType<StockViewModel.MoreCommand>();
 

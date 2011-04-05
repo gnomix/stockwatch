@@ -19,6 +19,8 @@ namespace solidware.financials.windows.ui.views.icons
         static public readonly UIIcon Application = new UIIcon("mokhan.ico");
         static public readonly UIIcon Close = new UIIcon("close.png");
         static public readonly UIIcon Info = new UIIcon("info.png");
+        static public readonly UIIcon Up = new UIIcon("up.png");
+        static public readonly UIIcon Down = new UIIcon("down.png");
 
         UIIcon(string path)
         {

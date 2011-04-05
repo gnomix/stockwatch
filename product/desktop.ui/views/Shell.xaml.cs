@@ -34,7 +34,6 @@ namespace solidware.financials.windows.ui.views
             Loaded += (o, e) =>
             {
                 TaskBarIcon.Icon = UIIcon.Application.AsIcon();
-                TaskBarIcon.Say("Welcome");
             };
         }
 

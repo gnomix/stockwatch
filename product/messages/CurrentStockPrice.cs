@@ -1,10 +1,9 @@
 ﻿using System.Text;
 using gorilla.utility;
-using solidware.financials.infrastructure.eventing;
 
 namespace solidware.financials.messages
 {
-    public class CurrentStockPrice : ValueType<CurrentStockPrice>, Event
+    public class CurrentStockPrice : ValueType<CurrentStockPrice>, Announcement
     {
         public string Symbol { get; set; }
         public decimal Price { get; set; }
@@ -22,6 +21,11 @@ namespace solidware.financials.messages
             builder.AppendLine("{0} / {1}%".format(Change, ChangePercentage));
             //builder.AppendLine("O:{0:C} H:{1:C} L:{2:C}".format(Open, High, Low));
             return builder.ToString();
+        }
+
+        public void AnnounceUsing(Announcer announcer)
+        {
+            announcer.Say(ToString());
         }
     }
 }

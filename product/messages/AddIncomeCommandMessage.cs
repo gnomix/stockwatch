@@ -11,7 +11,7 @@ namespace solidware.financials.messages
         public DateTime Date { get; set; }
     }
 
-    public class IncomeMessage : ValueType<IncomeMessage>, Event
+    public class IncomeMessage : ValueType<IncomeMessage>, Announcement
     {
         public Guid PersonId { get; set; }
         public decimal Amount { get; set; }
@@ -20,6 +20,10 @@ namespace solidware.financials.messages
         public override string ToString()
         {
             return "You got paid {0:C}!".format(Amount);
+        }
+
+        public void AnnounceUsing(Announcer announcer)
+        {
         }
     }
 }

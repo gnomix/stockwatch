@@ -114,6 +114,7 @@
     <Compile Include="bootstrappers\ComposeShell.cs" />
     <Compile Include="bootstrappers\ConfigureMappings.cs" />
     <Compile Include="bootstrappers\DefaultMapper.cs" />
+    <Compile Include="presenters\UIThread.cs" />
     <Compile Include="presenters\validation\AnonymousRule.cs" />
     <Compile Include="presenters\validation\Error.cs" />
     <Compile Include="presenters\validation\INotification.cs" />
@@ -395,6 +396,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="views\icons\mokhan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\icons\down.png" />
+    <EmbeddedResource Include="views\icons\up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

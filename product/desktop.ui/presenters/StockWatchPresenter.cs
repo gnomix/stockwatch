@@ -29,14 +29,17 @@ namespace solidware.financials.windows.ui.presenters
 
         public void present()
         {
-            timer.start_notifying(this, new TimeSpan(0, 1, 0));
+            timer.start_notifying(this, new TimeSpan(0, 0, 20));
             AddSymbol = builder.build<AddSymbolCommand>(this);
             Refresh = builder.build<RefreshStockPricesCommand>(this);
         }
 
         public void notify()
         {
-            Refresh.Execute(this);
+            UIThread.Run(() =>
+            {
+                Refresh.Execute(this);
+            });
         }
 
         public void notify(CurrentStockPrice message)

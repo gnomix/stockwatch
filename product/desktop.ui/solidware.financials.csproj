@@ -114,8 +114,14 @@
     <Compile Include="bootstrappers\ComposeShell.cs" />
     <Compile Include="bootstrappers\ConfigureMappings.cs" />
     <Compile Include="bootstrappers\DefaultMapper.cs" />
+    <Compile Include="presenters\validation\AnonymousRule.cs" />
+    <Compile Include="presenters\validation\Error.cs" />
+    <Compile Include="presenters\validation\INotification.cs" />
     <Compile Include="presenters\validation\Notification.cs" />
     <Compile Include="presenters\SingleStockPresenter.cs" />
+    <Compile Include="presenters\validation\Rule.cs" />
+    <Compile Include="presenters\validation\Severity.cs" />
+    <Compile Include="presenters\validation\Warning.cs" />
     <Compile Include="RunInBackgroundInterceptor.cs" />
     <Compile Include="bootstrappers\StopEssentialServices.cs" />
     <Compile Include="bootstrappers\WireUpSubscribers.cs" />

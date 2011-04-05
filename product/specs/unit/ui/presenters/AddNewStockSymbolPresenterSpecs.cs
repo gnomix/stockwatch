@@ -50,6 +50,22 @@ namespace specs.unit.ui.presenters
             static ObservableCommand cancel_command;
         }
 
+        public class when_a_blank_symbol_is_entered : concern
+        {
+            Because of = () =>
+            {
+                sut.present();
+                result = sut[x => x.Symbol];
+            };
+
+            It should_display_an_error = () =>
+            {
+                result.should_be_equal_to("Please specify a symbol.");
+            };
+
+            static string result;
+        }
+
         public class AddCommandSpecs
         {
             public abstract class concern_for_add_command
@@ -70,7 +86,10 @@ namespace specs.unit.ui.presenters
                 {
                     presenter = Create.an<AddNewStockSymbolPresenter>();
                     presenter.is_told_to(x => x.Symbol).it_will_return("TD.TO");
-                    presenter.Stub(x => x.close).Return(() => { closed = true; });
+                    presenter.Stub(x => x.close).Return(() =>
+                    {
+                        closed = true;
+                    });
                 };
 
                 Because of = () =>

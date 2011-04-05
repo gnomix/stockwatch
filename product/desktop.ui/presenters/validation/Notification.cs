@@ -1,28 +1,29 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using gorilla.utility;
 
 namespace solidware.financials.windows.ui.presenters.validation
 {
-    public class Notification<T> : IDataErrorInfo
+    public class Notification<T> : INotification<T>
     {
-        IDictionary<string, IList<IRule>> validationRules = new Dictionary<string, IList<IRule>>();
-
-        public void Register<Severity>(Expression<Func<T, object>> property, Func<bool> failCondition, Func<string> errorMessage) where Severity : ISeverity, new()
+        public void Register<Severity>(Expression<Func<T, object>> property, Func<bool> failCondition, Func<string> errorMessage) where Severity : validation.Severity, new()
         {
             Register(property, new AnonymousRule<Severity>(failCondition, errorMessage));
         }
 
-        public void Register(Expression<Func<T, object>> property, IRule rule)
+        public void Register(Expression<Func<T, object>> property, Rule rule)
         {
             EnsureRulesAreInitializeFor(property);
             validationRules[property.pick_property().Name].Add(rule);
         }
 
-        public string this[Expression<Func<T, object>> property] { get { return this[property.pick_property().Name]; } }
+        public string this[Expression<Func<T, object>> property]
+        {
+            get { return this[property.pick_property().Name]; }
+        }
+
         public string this[string propertyName]
         {
             get
@@ -40,7 +41,7 @@ namespace solidware.financials.windows.ui.presenters.validation
             get { throw new NotImplementedException(); }
         }
 
-        public bool AreAnyRulesViolatedAndMoreSevereThan<Severity>() where Severity : ISeverity, new()
+        public bool AreAnyRulesViolatedAndMoreSevereThan<Severity>() where Severity : validation.Severity, new()
         {
             return validationRules.Any(validationRule => validationRule.Value.Any(x => x.IsViolatedAndMoreSevereThan<Severity>()));
         }
@@ -48,10 +49,10 @@ namespace solidware.financials.windows.ui.presenters.validation
         void EnsureRulesAreInitializeFor(Expression<Func<T, object>> property)
         {
             if (!validationRules.ContainsKey(property.pick_property().Name))
-                validationRules[property.pick_property().Name] = new List<IRule>();
+                validationRules[property.pick_property().Name] = new List<Rule>();
         }
 
-        string BuildErrorsFor(IEnumerable<IRule> validationRulesForProperty)
+        string BuildErrorsFor(IEnumerable<Rule> validationRulesForProperty)
         {
             var errors = new List<string>();
             validationRulesForProperty.each(x =>
@@ -60,55 +61,7 @@ namespace solidware.financials.windows.ui.presenters.validation
             });
             return string.Join(Environment.NewLine, errors.ToArray());
         }
-    }
-    public interface IRule
-    {
-        bool IsViolated();
-        string ErrorMessage { get; }
-        bool IsViolatedAndMoreSevereThan<Severity>() where Severity : ISeverity, new();
-    }
-    public interface ISeverity
-    {
-        bool IsMoreSevereThan<OtherSeverity>(OtherSeverity otherSeverity) where OtherSeverity : ISeverity;
-    }
-    public class Warning : ISeverity
-    {
-        public bool IsMoreSevereThan<OtherSeverity>(OtherSeverity otherSeverity) where OtherSeverity : ISeverity
-        {
-            return !(otherSeverity is Error);
-        }
-    }
-    public class Error : ISeverity
-    {
-        public bool IsMoreSevereThan<OtherSeverity>(OtherSeverity otherSeverity) where OtherSeverity : ISeverity
-        {
-            return true;
-        }
-    }
-    public class AnonymousRule<Severity> : IRule where Severity : ISeverity, new()
-    {
-        readonly Func<bool> failCondition;
-        readonly Func<string> errorMessage;
 
-        public AnonymousRule(Func<bool> failCondition, Func<string> errorMessage)
-        {
-            this.failCondition = failCondition;
-            this.errorMessage = errorMessage;
-        }
-
-        public string ErrorMessage
-        {
-            get { return errorMessage(); }
-        }
-
-        public bool IsViolatedAndMoreSevereThan<OtherSeverity>() where OtherSeverity : ISeverity, new()
-        {
-            return IsViolated() && new Severity().IsMoreSevereThan(new OtherSeverity());
-        }
-
-        public bool IsViolated()
-        {
-            return failCondition();
-        }
+        IDictionary<string, IList<Rule>> validationRules = new Dictionary<string, IList<Rule>>();
     }
 }
